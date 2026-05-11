@@ -389,13 +389,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function setProgress() {
       const pct = Math.round(((currentStep + 1) / totalSteps) * 100);
       if (progressBar) progressBar.style.setProperty('--p', pct + '%');
-      if (progressLabel) progressLabel.textContent = `Step ${currentStep + 1} of ${totalSteps}`;
+      if (progressLabel) {
+        const tpl = (window.SC_I18N && window.SC_I18N.get('quote.step.label')) || 'Step {n} of 5';
+        progressLabel.textContent = tpl.replace('{n}', currentStep + 1);
+      }
       stepperItems.forEach((el, i) => {
         el.classList.remove('is-active', 'is-done');
         if (i < currentStep) el.classList.add('is-done');
         else if (i === currentStep) el.classList.add('is-active');
       });
     }
+
+    // Re-render progress label on language change
+    document.addEventListener('i18nchange', setProgress);
 
     function showStep(idx) {
       steps.forEach((s, i) => s.classList.toggle('is-active', i === idx));
@@ -560,29 +566,36 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderReview() {
       const target = document.getElementById('review-body');
       if (!target) return;
+      const t = key => (window.SC_I18N && window.SC_I18N.get(key)) || key;
       const fd = new FormData(stepForm);
       const get = name => fd.get(name) || '';
       const depRaw = stepForm.querySelector('input[name="q80_typeA80"]:checked')?.value || '';
-      const depMap = { 'Departing Toronto on': 'Toronto (YYZ)', 'Departing Montreal on': 'Montreal (YUL)', 'Other Departure City on': 'Other city — see notes' };
-      const departure = depMap[depRaw] || depRaw || 'TBD';
+      const depMap = {
+        'Departing Toronto on': t('quote.s5.review.depmap.toronto'),
+        'Departing Montreal on': t('quote.s5.review.depmap.montreal'),
+        'Other Departure City on': t('quote.s5.review.depmap.other'),
+      };
+      const empty = t('quote.s5.review.empty');
+      const tbd = t('quote.s5.review.tbd');
+      const departure = depMap[depRaw] || depRaw || tbd;
       const trYr = get('q82_myTrip[year]'), trMo = get('q82_myTrip[month]'), trDy = get('q82_myTrip[day]');
-      const tripDate = (trYr && trMo && trDy) ? `${trYr}-${trMo}-${trDy}` : '—';
-      const length = stepForm.querySelector('input[name="q81_typeA81"]:checked')?.value || '—';
-      const name = `${get('q8_primaryTraveler8[prefix]') || ''} ${get('q8_primaryTraveler8[first]') || ''} ${get('q8_primaryTraveler8[last]') || ''}`.trim() || '—';
-      const email = get('q38_email38') || '—';
-      const phone = `${get('q12_phoneNumber12[area]') || ''} ${get('q12_phoneNumber12[phone]') || ''}`.trim() || '—';
-      const isDiver = stepForm.querySelector('input[name="q45_areYou"]:checked')?.value || '—';
-      const insurance = stepForm.querySelector('input[name="q50_travelInsurance"]:checked')?.value || '—';
+      const tripDate = (trYr && trMo && trDy) ? `${trYr}-${trMo}-${trDy}` : empty;
+      const length = stepForm.querySelector('input[name="q81_typeA81"]:checked')?.value || empty;
+      const name = `${get('q8_primaryTraveler8[prefix]') || ''} ${get('q8_primaryTraveler8[first]') || ''} ${get('q8_primaryTraveler8[last]') || ''}`.trim() || empty;
+      const email = get('q38_email38') || empty;
+      const phone = `${get('q12_phoneNumber12[area]') || ''} ${get('q12_phoneNumber12[phone]') || ''}`.trim() || empty;
+      const isDiver = stepForm.querySelector('input[name="q45_areYou"]:checked')?.value || empty;
+      const insurance = stepForm.querySelector('input[name="q50_travelInsurance"]:checked')?.value || empty;
       target.innerHTML = `
         <dl>
-          <dt>Departure</dt><dd>${esc(departure)}</dd>
-          <dt>Trip date</dt><dd>${esc(tripDate)}</dd>
-          <dt>Length</dt><dd>${esc(length)}</dd>
-          <dt>Travelers</dt><dd>${travelerCount}</dd>
-          <dt>Primary</dt><dd>${esc(name)} · ${esc(isDiver)}</dd>
-          <dt>Email</dt><dd>${esc(email)}</dd>
-          <dt>Phone</dt><dd>${esc(phone)}</dd>
-          <dt>Insurance</dt><dd>${esc(insurance)}</dd>
+          <dt>${t('quote.s5.review.departure')}</dt><dd>${esc(departure)}</dd>
+          <dt>${t('quote.s5.review.tripdate')}</dt><dd>${esc(tripDate)}</dd>
+          <dt>${t('quote.s5.review.length')}</dt><dd>${esc(length)}</dd>
+          <dt>${t('quote.s5.review.travelers')}</dt><dd>${travelerCount}</dd>
+          <dt>${t('quote.s5.review.primary')}</dt><dd>${esc(name)} · ${esc(isDiver)}</dd>
+          <dt>${t('quote.s5.review.email')}</dt><dd>${esc(email)}</dd>
+          <dt>${t('quote.s5.review.phone')}</dt><dd>${esc(phone)}</dd>
+          <dt>${t('quote.s5.review.insurance')}</dt><dd>${esc(insurance)}</dd>
         </dl>
       `;
     }

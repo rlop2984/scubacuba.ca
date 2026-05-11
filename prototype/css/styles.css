@@ -2744,6 +2744,44 @@ a:hover { color: var(--ocean-deep); }
 /* ---- Newsletter consent text size tweak ---- */
 .newsletter-form .consent label { font-size: 0.75rem; }
 
+/* ---- Language toggle ---- */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  margin-right: 6px;
+}
+.lang-toggle button {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.688rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 6px 10px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: all var(--transition);
+}
+.lang-toggle button:hover { color: var(--white); }
+.lang-toggle button.is-active {
+  background: var(--white);
+  color: var(--gray-900);
+}
+.mobile-menu .lang-toggle {
+  margin: 16px 0 0;
+  background: rgba(255,255,255,0.04);
+  align-self: flex-start;
+}
+.mobile-menu .lang-toggle button { font-size: 0.75rem; padding: 8px 14px; }
+
 /* ---- Visually-hidden helper for a11y ---- */
 .sr-only {
   position: absolute;
