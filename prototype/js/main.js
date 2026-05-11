@@ -28,17 +28,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Header scroll effect — adds .scrolled when past 60px ----
+  // ---- Header scroll effect: .scrolled past 60px + hide on scroll-down, show on scroll-up ----
   const header = document.querySelector('.header');
+  const mobileCtaBar = document.querySelector('.mobile-cta-bar');
+  let lastScrollY = window.scrollY;
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (ticking) return;
     requestAnimationFrame(() => {
-      header.classList.toggle('scrolled', window.scrollY > 60);
+      const y = window.scrollY;
+      const goingDown = y > lastScrollY;
+      const delta = Math.abs(y - lastScrollY);
+      if (header) header.classList.toggle('scrolled', y > 60);
+      // Hide header after scrolling 120px down; show as soon as scrolling up
+      if (header && y > 240 && delta > 4) {
+        header.classList.toggle('header-hidden', goingDown);
+      } else if (header && y < 80) {
+        header.classList.remove('header-hidden');
+      }
+      // Mobile CTA bar: hide near the very top (to avoid covering hero buttons) and show after scrolling
+      if (mobileCtaBar) {
+        mobileCtaBar.classList.toggle('is-hidden', y < 80);
+      }
+      lastScrollY = y;
       ticking = false;
     });
     ticking = true;
   }, { passive: true });
+
+  // Initialize hidden state for mobile CTA at the very top
+  if (mobileCtaBar && window.scrollY < 80) mobileCtaBar.classList.add('is-hidden');
 
 
   // ---- Testimonial Carousel ----
@@ -353,6 +372,279 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     });
   }
+
+
+  // ---- Multi-step Quote Form ----
+  const stepForm = document.getElementById('quote-step-form');
+  if (stepForm) {
+    const steps = Array.from(stepForm.querySelectorAll('.quote-step'));
+    const totalSteps = steps.length;
+    const stepperItems = document.querySelectorAll('.qs-step');
+    const progressBar = document.querySelector('.qs-progress-bar');
+    const progressLabel = document.querySelector('.qs-progress-label');
+    const successCard = document.getElementById('quote-success');
+    let currentStep = 0;
+    let travelerCount = 1;
+
+    function setProgress() {
+      const pct = Math.round(((currentStep + 1) / totalSteps) * 100);
+      if (progressBar) progressBar.style.setProperty('--p', pct + '%');
+      if (progressLabel) progressLabel.textContent = `Step ${currentStep + 1} of ${totalSteps}`;
+      stepperItems.forEach((el, i) => {
+        el.classList.remove('is-active', 'is-done');
+        if (i < currentStep) el.classList.add('is-done');
+        else if (i === currentStep) el.classList.add('is-active');
+      });
+    }
+
+    function showStep(idx) {
+      steps.forEach((s, i) => s.classList.toggle('is-active', i === idx));
+      currentStep = idx;
+      setProgress();
+      const formTop = stepForm.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: formTop, behavior: 'smooth' });
+      const first = steps[idx].querySelector('input:not([type="hidden"]):not([type="radio"]), select, textarea');
+      if (first && window.innerWidth >= 1024) setTimeout(() => first.focus({ preventScroll: true }), 350);
+    }
+
+    function isCompanionRelevant(block) {
+      const n = parseInt(block.dataset.traveler, 10);
+      return n <= travelerCount;
+    }
+
+    function validateStep(idx) {
+      const step = steps[idx];
+      let ok = true;
+      let firstBad = null;
+      step.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
+
+      // Required inputs: skip if inside a hidden companion block
+      step.querySelectorAll('[data-required]').forEach(input => {
+        const block = input.closest('.companion-block');
+        if (block && !isCompanionRelevant(block)) return;
+        const grp = input.closest('.form-group') || input.closest('.companion-block') || input;
+        const v = (input.type === 'checkbox') ? input.checked : (input.value || '').trim();
+        if (!v) {
+          grp.classList.add('has-error');
+          ok = false;
+          if (!firstBad) firstBad = grp;
+        } else if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+          grp.classList.add('has-error');
+          ok = false;
+          if (!firstBad) firstBad = grp;
+        }
+      });
+
+      // Required radio groups
+      step.querySelectorAll('[data-radio-required]').forEach(holder => {
+        const block = holder.closest('.companion-block');
+        if (block && !isCompanionRelevant(block)) return;
+        const name = holder.dataset.radioRequired;
+        const any = step.querySelector(`input[name="${name}"]:checked`);
+        if (!any) {
+          holder.classList.add('has-error');
+          ok = false;
+          if (!firstBad) firstBad = holder;
+        }
+      });
+
+      // Required date trios
+      step.querySelectorAll('[data-date-required]').forEach(holder => {
+        const block = holder.closest('.companion-block');
+        if (block && !isCompanionRelevant(block)) return;
+        const inputs = holder.querySelectorAll('select');
+        const filled = Array.from(inputs).every(i => i.value);
+        if (!filled) {
+          holder.classList.add('has-error');
+          ok = false;
+          if (!firstBad) firstBad = holder;
+        }
+      });
+
+      if (!ok && firstBad) firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return ok;
+    }
+
+    stepForm.addEventListener('click', e => {
+      const next = e.target.closest('[data-step-next]');
+      const back = e.target.closest('[data-step-back]');
+      if (next) {
+        e.preventDefault();
+        if (!validateStep(currentStep)) return;
+        let nextIdx = Math.min(currentStep + 1, totalSteps - 1);
+        // Skip companions step if traveler count is 1
+        if (steps[nextIdx].dataset.step === 'companions' && travelerCount === 1) {
+          nextIdx = Math.min(nextIdx + 1, totalSteps - 1);
+        }
+        if (steps[nextIdx].dataset.step === 'review') renderReview();
+        showStep(nextIdx);
+      }
+      if (back) {
+        e.preventDefault();
+        let prevIdx = Math.max(currentStep - 1, 0);
+        if (steps[prevIdx].dataset.step === 'companions' && travelerCount === 1) {
+          prevIdx = Math.max(prevIdx - 1, 0);
+        }
+        showStep(prevIdx);
+      }
+    });
+
+    stepForm.addEventListener('input', e => {
+      const grp = e.target.closest('.has-error');
+      if (grp) grp.classList.remove('has-error');
+    });
+    stepForm.addEventListener('change', e => {
+      const grp = e.target.closest('.has-error');
+      if (grp) grp.classList.remove('has-error');
+    });
+
+    // ---- Traveler counter ----
+    const counter = stepForm.querySelector('.travelers-counter');
+    function updateCounter() {
+      counter.querySelector('.tc-value').textContent = travelerCount;
+      counter.querySelector('.tc-minus').disabled = travelerCount <= 1;
+      counter.querySelector('.tc-plus').disabled = travelerCount >= 4;
+      const tcInput = stepForm.querySelector('input[name="qcl_travelers"]');
+      if (tcInput) tcInput.value = travelerCount;
+      // Show/hide companion blocks
+      stepForm.querySelectorAll('.companion-block').forEach(b => {
+        const n = parseInt(b.dataset.traveler, 10);
+        b.hidden = n > travelerCount;
+      });
+    }
+    if (counter) {
+      counter.querySelector('.tc-minus').addEventListener('click', e => {
+        e.preventDefault();
+        if (travelerCount > 1) { travelerCount--; updateCounter(); }
+      });
+      counter.querySelector('.tc-plus').addEventListener('click', e => {
+        e.preventDefault();
+        if (travelerCount < 4) { travelerCount++; updateCounter(); }
+      });
+      updateCounter();
+    }
+
+    // ---- Populate month/day/year/passport selects ----
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    function fillMonth(sel) {
+      let html = '<option value="">Month</option>';
+      months.forEach((m, i) => { html += `<option value="${String(i+1).padStart(2,'0')}">${m}</option>`; });
+      sel.innerHTML = html;
+    }
+    function fillDay(sel) {
+      let html = '<option value="">Day</option>';
+      for (let d = 1; d <= 31; d++) html += `<option value="${String(d).padStart(2,'0')}">${d}</option>`;
+      sel.innerHTML = html;
+    }
+    function fillYear(sel, dob) {
+      const now = new Date().getFullYear();
+      const start = dob ? now - 90 : now;
+      const end = dob ? now - 5 : now + 3;
+      let html = '<option value="">Year</option>';
+      for (let y = end; y >= start; y--) html += `<option value="${y}">${y}</option>`;
+      sel.innerHTML = html;
+    }
+    function fillPassport(sel) {
+      const countries = ['Canada','United States','Mexico','United Kingdom','Spain','France','Germany','Italy','Netherlands','Switzerland','Austria','Belgium','Ireland','Portugal','Sweden','Norway','Denmark','Finland','Australia','New Zealand','Japan','Brazil','Argentina','Chile','Colombia','Peru','Other'];
+      let html = '<option value="">Select country…</option>';
+      countries.forEach(c => { html += `<option value="${c}">${c}</option>`; });
+      sel.innerHTML = html;
+    }
+    stepForm.querySelectorAll('select[data-fill="month"]').forEach(fillMonth);
+    stepForm.querySelectorAll('select[data-fill="day"]').forEach(fillDay);
+    stepForm.querySelectorAll('select[data-fill="trip-year"]').forEach(s => fillYear(s, false));
+    stepForm.querySelectorAll('select[data-fill="dob-year"]').forEach(s => fillYear(s, true));
+    stepForm.querySelectorAll('select[data-fill="passport"]').forEach(fillPassport);
+
+    // ---- Review rendering ----
+    function renderReview() {
+      const target = document.getElementById('review-body');
+      if (!target) return;
+      const fd = new FormData(stepForm);
+      const get = name => fd.get(name) || '';
+      const depRaw = stepForm.querySelector('input[name="q80_typeA80"]:checked')?.value || '';
+      const depMap = { 'Departing Toronto on': 'Toronto (YYZ)', 'Departing Montreal on': 'Montreal (YUL)', 'Other Departure City on': 'Other city — see notes' };
+      const departure = depMap[depRaw] || depRaw || 'TBD';
+      const trYr = get('q82_myTrip[year]'), trMo = get('q82_myTrip[month]'), trDy = get('q82_myTrip[day]');
+      const tripDate = (trYr && trMo && trDy) ? `${trYr}-${trMo}-${trDy}` : '—';
+      const length = stepForm.querySelector('input[name="q81_typeA81"]:checked')?.value || '—';
+      const name = `${get('q8_primaryTraveler8[prefix]') || ''} ${get('q8_primaryTraveler8[first]') || ''} ${get('q8_primaryTraveler8[last]') || ''}`.trim() || '—';
+      const email = get('q38_email38') || '—';
+      const phone = `${get('q12_phoneNumber12[area]') || ''} ${get('q12_phoneNumber12[phone]') || ''}`.trim() || '—';
+      const isDiver = stepForm.querySelector('input[name="q45_areYou"]:checked')?.value || '—';
+      const insurance = stepForm.querySelector('input[name="q50_travelInsurance"]:checked')?.value || '—';
+      target.innerHTML = `
+        <dl>
+          <dt>Departure</dt><dd>${esc(departure)}</dd>
+          <dt>Trip date</dt><dd>${esc(tripDate)}</dd>
+          <dt>Length</dt><dd>${esc(length)}</dd>
+          <dt>Travelers</dt><dd>${travelerCount}</dd>
+          <dt>Primary</dt><dd>${esc(name)} · ${esc(isDiver)}</dd>
+          <dt>Email</dt><dd>${esc(email)}</dd>
+          <dt>Phone</dt><dd>${esc(phone)}</dd>
+          <dt>Insurance</dt><dd>${esc(insurance)}</dd>
+        </dl>
+      `;
+    }
+    function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    // ---- Final submit ----
+    stepForm.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!validateStep(currentStep)) return;
+
+      // Remove name attribute from fields inside hidden companion blocks so they aren't submitted
+      const stashed = [];
+      stepForm.querySelectorAll('.companion-block[hidden]').forEach(b => {
+        b.querySelectorAll('[name]').forEach(input => {
+          stashed.push([input, input.name]);
+          input.removeAttribute('name');
+        });
+      });
+
+      const submitBtn = stepForm.querySelector('[data-final-submit]');
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+      const formData = new FormData(stepForm);
+      fetch(stepForm.action, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      }).then(() => {
+        // Restore names (not strictly needed since we show success card, but tidy)
+        stashed.forEach(([input, name]) => input.setAttribute('name', name));
+        showSuccess();
+      }).catch(() => {
+        stashed.forEach(([input, name]) => input.setAttribute('name', name));
+        // Fall back to native submit
+        stepForm.submit();
+      });
+    });
+
+    function showSuccess() {
+      stepForm.style.display = 'none';
+      const stepper = document.querySelector('.quote-stepper-wrap');
+      if (stepper) stepper.style.display = 'none';
+      if (successCard) {
+        successCard.style.display = 'block';
+        successCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    setProgress();
+  }
+
+
+  // ---- FAQ accordion: collapse other items when one opens ----
+  document.querySelectorAll('.faq-list').forEach(list => {
+    list.addEventListener('toggle', e => {
+      if (e.target.tagName !== 'DETAILS') return;
+      if (!e.target.open) return;
+      list.querySelectorAll('details[open]').forEach(d => {
+        if (d !== e.target) d.removeAttribute('open');
+      });
+    }, true);
+  });
 
 
   // ---- Smooth scroll for anchor links ----
