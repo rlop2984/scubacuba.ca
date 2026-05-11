@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diving Centers — ScubaCuba.ca</title>
-  <meta name="description" content="Explore 14 scuba diving centers across Cuba. From Faro Luna to Isla de la Juventud, find your perfect dive destination.">
+  <title>Our Destinations — ScubaCuba.ca</title>
+  <meta name="description" content="Two world-class diving destinations in Cuba: Faro Luna — our flagship resort in Cienfuegos with 30+ dive sites — and Guajimico, a secluded eco-retreat for nature-first divers.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="images/dive-boat.webp" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="css/styles.css?v=20260511a">
+  <link rel="preload" as="image" href="images/underwater/gorgonian-garden.webp" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="css/styles.css?v=20260511b">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
       <a href="index.html" class="header-logo"><picture><source srcset="images/logo-icon.webp" type="image/webp"><img src="images/logo-icon.png" alt="" class="logo-icon"></picture><span class="logo-wordmark">ScubaCuba<span>.ca</span></span></a>
       <nav class="nav-desktop">
         <a href="index.html">Home</a>
-        <a href="diving-centers.html" class="active">Diving Centers</a>
+        <a href="diving-centers.html" class="active">Destinations</a>
         <a href="upcoming-trips.html">Trips</a>
         <a href="gallery.html">Gallery</a>
         <a href="about.html">About</a>
@@ -31,7 +31,7 @@
   <div class="menu-overlay"></div>
   <nav class="mobile-menu">
     <a href="index.html">Home</a>
-    <a href="diving-centers.html">Diving Centers</a>
+    <a href="diving-centers.html">Destinations</a>
     <a href="upcoming-trips.html">Upcoming Trips</a>
     <a href="gallery.html">Gallery</a>
     <a href="about.html">About Us</a>
@@ -43,254 +43,103 @@
   </nav>
 
   <!-- Page Hero -->
-  <section class="page-hero" style="background-image: image-set(url('images/dive-boat.webp') type('image/webp'),url('images/dive-boat.jpg'))">
+  <section class="page-hero" style="background-image: image-set(url('images/underwater/gorgonian-garden.webp') type('image/webp'),url('images/underwater/gorgonian-garden.jpg'))">
     <div class="page-hero-content">
-      <h1>Diving Centers</h1>
-      <p>14 world-class dive centers across Cuba</p>
+      <h1>Our Destinations</h1>
+      <p>Two ways to dive the south coast of Cuba — choose comfort or commune with nature</p>
     </div>
   </section>
 
-  <!-- Cuba Map -->
-  <section class="section cuba-map-section">
-    <div class="container">
-      <picture><source srcset="images/cuba-map.webp" type="image/webp"><img src="images/cuba-map.png" alt="Map of Cuba with diving centers" style="max-width: 600px; margin: 0 auto;"></picture>
+  <!-- Intro -->
+  <section class="section" style="padding-bottom: 32px;">
+    <div class="container" style="max-width: 760px; text-align: center;">
+      <p style="font-size: 1.063rem; color: var(--gray-600); line-height: 1.8;">We've focused our operation on two destinations along Cuba's pristine south coast — minutes apart, but worlds apart in style. <strong>Faro Luna</strong> for divers who want resort comfort and an iconic wall right off the shore. <strong>Guajimico</strong> for travelers who put nature first.</p>
     </div>
   </section>
 
-  <!-- Filters + Grid -->
-  <section class="section" style="padding-top: 0;">
+  <!-- Featured Destinations -->
+  <section class="section featured-destinations" style="padding-top: 24px;">
     <div class="container">
-      <div class="centers-filter">
-        <button class="filter-btn active" data-filter="all">All Centers</button>
-        <button class="filter-btn" data-filter="west">Western Cuba</button>
-        <button class="filter-btn" data-filter="central">Central Cuba</button>
-        <button class="filter-btn" data-filter="east">Eastern Cuba</button>
-        <button class="filter-btn" data-filter="islands">Islands</button>
+
+      <!-- Faro Luna -->
+      <div class="spotlight-card">
+        <div class="spotlight-img">
+          <picture><source srcset="images/underwater/gorgonian-garden.webp" type="image/webp"><img src="images/underwater/gorgonian-garden.jpg" alt="Faro Luna Dive Center, Cienfuegos" loading="lazy"></picture>
+          <div class="spotlight-overlay"></div>
+          <span class="spotlight-badge">Flagship Resort</span>
+        </div>
+        <div class="spotlight-content">
+          <span class="spotlight-location">Cienfuegos &middot; South Coast</span>
+          <h3>Faro Luna</h3>
+          <p>Our flagship dive operation. The reef wall starts just 60 meters from shore and drops past 100 feet — accessible by boat or directly from the dive center's steps. 30+ named sites with caves, gardens of gorgonians, and well-preserved shipwrecks.</p>
+          <div class="spotlight-tags">
+            <span>30+ Dive Sites</span>
+            <span>5&ndash;40m Depths</span>
+            <span>Shore Diving</span>
+            <span>Night Dives</span>
+            <span>Nitrox</span>
+            <span>Resort Comfort</span>
+          </div>
+          <a href="quote.html" class="btn btn-primary">Plan a Faro Luna Trip</a>
+        </div>
       </div>
 
-      <div class="centers-grid">
-        <!-- Faro Luna -->
-        <div class="center-card" data-region="central">
-          <div class="center-card-img"><picture><source srcset="images/laberinto.webp" type="image/webp"><img src="images/laberinto.jpg" alt="Faro Luna" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Faro Luna</h3>
-            <div class="center-location">Cienfuegos</div>
-            <p>Our flagship center with 30 dive sites. Coral walls, caves, and shipwrecks just minutes from shore.</p>
-            <div class="center-tags">
-              <span class="center-tag">30 Sites</span>
-              <span class="center-tag">5-40m</span>
-              <span class="center-tag">Night Dives</span>
-              <span class="center-tag">Nitrox</span>
-            </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
-          </div>
+      <!-- Guajimico -->
+      <div class="spotlight-card spotlight-reverse">
+        <div class="spotlight-img">
+          <picture><source srcset="images/underwater/reef-sponge-porkfish.webp" type="image/webp"><img src="images/underwater/reef-sponge-porkfish.jpg" alt="Guajimico Eco-Retreat" loading="lazy"></picture>
+          <div class="spotlight-overlay"></div>
+          <span class="spotlight-badge">Eco-Retreat &middot; New</span>
         </div>
-
-        <!-- Barracuda -->
-        <div class="center-card" data-region="central">
-          <div class="center-card-img"><picture><source srcset="images/mastil1.webp" type="image/webp"><img src="images/mastil1.jpg" alt="Barracuda" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Barracuda</h3>
-            <div class="center-location">Varadero</div>
-            <p>40+ miles of dive zone with depths from 4-35m. Home to the famous Bay of Pigs Wall and Blue Hole.</p>
-            <div class="center-tags">
-              <span class="center-tag">40+ Miles</span>
-              <span class="center-tag">4-35m</span>
-              <span class="center-tag">Blue Hole</span>
-            </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
+        <div class="spotlight-content">
+          <span class="spotlight-location">Between Cienfuegos &amp; Trinidad</span>
+          <h3>Guajimico</h3>
+          <p>A secluded ecotourism retreat for divers who travel light and tread softly. Low-impact bungalows tucked into the forest, untouched reefs with zero crowds, and direct access to the Escambray mountains and Nicho waterfalls. Designed for nature-first travelers.</p>
+          <div class="spotlight-tags">
+            <span>Eco-Lodge</span>
+            <span>Untouched Reefs</span>
+            <span>Low-Impact Travel</span>
+            <span>Forest &amp; Mountain</span>
+            <span>Nicho Waterfalls</span>
+            <span>Trinidad Nearby</span>
           </div>
+          <a href="quote.html" class="btn btn-primary">Plan a Guajimico Trip</a>
         </div>
+      </div>
 
-        <!-- Colony -->
-        <div class="center-card" data-region="islands">
-          <div class="center-card-img"><picture><source srcset="images/coral1.webp" type="image/webp"><img src="images/coral1.jpg" alt="Colony" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Colony</h3>
-            <div class="center-location">Isla de la Juventud</div>
-            <p>Premier 6km dive zone in Punta Frances Marine National Park. Black coral, manatees, and pristine reefs.</p>
-            <div class="center-tags">
-              <span class="center-tag">National Park</span>
-              <span class="center-tag">Black Coral</span>
-              <span class="center-tag">Manatees</span>
+      <!-- Beyond Diving -->
+      <div class="excursion-section">
+        <h3 class="excursion-title">What's Nearby</h3>
+        <div class="excursion-grid">
+          <div class="excursion-card">
+            <div class="excursion-card-img">
+              <picture><source srcset="images/town/trinidad-colonial-building.webp" type="image/webp"><img src="images/town/trinidad-colonial-building.jpg" alt="Trinidad, Cuba" loading="lazy"></picture>
+              <div class="excursion-card-overlay"></div>
             </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
+            <div class="excursion-card-content">
+              <h4>Trinidad</h4>
+              <p>UNESCO colonial town with live music, cobblestone streets and vibrant nightlife — easy day trip from both destinations</p>
+            </div>
           </div>
-        </div>
-
-        <!-- Sharks Friends -->
-        <div class="center-card" data-region="east">
-          <div class="center-card-img"><picture><source srcset="images/camaronero1.webp" type="image/webp"><img src="images/camaronero1.jpg" alt="Sharks Friends" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Sharks Friends</h3>
-            <div class="center-location">Santa Lucia</div>
-            <p>Famous for bull shark hand-feeding shows. A unique and thrilling dive experience you won't find elsewhere.</p>
-            <div class="center-tags">
-              <span class="center-tag">Bull Sharks</span>
-              <span class="center-tag">Unique</span>
-              <span class="center-tag">Sunken Vessel</span>
+          <div class="excursion-card">
+            <div class="excursion-card-img">
+              <picture><source srcset="images/landscape/nicho-waterfall.webp" type="image/webp"><img src="images/landscape/nicho-waterfall.jpg" alt="Nicho Waterfalls" loading="lazy"></picture>
+              <div class="excursion-card-overlay"></div>
             </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
+            <div class="excursion-card-content">
+              <h4>El Nicho Waterfalls</h4>
+              <p>Crystal-clear natural pools hidden in the Escambray Mountains. Especially close to Guajimico</p>
+            </div>
           </div>
-        </div>
-
-        <!-- Cayo Blanco -->
-        <div class="center-card" data-region="central">
-          <div class="center-card-img"><picture><source srcset="images/coral2.webp" type="image/webp"><img src="images/coral2.jpg" alt="Cayo Blanco" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Cayo Blanco</h3>
-            <div class="center-location">Trinidad</div>
-            <p>Beach-based boat launches at Peninsula of Ancon. Full-day excursions with lunch on a pristine cay.</p>
-            <div class="center-tags">
-              <span class="center-tag">Beach Launches</span>
-              <span class="center-tag">Excursions</span>
-              <span class="center-tag">UNESCO City</span>
+          <div class="excursion-card">
+            <div class="excursion-card-img">
+              <picture><source srcset="images/town/cienfuegos-dome-sunset.webp" type="image/webp"><img src="images/town/cienfuegos-dome-sunset.jpg" alt="Cienfuegos Bay" loading="lazy"></picture>
+              <div class="excursion-card-overlay"></div>
             </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
-          </div>
-        </div>
-
-        <!-- Albacora -->
-        <div class="center-card" data-region="east">
-          <div class="center-card-img"><picture><source srcset="images/mastil2.webp" type="image/webp"><img src="images/mastil2.jpg" alt="Albacora" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Albacora</h3>
-            <div class="center-location">Marea del Portillo</div>
-            <p>30 dive sites at 10-30m. Features the Cristobal Colon shipwreck and paddleboarding adventures.</p>
-            <div class="center-tags">
-              <span class="center-tag">30 Sites</span>
-              <span class="center-tag">Shipwreck</span>
-              <span class="center-tag">Paddleboard</span>
+            <div class="excursion-card-content">
+              <h4>Cienfuegos</h4>
+              <p>The Pearl of the South — French-colonial architecture, seaside malec&oacute;n and beautiful sunsets</p>
             </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
-          </div>
-        </div>
-
-        <!-- Sierra Mar -->
-        <div class="center-card" data-region="east">
-          <div class="center-card-img"><picture><source srcset="images/mastil3.webp" type="image/webp"><img src="images/mastil3.jpg" alt="Sierra Mar" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Sierra Mar (Bucanero)</h3>
-            <div class="center-location">Santiago de Cuba</div>
-            <p>20+ sites at 25-100ft. Dive the 1898 Spanish battleship wreck — a piece of living history underwater.</p>
-            <div class="center-tags">
-              <span class="center-tag">20+ Sites</span>
-              <span class="center-tag">Historic Wreck</span>
-              <span class="center-tag">1898</span>
-            </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
-          </div>
-        </div>
-
-        <!-- Eagle Ray -->
-        <div class="center-card" data-region="east">
-          <div class="center-card-img"><picture><source srcset="images/underwater1.webp" type="image/webp"><img src="images/underwater1.jpg" alt="Eagle Ray" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Eagle Ray</h3>
-            <div class="center-location">Guardalavaca, Holguin</div>
-            <p>18km of spectacular coastline near 5-star hotels. Just 1 hour from Frank Pais Airport.</p>
-            <div class="center-tags">
-              <span class="center-tag">18km Coast</span>
-              <span class="center-tag">5-Star Hotels</span>
-              <span class="center-tag">Easy Access</span>
-            </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
-          </div>
-        </div>
-
-        <!-- Coco Diving -->
-        <div class="center-card" data-region="islands">
-          <div class="center-card-img"><picture><source srcset="images/underwater2.webp" type="image/webp"><img src="images/underwater2.jpg" alt="Coco Diving" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Coco Diving</h3>
-            <div class="center-location">Cayo Guillermo</div>
-            <p>28 sites at 3-30m. Dolphins, reef sharks, and sea turtle nesting grounds in crystal clear waters.</p>
-            <div class="center-tags">
-              <span class="center-tag">28 Sites</span>
-              <span class="center-tag">Dolphins</span>
-              <span class="center-tag">Sea Turtles</span>
-            </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
-          </div>
-        </div>
-
-        <!-- Copacabana -->
-        <div class="center-card" data-region="west">
-          <div class="center-card-img"><picture><source srcset="images/mortera.webp" type="image/webp"><img src="images/mortera.jpg" alt="Copacabana" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Copacabana</h3>
-            <div class="center-location">Havana</div>
-            <p>Macro photography paradise with night dives and historically significant wrecks. Shore diving access.</p>
-            <div class="center-tags">
-              <span class="center-tag">Macro Photo</span>
-              <span class="center-tag">Night Dives</span>
-              <span class="center-tag">Shore Access</span>
-            </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
-          </div>
-        </div>
-
-        <!-- La Aguja -->
-        <div class="center-card" data-region="west">
-          <div class="center-card-img"><picture><source srcset="images/underwater3.webp" type="image/webp"><img src="images/underwater3.jpg" alt="La Aguja" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>La Aguja (Hemingway)</h3>
-            <div class="center-location">Havana (West Coast)</div>
-            <p>Dive at 5-35m among coral formations, gorgonian gardens, and shipwrecks along Havana's western shore.</p>
-            <div class="center-tags">
-              <span class="center-tag">5-35m</span>
-              <span class="center-tag">Gorgonians</span>
-              <span class="center-tag">Shipwrecks</span>
-            </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
-          </div>
-        </div>
-
-        <!-- Tarara -->
-        <div class="center-card" data-region="west">
-          <div class="center-card-img"><picture><source srcset="images/coral3.webp" type="image/webp"><img src="images/coral3.jpg" alt="Tarara" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Tarara</h3>
-            <div class="center-location">East of Havana</div>
-            <p>5-35m with stunning gorgonian gardens and massive sponges. Perfect for underwater photography.</p>
-            <div class="center-tags">
-              <span class="center-tag">5-35m</span>
-              <span class="center-tag">Photography</span>
-              <span class="center-tag">Sponges</span>
-            </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
-          </div>
-        </div>
-
-        <!-- Blue Diving -->
-        <div class="center-card" data-region="islands">
-          <div class="center-card-img"><picture><source srcset="images/camaronero2.webp" type="image/webp"><img src="images/camaronero2.jpg" alt="Blue Diving" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Blue Diving</h3>
-            <div class="center-location">Cayo Coco</div>
-            <p>National park setting with nurse shark shows guided by Instructor Israel. Pristine island diving.</p>
-            <div class="center-tags">
-              <span class="center-tag">National Park</span>
-              <span class="center-tag">Nurse Sharks</span>
-              <span class="center-tag">Island</span>
-            </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
-          </div>
-        </div>
-
-        <!-- Cayo Largo -->
-        <div class="center-card" data-region="islands">
-          <div class="center-card-img"><picture><source srcset="images/mogotes1.webp" type="image/webp"><img src="images/mogotes1.jpg" alt="Cayo Largo del Sur" loading="lazy"></picture></div>
-          <div class="center-card-body">
-            <h3>Cayo Largo del Sur</h3>
-            <div class="center-location">Cayo Largo del Sur</div>
-            <p>Remote island paradise operated by MARLIN. Untouched reefs and white sand beaches.</p>
-            <div class="center-tags">
-              <span class="center-tag">Remote Island</span>
-              <span class="center-tag">MARLIN</span>
-              <span class="center-tag">Pristine</span>
-            </div>
-            <a href="quote.html" class="btn btn-secondary btn-sm">Book This Center</a>
           </div>
         </div>
       </div>
@@ -300,8 +149,8 @@
   <!-- CTA -->
   <section class="section newsletter-section">
     <div class="container text-center">
-      <h2 class="section-title">Ready to Dive Cuba?</h2>
-      <p class="section-subtitle">Tell us your preferred destination and we'll create a custom package for you</p>
+      <h2 class="section-title">Not sure which one fits?</h2>
+      <p class="section-subtitle">Tell us a little about your style of travel and we'll recommend the right destination for you</p>
       <a href="quote.html" class="btn btn-primary btn-lg">Get Your Free Quote</a>
     </div>
   </section>
@@ -312,7 +161,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <picture><source srcset="images/logo-icon.webp" type="image/webp"><img src="images/logo-icon.png" alt="" class="logo-icon"></picture><span class="logo-wordmark">ScubaCuba<span>.ca</span></span>
-          <p>All-inclusive scuba diving vacation packages in Cuba. A partnership between MARLIN, Aquasub Scuba Diving Centre, and Hola Sun Holidays.</p>
+          <p>All-inclusive scuba diving vacations in Cuba. A partnership between MARLIN, Aquasub Scuba Diving Centre, and Hola Sun Holidays.</p>
           <div class="footer-social">
             <a href="https://www.facebook.com/AquaSubScuba" aria-label="Facebook">f</a>
             <a href="https://www.youtube.com/@scubacubaca8447" aria-label="YouTube">&#9654;</a>
@@ -322,7 +171,7 @@
         <div>
           <h4>Quick Links</h4>
           <ul class="footer-links">
-            <li><a href="diving-centers.html">Diving Centers</a></li>
+            <li><a href="diving-centers.html">Destinations</a></li>
             <li><a href="upcoming-trips.html">Upcoming Trips</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -330,13 +179,12 @@
           </ul>
         </div>
         <div>
-          <h4>Dive Destinations</h4>
+          <h4>Destinations</h4>
           <ul class="footer-links">
             <li><a href="diving-centers.html">Faro Luna, Cienfuegos</a></li>
-            <li><a href="diving-centers.html">Barracuda, Varadero</a></li>
-            <li><a href="diving-centers.html">Colony, Isla de la Juventud</a></li>
-            <li><a href="diving-centers.html">Sharks Friends, Santa Lucia</a></li>
-            <li><a href="diving-centers.html">Eagle Ray, Guardalavaca</a></li>
+            <li><a href="diving-centers.html">Guajimico Eco-Retreat</a></li>
+            <li><a href="upcoming-trips.html">Upcoming Trips</a></li>
+            <li><a href="quote.html">Plan Your Trip</a></li>
           </ul>
         </div>
         <div class="footer-contact">
@@ -348,11 +196,11 @@
       </div>
       <div class="footer-bottom">
         &copy; 2026 ScubaCuba.ca. All rights reserved.
-        <span class="tico">Registered with TICO #50018183 | Booked through AquaSub Travel</span>
+        <span class="tico">Booked through AquaSub Travel &middot; TICO #50018183</span>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20260511b"></script>
 </body>
 </html>

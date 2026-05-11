@@ -232,6 +232,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  // ---- Quote Form: progressively reveal extra-traveler fieldsets ----
+  document.querySelectorAll('.extra-traveler-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      if (!target) return;
+      target.hidden = false;
+      btn.hidden = true;
+      // Reveal the NEXT add-traveler button (e.g. clicking #2 reveals #3)
+      const order = ['traveler2', 'traveler3', 'traveler4'];
+      const idx = order.indexOf(btn.dataset.target);
+      if (idx >= 0 && idx + 1 < order.length) {
+        const next = document.querySelector(`.extra-traveler-toggle[data-target="${order[idx + 1]}"]`);
+        if (next) next.hidden = false;
+      }
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+
   // ---- Quote Form Validation ----
   const quoteForm = document.getElementById('quote-form');
   const formSuccess = document.getElementById('form-success');
@@ -240,41 +259,72 @@ document.addEventListener('DOMContentLoaded', () => {
     quoteForm.addEventListener('submit', e => {
       e.preventDefault();
       let valid = true;
+      let firstInvalid = null;
 
       // Clear previous errors
       quoteForm.querySelectorAll('.form-group').forEach(g => g.classList.remove('error'));
 
-      // Validate required fields
-      quoteForm.querySelectorAll('[required]').forEach(input => {
-        const group = input.closest('.form-group');
-        if (!input.value.trim()) {
+      // Validate required fields (skip hidden fieldsets)
+      const isInHidden = el => {
+        let n = el;
+        while (n && n !== quoteForm) {
+          if (n.hidden) return true;
+          n = n.parentElement;
+        }
+        return false;
+      };
+
+      // Group radios by name and check at least one is checked per required group
+      const seenRadioNames = new Set();
+      quoteForm.querySelectorAll('input[type="radio"][required]').forEach(input => {
+        if (isInHidden(input) || seenRadioNames.has(input.name)) return;
+        seenRadioNames.add(input.name);
+        const checked = quoteForm.querySelector(`input[type="radio"][name="${input.name}"]:checked`);
+        if (!checked) {
+          const group = input.closest('.form-group');
           if (group) group.classList.add('error');
           valid = false;
+          if (!firstInvalid) firstInvalid = input.closest('.form-group') || input;
         }
-        // Email validation
+      });
+
+      quoteForm.querySelectorAll('[required]').forEach(input => {
+        if (input.type === 'radio') return;
+        if (isInHidden(input)) return;
+        const group = input.closest('.form-group') || input.closest('.form-consent');
+        const value = (input.type === 'checkbox') ? input.checked : input.value.trim();
+        if (!value) {
+          if (group) group.classList.add('error');
+          valid = false;
+          if (!firstInvalid) firstInvalid = group || input;
+        }
         if (input.type === 'email' && input.value.trim()) {
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           if (!emailRegex.test(input.value.trim())) {
             if (group) group.classList.add('error');
             valid = false;
+            if (!firstInvalid) firstInvalid = group || input;
           }
         }
       });
 
       if (valid) {
-        // Simulate form submission
         quoteForm.style.display = 'none';
         formSuccess.classList.add('show');
         window.scrollTo({ top: formSuccess.offsetTop - 100, behavior: 'smooth' });
+      } else if (firstInvalid && firstInvalid.scrollIntoView) {
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
 
-    // Remove error on input
-    quoteForm.querySelectorAll('input, select, textarea').forEach(input => {
-      input.addEventListener('input', () => {
-        const group = input.closest('.form-group');
-        if (group) group.classList.remove('error');
-      });
+    // Remove error state when user starts editing
+    quoteForm.addEventListener('input', e => {
+      const group = e.target.closest('.form-group') || e.target.closest('.form-consent');
+      if (group) group.classList.remove('error');
+    });
+    quoteForm.addEventListener('change', e => {
+      const group = e.target.closest('.form-group') || e.target.closest('.form-consent');
+      if (group) group.classList.remove('error');
     });
   }
 
