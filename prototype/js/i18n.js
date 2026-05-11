@@ -159,7 +159,7 @@
 
       // ---- Trips page ----
       'meta.trips.title': 'Upcoming Trips — ScubaCuba.ca',
-      'meta.trips.desc': 'Join our next dive trip to Cuba — all-inclusive 7-night packages from Toronto and Montreal with daily flights, flexible dates, and 10 boat dives included.',
+      'meta.trips.desc': 'Join our next dive trip to Cuba — all-inclusive 7-night packages with flexible dates, daily flights and 10 boat dives included. Divers welcome from around the world.',
       'trips.hero.title': 'Join us in Cuba',
       'trips.hero.subtitle': "The diver's vacation paradise — flexible dates, daily flights, all-inclusive packages",
       'trips.intro.eyebrow': 'Our flagship package',
@@ -437,17 +437,17 @@
 
       // ---- About page ----
       'meta.about.title': 'About Us — ScubaCuba.ca',
-      'meta.about.desc': 'Meet the team behind ScubaCuba.ca. A partnership between MARLIN, Aquasub Scuba Diving Centre, and Hola Sun Holidays.',
+      'meta.about.desc': 'Meet the team behind ScubaCuba.ca — a Canadian-licensed dive travel operation welcoming divers from across the Americas, Europe and beyond.',
       'about.hero.title': 'About Us',
       'about.hero.subtitle': 'The team that makes your Cuban diving dreams come true',
       'about.story.title': 'Our Story',
-      'about.story.subtitle': "Three organizations, one mission: to share Cuba's underwater paradise with Canadian divers",
-      'about.story.p1': "ScubaCuba.ca was born from a simple idea — that Canadian divers deserve access to one of the Caribbean's best-kept secrets. Cuba's pristine reefs, dramatic walls, and historic shipwrecks have been waiting to be discovered, and we're here to make it happen.",
+      'about.story.subtitle': "Three organizations, one mission: to share Cuba's underwater paradise with divers from around the world",
+      'about.story.p1': "ScubaCuba.ca was born from a simple idea — that divers from anywhere in the world deserve access to one of the Caribbean's best-kept secrets. Cuba's pristine reefs, dramatic walls, and historic shipwrecks have been waiting to be discovered, and we're here to make it happen.",
       'about.story.p2': 'We are the result of an exclusive alliance between three organizations, each bringing decades of expertise to create the ultimate diving vacation experience. From the moment you book to the moment you surface from your last dive, every detail is handled by professionals who live and breathe diving.',
       'about.partners.title': 'Our Partners',
       'about.partners.subtitle': 'A powerful alliance for the perfect dive vacation',
       'about.partners.marlin.desc': "Cuba's official marine department under the Ministry of Tourism. They operate and maintain all 14 dive centers across the island, ensuring world-class safety standards and pristine marine environments.",
-      'about.partners.aquasub.desc': 'Established in 2002 in Richmond Hill, Ontario. A PADI 5 Star Instructor Development Center with over 12,000 divers trained. Your Canadian dive experts on the ground in Cuba.',
+      'about.partners.aquasub.desc': 'Established in 2002 in Richmond Hill, Ontario. A PADI 5 Star Instructor Development Center with over 12,000 divers trained. The TICO-registered travel agency that books your trip.',
       'about.partners.holasun.desc': 'Over 30 years in the travel industry with 1,900+ travel agency partners and access to 190 hotels in Cuba. They handle flights, transfers, and accommodations with OWG as the preferred carrier.',
       'about.founder.title': 'Founder & Lead PADI Instructor',
       'about.founder.p1': "A former Polish Navy diver turned PADI instructor, Norbert brings over 35 years of diving experience to every trip. His passion for Cuba's underwater world led him to create ScubaCuba.ca — a company dedicated to sharing the magic of Cuban diving with Canadian adventurers.",
@@ -632,7 +632,7 @@
 
       // ---- Trips page ----
       'meta.trips.title': 'Próximos viajes — ScubaCuba.ca',
-      'meta.trips.desc': 'Únete a nuestro próximo viaje de buceo a Cuba — paquetes todo incluido de 7 noches desde Toronto y Montreal, vuelos diarios, fechas flexibles y 10 inmersiones desde bote incluidas.',
+      'meta.trips.desc': 'Únete a nuestro próximo viaje de buceo a Cuba — paquetes todo incluido de 7 noches con fechas flexibles, vuelos diarios y 10 inmersiones desde bote. Buzos bienvenidos desde cualquier parte del mundo.',
       'trips.hero.title': 'Únete en Cuba',
       'trips.hero.subtitle': 'El paraíso de los buzos — fechas flexibles, vuelos diarios, paquetes todo incluido',
       'trips.intro.eyebrow': 'Nuestro paquete principal',
@@ -910,17 +910,17 @@
 
       // ---- About page ----
       'meta.about.title': 'Nosotros — ScubaCuba.ca',
-      'meta.about.desc': 'Conoce al equipo detrás de ScubaCuba.ca. Una alianza entre MARLIN, Aquasub Scuba Diving Centre y Hola Sun Holidays.',
+      'meta.about.desc': 'Conoce al equipo detrás de ScubaCuba.ca — una operación de viajes de buceo con licencia canadiense que recibe buzos de América, Europa y más allá.',
       'about.hero.title': 'Nosotros',
       'about.hero.subtitle': 'El equipo que hace realidad tus sueños de buceo en Cuba',
       'about.story.title': 'Nuestra historia',
-      'about.story.subtitle': 'Tres organizaciones, una misión: compartir el paraíso submarino de Cuba con los buzos canadienses',
-      'about.story.p1': 'ScubaCuba.ca nació de una idea simple — que los buzos canadienses merecen acceso a uno de los secretos mejor guardados del Caribe. Los arrecifes vírgenes de Cuba, sus paredes espectaculares y sus naufragios históricos llevaban tiempo esperando ser descubiertos, y aquí estamos para hacerlo posible.',
+      'about.story.subtitle': 'Tres organizaciones, una misión: compartir el paraíso submarino de Cuba con buzos de todo el mundo',
+      'about.story.p1': 'ScubaCuba.ca nació de una idea simple — que los buzos de cualquier parte del mundo merecen acceso a uno de los secretos mejor guardados del Caribe. Los arrecifes vírgenes de Cuba, sus paredes espectaculares y sus naufragios históricos llevaban tiempo esperando ser descubiertos, y aquí estamos para hacerlo posible.',
       'about.story.p2': 'Somos el resultado de una alianza exclusiva entre tres organizaciones, cada una con décadas de experiencia, para crear la mejor experiencia de buceo. Desde el momento que reservas hasta que sales de tu última inmersión, cada detalle lo manejan profesionales que viven y respiran buceo.',
       'about.partners.title': 'Nuestros socios',
       'about.partners.subtitle': 'Una alianza poderosa para las vacaciones de buceo perfectas',
       'about.partners.marlin.desc': 'El departamento marino oficial de Cuba, bajo el Ministerio de Turismo. Operan y mantienen los 14 centros de buceo en la isla, garantizando estándares de seguridad de clase mundial y entornos marinos prístinos.',
-      'about.partners.aquasub.desc': 'Fundado en 2002 en Richmond Hill, Ontario. Un Instructor Development Center PADI 5 Star con más de 12,000 buzos capacitados. Tus expertos canadienses de buceo en Cuba.',
+      'about.partners.aquasub.desc': 'Fundado en 2002 en Richmond Hill, Ontario. Un Instructor Development Center PADI 5 Star con más de 12,000 buzos capacitados. La agencia de viajes registrada en TICO que opera tu reserva.',
       'about.partners.holasun.desc': 'Más de 30 años en la industria de viajes con +1,900 agencias asociadas y acceso a 190 hoteles en Cuba. Manejan vuelos, traslados y alojamientos con OWG como aerolínea preferida.',
       'about.founder.title': 'Fundador e instructor PADI principal',
       'about.founder.p1': 'Ex buzo de la Marina polaca convertido en instructor PADI, Norbert trae más de 35 años de experiencia en buceo a cada viaje. Su pasión por el mundo submarino cubano lo llevó a crear ScubaCuba.ca — una empresa dedicada a compartir la magia del buceo cubano con los aventureros canadienses.',

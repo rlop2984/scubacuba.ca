@@ -216,11 +216,13 @@ a:hover { color: var(--ocean-deep); }
 .header-logo:hover { color: var(--white); }
 
 .logo-icon {
-  height: 40px;
-  width: 40px;
+  height: 32px;
+  width: 32px;
   display: block;
   flex-shrink: 0;
   object-fit: contain;
+  /* Small breathing room so the bottom edge of the source PNG isn't flush with the header border */
+  padding: 1px 0;
 }
 
 .logo-wordmark {
