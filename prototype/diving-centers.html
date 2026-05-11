@@ -8,14 +8,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=20260416g">
+  <link rel="preload" as="image" href="images/dive-boat.webp" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="css/styles.css?v=20260511">
 </head>
 <body>
 
   <!-- Header -->
   <header class="header">
     <div class="header-inner">
-      <a href="index.html" class="header-logo"><img src="images/logo.png" alt="ScubaCuba.ca"></a>
+      <a href="index.html" class="header-logo"><picture><source srcset="images/logo-light.webp" type="image/webp"><img src="images/logo-light.png" alt="ScubaCuba.ca"></picture></a>
       <nav class="nav-desktop">
         <a href="index.html">Home</a>
         <a href="diving-centers.html" class="active">Diving Centers</a>
@@ -35,10 +36,14 @@
     <a href="gallery.html">Gallery</a>
     <a href="about.html">About Us</a>
     <a href="quote.html" class="btn btn-primary">Get Your Free Quote</a>
+    <a href="tel:+19058833483" class="mobile-menu-phone">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +1 (905) 883-3483
+    </a>
   </nav>
 
   <!-- Page Hero -->
-  <section class="page-hero" style="background-image: url('images/dive-boat.jpg')">
+  <section class="page-hero" style="background-image: image-set(url('images/dive-boat.webp') type('image/webp'),url('images/dive-boat.jpg'))">
     <div class="page-hero-content">
       <h1>Diving Centers</h1>
       <p>14 world-class dive centers across Cuba</p>
@@ -48,7 +53,7 @@
   <!-- Cuba Map -->
   <section class="section cuba-map-section">
     <div class="container">
-      <img src="images/cuba-map.png" alt="Map of Cuba with diving centers" style="max-width: 600px; margin: 0 auto;">
+      <picture><source srcset="images/cuba-map.webp" type="image/webp"><img src="images/cuba-map.png" alt="Map of Cuba with diving centers" style="max-width: 600px; margin: 0 auto;"></picture>
     </div>
   </section>
 
@@ -66,7 +71,7 @@
       <div class="centers-grid">
         <!-- Faro Luna -->
         <div class="center-card" data-region="central">
-          <div class="center-card-img"><img src="images/laberinto.jpg" alt="Faro Luna" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/laberinto.webp" type="image/webp"><img src="images/laberinto.jpg" alt="Faro Luna" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Faro Luna</h3>
             <div class="center-location">Cienfuegos</div>
@@ -83,7 +88,7 @@
 
         <!-- Barracuda -->
         <div class="center-card" data-region="central">
-          <div class="center-card-img"><img src="images/mastil1.jpg" alt="Barracuda" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/mastil1.webp" type="image/webp"><img src="images/mastil1.jpg" alt="Barracuda" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Barracuda</h3>
             <div class="center-location">Varadero</div>
@@ -99,7 +104,7 @@
 
         <!-- Colony -->
         <div class="center-card" data-region="islands">
-          <div class="center-card-img"><img src="images/coral1.jpg" alt="Colony" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/coral1.webp" type="image/webp"><img src="images/coral1.jpg" alt="Colony" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Colony</h3>
             <div class="center-location">Isla de la Juventud</div>
@@ -115,7 +120,7 @@
 
         <!-- Sharks Friends -->
         <div class="center-card" data-region="east">
-          <div class="center-card-img"><img src="images/camaronero1.jpg" alt="Sharks Friends" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/camaronero1.webp" type="image/webp"><img src="images/camaronero1.jpg" alt="Sharks Friends" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Sharks Friends</h3>
             <div class="center-location">Santa Lucia</div>
@@ -131,7 +136,7 @@
 
         <!-- Cayo Blanco -->
         <div class="center-card" data-region="central">
-          <div class="center-card-img"><img src="images/coral2.jpg" alt="Cayo Blanco" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/coral2.webp" type="image/webp"><img src="images/coral2.jpg" alt="Cayo Blanco" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Cayo Blanco</h3>
             <div class="center-location">Trinidad</div>
@@ -147,7 +152,7 @@
 
         <!-- Albacora -->
         <div class="center-card" data-region="east">
-          <div class="center-card-img"><img src="images/mastil2.jpg" alt="Albacora" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/mastil2.webp" type="image/webp"><img src="images/mastil2.jpg" alt="Albacora" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Albacora</h3>
             <div class="center-location">Marea del Portillo</div>
@@ -163,7 +168,7 @@
 
         <!-- Sierra Mar -->
         <div class="center-card" data-region="east">
-          <div class="center-card-img"><img src="images/mastil3.jpg" alt="Sierra Mar" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/mastil3.webp" type="image/webp"><img src="images/mastil3.jpg" alt="Sierra Mar" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Sierra Mar (Bucanero)</h3>
             <div class="center-location">Santiago de Cuba</div>
@@ -179,7 +184,7 @@
 
         <!-- Eagle Ray -->
         <div class="center-card" data-region="east">
-          <div class="center-card-img"><img src="images/underwater1.jpg" alt="Eagle Ray" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/underwater1.webp" type="image/webp"><img src="images/underwater1.jpg" alt="Eagle Ray" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Eagle Ray</h3>
             <div class="center-location">Guardalavaca, Holguin</div>
@@ -195,7 +200,7 @@
 
         <!-- Coco Diving -->
         <div class="center-card" data-region="islands">
-          <div class="center-card-img"><img src="images/underwater2.jpg" alt="Coco Diving" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/underwater2.webp" type="image/webp"><img src="images/underwater2.jpg" alt="Coco Diving" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Coco Diving</h3>
             <div class="center-location">Cayo Guillermo</div>
@@ -211,7 +216,7 @@
 
         <!-- Copacabana -->
         <div class="center-card" data-region="west">
-          <div class="center-card-img"><img src="images/mortera.jpg" alt="Copacabana" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/mortera.webp" type="image/webp"><img src="images/mortera.jpg" alt="Copacabana" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Copacabana</h3>
             <div class="center-location">Havana</div>
@@ -227,7 +232,7 @@
 
         <!-- La Aguja -->
         <div class="center-card" data-region="west">
-          <div class="center-card-img"><img src="images/underwater3.jpg" alt="La Aguja" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/underwater3.webp" type="image/webp"><img src="images/underwater3.jpg" alt="La Aguja" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>La Aguja (Hemingway)</h3>
             <div class="center-location">Havana (West Coast)</div>
@@ -243,7 +248,7 @@
 
         <!-- Tarara -->
         <div class="center-card" data-region="west">
-          <div class="center-card-img"><img src="images/coral3.jpg" alt="Tarara" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/coral3.webp" type="image/webp"><img src="images/coral3.jpg" alt="Tarara" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Tarara</h3>
             <div class="center-location">East of Havana</div>
@@ -259,7 +264,7 @@
 
         <!-- Blue Diving -->
         <div class="center-card" data-region="islands">
-          <div class="center-card-img"><img src="images/camaronero2.jpg" alt="Blue Diving" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/camaronero2.webp" type="image/webp"><img src="images/camaronero2.jpg" alt="Blue Diving" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Blue Diving</h3>
             <div class="center-location">Cayo Coco</div>
@@ -275,7 +280,7 @@
 
         <!-- Cayo Largo -->
         <div class="center-card" data-region="islands">
-          <div class="center-card-img"><img src="images/mogotes1.jpg" alt="Cayo Largo del Sur" loading="lazy"></div>
+          <div class="center-card-img"><picture><source srcset="images/mogotes1.webp" type="image/webp"><img src="images/mogotes1.jpg" alt="Cayo Largo del Sur" loading="lazy"></picture></div>
           <div class="center-card-body">
             <h3>Cayo Largo del Sur</h3>
             <div class="center-location">Cayo Largo del Sur</div>
@@ -306,7 +311,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo.png" alt="ScubaCuba.ca">
+          <picture><source srcset="images/logo-light.webp" type="image/webp"><img src="images/logo-light.png" alt="ScubaCuba.ca"></picture>
           <p>All-inclusive scuba diving vacation packages in Cuba. A partnership between MARLIN, Aquasub Scuba Diving Centre, and Hola Sun Holidays.</p>
           <div class="footer-social">
             <a href="https://www.facebook.com/AquaSubScuba" aria-label="Facebook">f</a>

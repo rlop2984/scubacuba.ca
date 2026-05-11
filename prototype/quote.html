@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=20260416g">
+  <link rel="stylesheet" href="css/styles.css?v=20260511">
 </head>
 <body>
 
   <!-- Header -->
   <header class="header">
     <div class="header-inner">
-      <a href="index.html" class="header-logo"><img src="images/logo.png" alt="ScubaCuba.ca"></a>
+      <a href="index.html" class="header-logo"><picture><source srcset="images/logo-light.webp" type="image/webp"><img src="images/logo-light.png" alt="ScubaCuba.ca"></picture></a>
       <nav class="nav-desktop">
         <a href="index.html">Home</a>
         <a href="diving-centers.html">Diving Centers</a>
@@ -35,10 +35,14 @@
     <a href="gallery.html">Gallery</a>
     <a href="about.html">About Us</a>
     <a href="quote.html" class="btn btn-primary">Get Your Free Quote</a>
+    <a href="tel:+19058833483" class="mobile-menu-phone">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +1 (905) 883-3483
+    </a>
   </nav>
 
   <!-- Page Hero -->
-  <section class="page-hero" style="background-image: url('images/mogotes.jpg')">
+  <section class="page-hero" style="background-image: image-set(url('images/mogotes.webp') type('image/webp'),url('images/mogotes.jpg'))">
     <div class="page-hero-content">
       <h1>Get Your Free Quote</h1>
       <p>Tell us about your dream dive trip and we'll make it happen</p>
@@ -220,7 +224,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo.png" alt="ScubaCuba.ca">
+          <picture><source srcset="images/logo-light.webp" type="image/webp"><img src="images/logo-light.png" alt="ScubaCuba.ca"></picture>
           <p>All-inclusive scuba diving vacation packages in Cuba.</p>
           <div class="footer-social">
             <a href="https://www.facebook.com/AquaSubScuba" aria-label="Facebook">f</a>

@@ -8,14 +8,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=20260416g">
+  <link rel="preload" as="image" href="images/coral1.webp" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="css/styles.css?v=20260511">
 </head>
 <body>
 
   <!-- Header -->
   <header class="header">
     <div class="header-inner">
-      <a href="index.html" class="header-logo"><img src="images/logo.png" alt="ScubaCuba.ca"></a>
+      <a href="index.html" class="header-logo"><picture><source srcset="images/logo-light.webp" type="image/webp"><img src="images/logo-light.png" alt="ScubaCuba.ca"></picture></a>
       <nav class="nav-desktop">
         <a href="index.html">Home</a>
         <a href="diving-centers.html">Diving Centers</a>
@@ -35,10 +36,14 @@
     <a href="gallery.html">Gallery</a>
     <a href="about.html">About Us</a>
     <a href="quote.html" class="btn btn-primary">Get Your Free Quote</a>
+    <a href="tel:+19058833483" class="mobile-menu-phone">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +1 (905) 883-3483
+    </a>
   </nav>
 
   <!-- Page Hero -->
-  <section class="page-hero" style="background-image: url('images/coral1.jpg')">
+  <section class="page-hero" style="background-image: image-set(url('images/coral1.webp') type('image/webp'),url('images/coral1.jpg'))">
     <div class="page-hero-content">
       <h1>Gallery</h1>
       <p>Cuba above and below the water</p>
@@ -60,76 +65,76 @@
 
       <div class="gallery-grid">
         <div class="gallery-item wide" data-category="underwater">
-          <img src="images/hero-underwater.jpg" alt="Coral reef at Faro Luna" loading="lazy">
+          <picture><source srcset="images/hero-underwater.webp" type="image/webp"><img src="images/hero-underwater.jpg" alt="Coral reef at Faro Luna" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/laberinto.jpg" alt="El Laberinto dive site" loading="lazy">
+          <picture><source srcset="images/laberinto.webp" type="image/webp"><img src="images/laberinto.jpg" alt="El Laberinto dive site" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="people">
-          <img src="images/norbert.jpg" alt="Norbert diving" loading="lazy">
+          <picture><source srcset="images/norbert.webp" type="image/webp"><img src="images/norbert.jpg" alt="Norbert diving" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/coral1.jpg" alt="Coral formations" loading="lazy">
+          <picture><source srcset="images/coral1.webp" type="image/webp"><img src="images/coral1.jpg" alt="Coral formations" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/coral2.jpg" alt="Underwater scenery" loading="lazy">
+          <picture><source srcset="images/coral2.webp" type="image/webp"><img src="images/coral2.jpg" alt="Underwater scenery" loading="lazy"></picture>
         </div>
         <div class="gallery-item wide" data-category="surface">
-          <img src="images/dive-boat.jpg" alt="Dive boat heading out" loading="lazy">
+          <picture><source srcset="images/dive-boat.webp" type="image/webp"><img src="images/dive-boat.jpg" alt="Dive boat heading out" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/mastil1.jpg" alt="Shipwreck mast" loading="lazy">
+          <picture><source srcset="images/mastil1.webp" type="image/webp"><img src="images/mastil1.jpg" alt="Shipwreck mast" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/mastil2.jpg" alt="Shipwreck exploration" loading="lazy">
+          <picture><source srcset="images/mastil2.webp" type="image/webp"><img src="images/mastil2.jpg" alt="Shipwreck exploration" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/mastil3.jpg" alt="Wreck dive" loading="lazy">
+          <picture><source srcset="images/mastil3.webp" type="image/webp"><img src="images/mastil3.jpg" alt="Wreck dive" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/camaronero1.jpg" alt="Marine life" loading="lazy">
+          <picture><source srcset="images/camaronero1.webp" type="image/webp"><img src="images/camaronero1.jpg" alt="Marine life" loading="lazy"></picture>
         </div>
         <div class="gallery-item wide" data-category="people">
-          <img src="images/group-sunset.jpg" alt="Group sunset photo" loading="lazy">
+          <picture><source srcset="images/group-sunset.webp" type="image/webp"><img src="images/group-sunset.jpg" alt="Group sunset photo" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/camaronero2.jpg" alt="Underwater creatures" loading="lazy">
+          <picture><source srcset="images/camaronero2.webp" type="image/webp"><img src="images/camaronero2.jpg" alt="Underwater creatures" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/mortera.jpg" alt="Mortera dive site" loading="lazy">
+          <picture><source srcset="images/mortera.webp" type="image/webp"><img src="images/mortera.jpg" alt="Mortera dive site" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/underwater1.jpg" alt="Underwater photography" loading="lazy">
+          <picture><source srcset="images/underwater1.webp" type="image/webp"><img src="images/underwater1.jpg" alt="Underwater photography" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/underwater2.jpg" alt="Deep dive" loading="lazy">
+          <picture><source srcset="images/underwater2.webp" type="image/webp"><img src="images/underwater2.jpg" alt="Deep dive" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="surface">
-          <img src="images/mogotes.jpg" alt="Cuban landscape" loading="lazy">
+          <picture><source srcset="images/mogotes.webp" type="image/webp"><img src="images/mogotes.jpg" alt="Cuban landscape" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/underwater3.jpg" alt="Reef exploration" loading="lazy">
+          <picture><source srcset="images/underwater3.webp" type="image/webp"><img src="images/underwater3.jpg" alt="Reef exploration" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="surface">
-          <img src="images/mogotes1.jpg" alt="Cuban mogotes" loading="lazy">
+          <picture><source srcset="images/mogotes1.webp" type="image/webp"><img src="images/mogotes1.jpg" alt="Cuban mogotes" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="surface">
-          <img src="images/mogotes3.jpg" alt="Cuban scenery" loading="lazy">
+          <picture><source srcset="images/mogotes3.webp" type="image/webp"><img src="images/mogotes3.jpg" alt="Cuban scenery" loading="lazy"></picture>
         </div>
         <div class="gallery-item wide" data-category="surface">
-          <img src="images/sunset-cuba.jpg" alt="Cuban sunset" loading="lazy">
+          <picture><source srcset="images/sunset-cuba.webp" type="image/webp"><img src="images/sunset-cuba.jpg" alt="Cuban sunset" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="underwater">
-          <img src="images/coral3.jpg" alt="Coral reef" loading="lazy">
+          <picture><source srcset="images/coral3.webp" type="image/webp"><img src="images/coral3.jpg" alt="Coral reef" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="people">
-          <img src="images/joan.jpg" alt="Diver portrait" loading="lazy">
+          <picture><source srcset="images/joan.webp" type="image/webp"><img src="images/joan.jpg" alt="Diver portrait" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="surface">
-          <img src="images/faro-luna-hotel.jpg" alt="Hotel Faro Luna" loading="lazy">
+          <picture><source srcset="images/faro-luna-hotel.webp" type="image/webp"><img src="images/faro-luna-hotel.jpg" alt="Hotel Faro Luna" loading="lazy"></picture>
         </div>
         <div class="gallery-item" data-category="surface">
-          <img src="images/faro-luna-center.png" alt="Faro Luna Diving Center" loading="lazy">
+          <picture><source srcset="images/faro-luna-center.webp" type="image/webp"><img src="images/faro-luna-center.png" alt="Faro Luna Diving Center" loading="lazy"></picture>
         </div>
       </div>
     </div>
@@ -184,7 +189,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo.png" alt="ScubaCuba.ca">
+          <picture><source srcset="images/logo-light.webp" type="image/webp"><img src="images/logo-light.png" alt="ScubaCuba.ca"></picture>
           <p>All-inclusive scuba diving vacation packages in Cuba.</p>
           <div class="footer-social">
             <a href="https://www.facebook.com/AquaSubScuba" aria-label="Facebook">f</a>

@@ -28,20 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Header scroll effect ----
+  // ---- Header scroll effect — adds .scrolled when past 60px ----
   const header = document.querySelector('.header');
-  let lastScroll = 0;
-
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    const current = window.scrollY;
-    if (current > 100) {
-      header.style.background = 'rgba(11, 29, 58, 0.98)';
-      header.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
-    } else {
-      header.style.background = 'rgba(11, 29, 58, 0.95)';
-      header.style.boxShadow = 'none';
-    }
-    lastScroll = current;
+    if (ticking) return;
+    requestAnimationFrame(() => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+      ticking = false;
+    });
+    ticking = true;
   }, { passive: true });
 
 
@@ -321,23 +317,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // ---- Lazy load images with IntersectionObserver ----
+  // ---- Reveal cards on scroll (skips elements already in viewport) ----
   if ('IntersectionObserver' in window) {
-    const imgObserver = new IntersectionObserver((entries) => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          imgObserver.unobserve(entry.target);
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.feature-card, .destination-card, .center-card, .partner-card, .gallery-item').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      imgObserver.observe(el);
+    const initialViewport = window.innerHeight;
+    document.querySelectorAll('.feature-card, .destination-card, .center-card, .partner-card, .gallery-item, .excursion-card, .spotlight-card').forEach(el => {
+      // Skip animation for elements already above/within initial viewport — show them immediately.
+      const rect = el.getBoundingClientRect();
+      if (reduceMotion || rect.top < initialViewport) {
+        el.classList.add('in-view');
+        return;
+      }
+      el.classList.add('reveal');
+      revealObserver.observe(el);
     });
   }
 

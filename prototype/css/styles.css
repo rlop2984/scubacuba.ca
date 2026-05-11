@@ -68,6 +68,22 @@ h2 { font-size: 1.75rem; }
 h3 { font-size: 1.125rem; }
 
 img { max-width: 100%; height: auto; display: block; }
+picture { display: contents; }
+
+/* Scroll reveal — elements below the fold fade up on enter */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
 a { color: var(--ocean); text-decoration: none; transition: color var(--transition); }
 a:hover { color: var(--ocean-deep); }
 
@@ -168,25 +184,38 @@ a:hover { color: var(--ocean-deep); }
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(18, 18, 42, 0.88);
+  background: rgba(18, 18, 42, 0.72);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid rgba(255,255,255,0.06);
-  transition: background var(--transition);
+  transition: background var(--transition), box-shadow var(--transition);
+}
+
+.header.scrolled {
+  background: rgba(12, 12, 32, 0.92);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
+  gap: 12px;
+  padding: 10px 16px;
   max-width: var(--max-width);
   margin: 0 auto;
 }
 
+.header-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .header-logo img {
-  height: 40px;
+  height: 52px;
   width: auto;
+  display: block;
 }
 
 .nav-desktop {
@@ -219,7 +248,12 @@ a:hover { color: var(--ocean-deep); }
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .hamburger span {
@@ -269,6 +303,27 @@ a:hover { color: var(--ocean-deep); }
   margin-top: 24px;
 }
 
+.mobile-menu-phone {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 14px 0 !important;
+  border-bottom: none !important;
+  color: rgba(255,255,255,0.85) !important;
+  font-weight: 600 !important;
+  font-size: 0.938rem !important;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.06);
+  transition: background var(--transition), color var(--transition);
+}
+.mobile-menu-phone:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--white) !important;
+}
+.mobile-menu-phone svg { opacity: 0.7; }
+
 .menu-overlay {
   position: fixed;
   top: 0;
@@ -287,18 +342,27 @@ a:hover { color: var(--ocean-deep); }
   visibility: visible;
 }
 
-/* Phone bar */
+/* Phone bar — desktop strip above header */
 .phone-bar {
   display: none;
   background: var(--gray-900);
   color: var(--gray-400);
   font-size: 0.75rem;
-  padding: 6px 0;
+  padding: 6px 16px;
   text-align: center;
   letter-spacing: 0.02em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
 }
 
-.phone-bar a { color: var(--ocean-light); }
+.phone-bar a {
+  color: var(--ocean-pale);
+  font-weight: 600;
+}
+.phone-bar a:hover { color: var(--white); }
 
 /* --- Hero --- */
 .hero {
@@ -324,12 +388,14 @@ a:hover { color: var(--ocean-deep); }
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(40, 42, 137, 0.5) 0%,
-    rgba(40, 42, 137, 0.1) 50%,
-    rgba(40, 42, 137, 0.55) 100%
-  );
+  background:
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(18, 18, 42, 0.45) 100%),
+    linear-gradient(
+      180deg,
+      rgba(18, 18, 42, 0.65) 0%,
+      rgba(40, 42, 137, 0.15) 40%,
+      rgba(18, 18, 42, 0.7) 100%
+    );
 }
 
 .hero-content {
@@ -1662,9 +1728,11 @@ a:hover { color: var(--ocean-deep); }
 
   .hamburger { display: none; }
   .nav-desktop { display: flex; align-items: center; gap: 4px; }
-  .header-cta { display: block; }
-  .header-inner { padding: 14px 40px; }
+  .header-cta { display: inline-flex; }
+  .header-inner { padding: 12px 40px; }
+  .header-logo img { height: 56px; }
   .phone-bar { display: block; }
+  .header { top: 28px; }
 
   .hero h1 { font-size: 3.75rem; }
   .hero p { font-size: 1.125rem; }
