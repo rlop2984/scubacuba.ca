@@ -209,13 +209,31 @@ a:hover { color: var(--ocean-deep); }
 .header-logo {
   display: inline-flex;
   align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  color: var(--white);
+}
+.header-logo:hover { color: var(--white); }
+
+.logo-icon {
+  height: 44px;
+  width: 44px;
+  display: block;
   flex-shrink: 0;
 }
 
-.header-logo img {
-  height: 52px;
-  width: auto;
-  display: block;
+.logo-wordmark {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  line-height: 1;
+  white-space: nowrap;
+}
+.logo-wordmark span {
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .nav-desktop {
@@ -810,8 +828,20 @@ a:hover { color: var(--ocean-deep); }
   padding-bottom: 36px;
 }
 
-.footer-brand img {
-  height: 48px;
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-brand .logo-icon {
+  height: 56px;
+  width: 56px;
+  margin-bottom: 12px;
+}
+
+.footer-brand .logo-wordmark {
+  font-size: 1.375rem;
   margin-bottom: 16px;
 }
 
@@ -1730,7 +1760,8 @@ a:hover { color: var(--ocean-deep); }
   .nav-desktop { display: flex; align-items: center; gap: 4px; }
   .header-cta { display: inline-flex; }
   .header-inner { padding: 12px 40px; }
-  .header-logo img { height: 56px; }
+  .logo-icon { height: 48px; width: 48px; }
+  .logo-wordmark { font-size: 1.375rem; }
   .phone-bar { display: block; }
   .header { top: 28px; }
 
