@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor / OS
+.vscode/
+*.swp
+*~
+
+# Raw photo originals (kept locally as backup, not deployed)
+# Only photos under prototype/images/ are tracked for the live site
+/*.jpg
+/*.jpeg
+/*.png
+/*.webp
+/*.svg
+!/README.png
+
+# Keep prototype assets
+!prototype/**
+
+# Local-only Claude config
+.claude/
+
+# Photo classification work file
+photo-classification.json
+
+# Logs
+*.log
+/tmp/
+
+# External symlinks from another project
+prototype/assets
+prototype/kairo-preview
