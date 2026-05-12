@@ -577,6 +577,7 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       const empty = t('quote.s5.review.empty');
       const tbd = t('quote.s5.review.tbd');
+      const destination = stepForm.querySelector('input[name="qcl_destination"]:checked')?.value || tbd;
       const departure = depMap[depRaw] || depRaw || tbd;
       const trYr = get('q82_myTrip[year]'), trMo = get('q82_myTrip[month]'), trDy = get('q82_myTrip[day]');
       const tripDate = (trYr && trMo && trDy) ? `${trYr}-${trMo}-${trDy}` : empty;
@@ -588,6 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const insurance = stepForm.querySelector('input[name="q50_travelInsurance"]:checked')?.value || empty;
       target.innerHTML = `
         <dl>
+          <dt>${t('quote.s5.review.destination')}</dt><dd>${esc(destination)}</dd>
           <dt>${t('quote.s5.review.departure')}</dt><dd>${esc(departure)}</dd>
           <dt>${t('quote.s5.review.tripdate')}</dt><dd>${esc(tripDate)}</dd>
           <dt>${t('quote.s5.review.length')}</dt><dd>${esc(length)}</dd>
@@ -605,6 +607,19 @@ document.addEventListener('DOMContentLoaded', () => {
     stepForm.addEventListener('submit', e => {
       e.preventDefault();
       if (!validateStep(currentStep)) return;
+
+      // Prepend the destination choice into the special-requests textarea so it
+      // lands in the existing Jotform inbox alongside user notes.
+      const destInput = stepForm.querySelector('input[name="qcl_destination"]:checked');
+      const notes = stepForm.querySelector('textarea[name="q73_doYou"]');
+      let originalNotes = null;
+      if (destInput && notes) {
+        originalNotes = notes.value;
+        const prefix = `Destination: ${destInput.value}`;
+        notes.value = originalNotes && originalNotes.trim()
+          ? `${prefix}\n\n${originalNotes}`
+          : prefix;
+      }
 
       // Remove name attribute from fields inside hidden companion blocks so they aren't submitted
       const stashed = [];

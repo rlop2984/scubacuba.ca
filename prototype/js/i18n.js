@@ -7,7 +7,7 @@
   const STR = {
     en: {
       // ---- Shared ----
-      'phonebar.tico': '+1 (905) 883-3483 &nbsp;|&nbsp; TICO Reg. #50018183',
+      'phonebar.tico': '+1 (647) 221-7282 &nbsp;|&nbsp; TICO Reg. #50018183',
       'nav.home': 'Home',
       'nav.destinations': 'Destinations',
       'nav.trips': 'Trips',
@@ -16,7 +16,7 @@
       'nav.quote': 'Get a Quote',
       'nav.quote.full': 'Get Your Free Quote',
       'nav.menu.aria': 'Menu',
-      'mobile.phone': '+1 (905) 883-3483',
+      'mobile.phone': '+1 (647) 221-7282',
       'lang.toggle.aria': 'Switch language',
       'cta.quote.mobile': 'Get a free quote',
       'cta.whatsapp': 'WhatsApp',
@@ -263,6 +263,16 @@
       // Step 1: Trip
       'quote.s1.title': 'Tell us about your trip',
       'quote.s1.hint': 'A few quick details so we can build the right quote for you.',
+      'quote.s1.destination.label': 'Which destination?',
+      'quote.s1.destination.faroluna': 'Faro Luna',
+      'quote.s1.destination.faroluna.sub': 'Flagship resort',
+      'quote.s1.destination.guajimico': 'Guajimico',
+      'quote.s1.destination.guajimico.sub': 'Eco-retreat',
+      'quote.s1.destination.either': 'Not sure',
+      'quote.s1.destination.either.sub': 'Recommend one',
+      'quote.s1.destination.hint': 'Faro Luna for resort comfort & the coral wall. Guajimico for the eco-lodge & untouched reefs.',
+      'quote.s1.destination.err': 'Please pick a destination.',
+      'quote.s5.review.destination': 'Destination',
       'quote.s1.departure.label': 'Where are you departing from?',
       'quote.s1.departure.toronto': 'Toronto',
       'quote.s1.departure.toronto.sub': 'YYZ',
@@ -379,7 +389,7 @@
       // Success
       'quote.success.title': 'Your request is in!',
       'quote.success.desc': "Thanks — we've got your details and someone from the ScubaCuba.ca team will respond within 24 hours with options and pricing. If you don't see anything in your inbox, check your spam folder.",
-      'quote.success.contact': "Need to talk sooner? <a href=\"tel:+19058833483\" style=\"font-weight:700;\">Call +1 (905) 883-3483</a> or <a href=\"https://wa.me/19058833483\" style=\"font-weight:700;\">message us on WhatsApp</a>.",
+      'quote.success.contact': "Need to talk sooner? <a href=\"tel:+16472217282\" style=\"font-weight:700;\">Call +1 (647) 221-7282</a> or <a href=\"https://wa.me/16472217282\" style=\"font-weight:700;\">message us on WhatsApp</a>.",
       // Sidebar
       'quote.side.talk.title': 'Prefer to talk?',
       'quote.side.talk.desc': 'Speak directly with our team.',
@@ -480,7 +490,7 @@
 
     es: {
       // ---- Shared ----
-      'phonebar.tico': '+1 (905) 883-3483 &nbsp;|&nbsp; Reg. TICO #50018183',
+      'phonebar.tico': '+1 (647) 221-7282 &nbsp;|&nbsp; Reg. TICO #50018183',
       'nav.home': 'Inicio',
       'nav.destinations': 'Destinos',
       'nav.trips': 'Viajes',
@@ -489,7 +499,7 @@
       'nav.quote': 'Cotizar',
       'nav.quote.full': 'Pedir una cotización gratis',
       'nav.menu.aria': 'Menú',
-      'mobile.phone': '+1 (905) 883-3483',
+      'mobile.phone': '+1 (647) 221-7282',
       'lang.toggle.aria': 'Cambiar idioma',
       'cta.quote.mobile': 'Cotización gratis',
       'cta.whatsapp': 'WhatsApp',
@@ -736,6 +746,16 @@
       // Step 1: Trip
       'quote.s1.title': 'Cuéntanos sobre tu viaje',
       'quote.s1.hint': 'Unos detalles rápidos para armar la cotización correcta.',
+      'quote.s1.destination.label': '¿A cuál destino?',
+      'quote.s1.destination.faroluna': 'Faro Luna',
+      'quote.s1.destination.faroluna.sub': 'Resort principal',
+      'quote.s1.destination.guajimico': 'Guajimico',
+      'quote.s1.destination.guajimico.sub': 'Eco-retiro',
+      'quote.s1.destination.either': 'No estoy seguro',
+      'quote.s1.destination.either.sub': 'Recomiéndenme',
+      'quote.s1.destination.hint': 'Faro Luna por comodidad de resort y la pared de coral. Guajimico por el eco-lodge y los arrecifes vírgenes.',
+      'quote.s1.destination.err': 'Elige un destino.',
+      'quote.s5.review.destination': 'Destino',
       'quote.s1.departure.label': '¿De dónde sales?',
       'quote.s1.departure.toronto': 'Toronto',
       'quote.s1.departure.toronto.sub': 'YYZ',
@@ -852,7 +872,7 @@
       // Success
       'quote.success.title': '¡Tu solicitud está en camino!',
       'quote.success.desc': 'Gracias — tenemos tus datos y alguien del equipo de ScubaCuba.ca te responderá en 24 horas con opciones y precios. Si no ves nada en tu bandeja, revisa la carpeta de spam.',
-      'quote.success.contact': '¿Necesitas hablar antes? <a href="tel:+19058833483" style="font-weight:700;">Llama al +1 (905) 883-3483</a> o <a href="https://wa.me/19058833483" style="font-weight:700;">escríbenos por WhatsApp</a>.',
+      'quote.success.contact': '¿Necesitas hablar antes? <a href="tel:+16472217282" style="font-weight:700;">Llama al +1 (647) 221-7282</a> o <a href="https://wa.me/16472217282" style="font-weight:700;">escríbenos por WhatsApp</a>.',
       // Sidebar
       'quote.side.talk.title': '¿Prefieres hablar?',
       'quote.side.talk.desc': 'Habla directamente con nuestro equipo.',
