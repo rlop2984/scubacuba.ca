@@ -2746,6 +2746,57 @@ a:hover { color: var(--ocean-deep); }
 /* ---- Newsletter consent text size tweak ---- */
 .newsletter-form .consent label { font-size: 0.75rem; }
 
+/* ---- Footer agency / licensing block ---- */
+.footer-agency {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 0 4px;
+  margin-top: 8px;
+}
+.footer-agency .agency-affiliate {
+  font-size: 0.813rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.footer-agency .agency-affiliate strong { color: rgba(255,255,255,0.95); font-weight: 700; }
+.footer-agency-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+@media (min-width: 600px) {
+  .footer-agency-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+.footer-agency-office {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+}
+.footer-agency-office strong {
+  display: block;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.688rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.footer-agency-office a {
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+}
+.footer-agency-office a:hover { color: var(--white); }
+.footer-agency-office .tico-num {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+  font-size: 0.688rem;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.04em;
+}
+
 /* ---- Language toggle ---- */
 .lang-toggle {
   display: inline-flex;

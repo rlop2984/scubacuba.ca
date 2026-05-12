@@ -7,7 +7,7 @@
   const STR = {
     en: {
       // ---- Shared ----
-      'phonebar.tico': '+1 (647) 221-7282 &nbsp;|&nbsp; TICO Reg. #50018183',
+      'phonebar.tico': '+1 (647) 221-7282 &nbsp;|&nbsp; TICO Reg. #5003057',
       'nav.home': 'Home',
       'nav.destinations': 'Destinations',
       'nav.trips': 'Trips',
@@ -153,9 +153,13 @@
       'footer.destinations': 'Destinations',
       'footer.contact': 'Contact Us',
       'footer.location': 'Richmond Hill, Ontario, Canada',
-      'footer.tico.long': 'Registered with TICO #50018183 | Booked through AquaSub Travel',
-      'footer.tico.short': 'Booked through AquaSub Travel · TICO #50018183',
+      'footer.tico.long': 'Booked through AquaSub Travel · TICO #5003057',
+      'footer.tico.short': 'Booked through AquaSub Travel · TICO #5003057',
       'footer.copyright': '© 2026 ScubaCuba.ca. All rights reserved.',
+      'footer.agency.title': 'Agency &amp; licensing',
+      'footer.agency.affiliate': '<strong>AquaSub Travel</strong> is an independent owner, affiliated with TPI, Trevello Travel Group Inc.',
+      'footer.agency.winnipeg.title': 'Winnipeg Operations Office',
+      'footer.agency.oakville.title': 'Trevello Ontario Incorporated',
 
       // ---- Trips page ----
       'meta.trips.title': 'Upcoming Trips — ScubaCuba.ca',
@@ -369,7 +373,7 @@
       'quote.s5.title': 'Review & submit',
       'quote.s5.hint': "Looking good? We'll respond within 24 hours with options and pricing.",
       'quote.s5.review.loading': 'Filling this in…',
-      'quote.s5.tos': 'I agree to the Terms & Conditions of AquaSub Travel (TICO #50018183) and acknowledge that this is a quote request, not a confirmed booking. I consent to being contacted by ScubaCuba.ca / AquaSub Travel regarding this request.',
+      'quote.s5.tos': 'I agree to the Terms & Conditions of AquaSub Travel (TICO #5003057) and acknowledge that this is a quote request, not a confirmed booking. I consent to being contacted by ScubaCuba.ca / AquaSub Travel regarding this request.',
       'quote.s5.tos.err': 'You need to accept the terms to send your request.',
       'quote.s5.submit': 'Send my quote request',
       // Review labels (rendered dynamically)
@@ -411,7 +415,7 @@
       'quote.side.inc.6': 'Tanks & weights',
       'quote.side.inc.7': '+ Airfare from Canada quoted on request',
       'quote.side.book.title': 'Book with confidence',
-      'quote.side.book.desc': 'All trips are booked through <strong>AquaSub Travel</strong> — a Canadian travel agency registered with TICO (#50018183). Your payment is protected under provincial consumer compensation rules.',
+      'quote.side.book.desc': 'All trips are booked through <strong>AquaSub Travel</strong> — an independent owner affiliated with TPI, Trevello Travel Group Inc. Registered with TICO #5003057. Your payment is protected under provincial consumer compensation rules.',
 
       // ---- Destinations page ----
       'meta.dest.title': 'Our Destinations — ScubaCuba.ca',
@@ -457,7 +461,7 @@
       'about.partners.title': 'Our Partners',
       'about.partners.subtitle': 'A powerful alliance for the perfect dive vacation',
       'about.partners.marlin.desc': "Cuba's official marine department under the Ministry of Tourism. They operate and maintain all 14 dive centers across the island, ensuring world-class safety standards and pristine marine environments.",
-      'about.partners.aquasub.desc': 'Established in 2002 in Richmond Hill, Ontario. A PADI 5 Star Instructor Development Center with over 12,000 divers trained. The TICO-registered travel agency that books your trip.',
+      'about.partners.aquasub.desc': 'Established in 2002 in Richmond Hill, Ontario. A PADI 5 Star Instructor Development Center with over 12,000 divers trained. AquaSub Travel is an independent owner affiliated with TPI, Trevello Travel Group Inc. (TICO #5003057) — the registered agency that books your trip.',
       'about.partners.holasun.desc': 'Over 30 years in the travel industry with 1,900+ travel agency partners and access to 190 hotels in Cuba. They handle flights, transfers, and accommodations with OWG as the preferred carrier.',
       'about.founder.title': 'Founder & Lead PADI Instructor',
       'about.founder.p1': "A former Polish Navy diver turned PADI instructor, Norbert brings over 35 years of diving experience to every trip. His passion for Cuba's underwater world led him to create ScubaCuba.ca — a company dedicated to sharing the magic of Cuban diving with Canadian adventurers.",
@@ -490,7 +494,7 @@
 
     es: {
       // ---- Shared ----
-      'phonebar.tico': '+1 (647) 221-7282 &nbsp;|&nbsp; Reg. TICO #50018183',
+      'phonebar.tico': '+1 (647) 221-7282 &nbsp;|&nbsp; Reg. TICO #5003057',
       'nav.home': 'Inicio',
       'nav.destinations': 'Destinos',
       'nav.trips': 'Viajes',
@@ -636,8 +640,12 @@
       'footer.destinations': 'Destinos',
       'footer.contact': 'Contáctanos',
       'footer.location': 'Richmond Hill, Ontario, Canadá',
-      'footer.tico.long': 'Registrado con TICO #50018183 | Reservado a través de AquaSub Travel',
-      'footer.tico.short': 'Reservado a través de AquaSub Travel · TICO #50018183',
+      'footer.tico.long': 'Reservado a través de AquaSub Travel · TICO #5003057',
+      'footer.tico.short': 'Reservado a través de AquaSub Travel · TICO #5003057',
+      'footer.agency.title': 'Agencia y licencia',
+      'footer.agency.affiliate': '<strong>AquaSub Travel</strong> es un propietario independiente, afiliado a TPI, Trevello Travel Group Inc.',
+      'footer.agency.winnipeg.title': 'Oficina de operaciones — Winnipeg',
+      'footer.agency.oakville.title': 'Trevello Ontario Incorporated',
       'footer.copyright': '© 2026 ScubaCuba.ca. Todos los derechos reservados.',
 
       // ---- Trips page ----
@@ -852,7 +860,7 @@
       'quote.s5.title': 'Revisar y enviar',
       'quote.s5.hint': '¿Todo bien? Respondemos en 24 horas con opciones y precios.',
       'quote.s5.review.loading': 'Cargando…',
-      'quote.s5.tos': 'Acepto los Términos y Condiciones de AquaSub Travel (TICO #50018183) y entiendo que esto es una solicitud de cotización, no una reserva confirmada. Doy mi consentimiento para que ScubaCuba.ca / AquaSub Travel me contacte sobre esta solicitud.',
+      'quote.s5.tos': 'Acepto los Términos y Condiciones de AquaSub Travel (TICO #5003057) y entiendo que esto es una solicitud de cotización, no una reserva confirmada. Doy mi consentimiento para que ScubaCuba.ca / AquaSub Travel me contacte sobre esta solicitud.',
       'quote.s5.tos.err': 'Tienes que aceptar los términos para enviar.',
       'quote.s5.submit': 'Enviar mi solicitud',
       // Review labels (rendered dynamically)
@@ -894,7 +902,7 @@
       'quote.side.inc.6': 'Tanques y plomos',
       'quote.side.inc.7': '+ Vuelo desde Canadá se cotiza aparte',
       'quote.side.book.title': 'Reserva con confianza',
-      'quote.side.book.desc': 'Todos los viajes se reservan a través de <strong>AquaSub Travel</strong> — una agencia canadiense registrada con TICO (#50018183). Tu pago está protegido por las reglas provinciales de compensación al consumidor.',
+      'quote.side.book.desc': 'Todos los viajes se reservan a través de <strong>AquaSub Travel</strong> — un propietario independiente afiliado a TPI, Trevello Travel Group Inc. Registrado con TICO #5003057. Tu pago está protegido por las reglas provinciales de compensación al consumidor.',
 
       // ---- Destinations page ----
       'meta.dest.title': 'Nuestros destinos — ScubaCuba.ca',
@@ -940,7 +948,7 @@
       'about.partners.title': 'Nuestros socios',
       'about.partners.subtitle': 'Una alianza poderosa para las vacaciones de buceo perfectas',
       'about.partners.marlin.desc': 'El departamento marino oficial de Cuba, bajo el Ministerio de Turismo. Operan y mantienen los 14 centros de buceo en la isla, garantizando estándares de seguridad de clase mundial y entornos marinos prístinos.',
-      'about.partners.aquasub.desc': 'Fundado en 2002 en Richmond Hill, Ontario. Un Instructor Development Center PADI 5 Star con más de 12,000 buzos capacitados. La agencia de viajes registrada en TICO que opera tu reserva.',
+      'about.partners.aquasub.desc': 'Fundado en 2002 en Richmond Hill, Ontario. Un Instructor Development Center PADI 5 Star con más de 12,000 buzos capacitados. AquaSub Travel es un propietario independiente afiliado a TPI, Trevello Travel Group Inc. (TICO #5003057) — la agencia que opera tu reserva.',
       'about.partners.holasun.desc': 'Más de 30 años en la industria de viajes con +1,900 agencias asociadas y acceso a 190 hoteles en Cuba. Manejan vuelos, traslados y alojamientos con OWG como aerolínea preferida.',
       'about.founder.title': 'Fundador e instructor PADI principal',
       'about.founder.p1': 'Ex buzo de la Marina polaca convertido en instructor PADI, Norbert trae más de 35 años de experiencia en buceo a cada viaje. Su pasión por el mundo submarino cubano lo llevó a crear ScubaCuba.ca — una empresa dedicada a compartir la magia del buceo cubano con los aventureros canadienses.',
