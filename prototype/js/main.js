@@ -164,7 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
         tab.classList.add('active');
 
         galleryItems.forEach(item => {
-          if (filter === 'all' || item.dataset.category === filter) {
+          const cats = (item.dataset.category || '').split(/\s+/).filter(Boolean);
+          if (filter === 'all' || cats.includes(filter)) {
             item.style.display = '';
             item.style.animation = 'fadeIn 0.4s ease';
           } else {

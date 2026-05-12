@@ -315,10 +315,12 @@ a:hover { color: var(--ocean-deep); }
   padding: 16px 12px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
   border-radius: 8px;
+  text-align: center;
   transition: color var(--transition), background var(--transition);
 }
 
 .mobile-menu a:hover { color: var(--white); background: rgba(255,255,255,0.04); }
+.mobile-menu .lang-toggle { align-self: center; }
 
 .mobile-menu .btn {
   width: 100%;
@@ -400,10 +402,58 @@ a:hover { color: var(--ocean-deep); }
 
 .hero-bg {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: -3%; left: -3%; right: -3%; bottom: -3%;
   background-size: cover;
   background-position: center;
   z-index: 0;
+  transform-origin: center;
+  will-change: transform, filter;
+  animation: hero-underwater 22s ease-in-out infinite;
+}
+
+@keyframes hero-underwater {
+  0%, 100% {
+    transform: scale(1.04) translate3d(0, 0, 0);
+    filter: brightness(1) saturate(1) hue-rotate(0deg);
+  }
+  25% {
+    transform: scale(1.06) translate3d(-0.6%, -0.4%, 0);
+    filter: brightness(1.04) saturate(1.06) hue-rotate(-3deg);
+  }
+  50% {
+    transform: scale(1.07) translate3d(0.5%, -0.7%, 0);
+    filter: brightness(0.97) saturate(1.02) hue-rotate(2deg);
+  }
+  75% {
+    transform: scale(1.05) translate3d(0.7%, 0.3%, 0);
+    filter: brightness(1.02) saturate(1.04) hue-rotate(-1deg);
+  }
+}
+
+/* Caustics — soft light rays drifting across the surface */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 30% 20%, rgba(180, 220, 255, 0.12), transparent 55%),
+    radial-gradient(ellipse 50% 35% at 70% 40%, rgba(255, 255, 255, 0.10), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% 80%, rgba(120, 200, 255, 0.08), transparent 55%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 0;
+  animation: hero-caustics 16s ease-in-out infinite;
+}
+
+@keyframes hero-caustics {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.85; }
+  33%      { transform: translate3d(2%, -1%, 0); opacity: 1; }
+  66%      { transform: translate3d(-1.5%, 1%, 0); opacity: 0.75; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg { animation: none; transform: scale(1.02); }
+  .hero-bg::before { animation: none; }
 }
 
 .hero-bg::after {
@@ -2836,9 +2886,10 @@ a:hover { color: var(--ocean-deep); }
   color: var(--gray-900);
 }
 .mobile-menu .lang-toggle {
-  margin: 16px 0 0;
+  display: flex;
+  margin: 20px auto 0;
   background: rgba(255,255,255,0.04);
-  align-self: flex-start;
+  width: fit-content;
 }
 .mobile-menu .lang-toggle button { font-size: 0.75rem; padding: 8px 14px; }
 
