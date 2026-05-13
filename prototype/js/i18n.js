@@ -12,6 +12,8 @@
       'trust.label': 'Trusted &amp; certified',
       'cta.scroll.title': 'Free quote',
       'cta.scroll.sub': 'Reply in 24h',
+      'whatsapp.intro': "Hi, I'd like info about a Cuba dive trip",
+      'quote.s5.submitting': 'Sending…',
       'meta.404.title': 'Page not found — ScubaCuba.ca',
       'meta.404.desc': "The page you're looking for doesn't exist. Head back to the home page or explore our Cuba dive trips.",
       'err404.code': '404 · Lost at sea',
@@ -147,8 +149,11 @@
       'home.faq.q8': 'What does the trip actually cost?',
       'home.faq.a8': "<p>Prices vary by season, departure city and party size — we don't list a fixed number because the same week can swing $400+ depending on flights. That's why we quote per request, usually within 24 hours.</p><p>The package always includes flights from Canada, hotel, meals, transfers, and 10 boat dives. No surprises.</p>",
       'home.faq.cta': 'Get my personalized quote',
-      'home.newsletter.title': 'Get Exclusive Dive Deals',
-      'home.newsletter.subtitle': 'Join our mailing list for special offers, trip updates, and diving tips',
+      'home.newsletter.title': 'Cuba dive insider tips — straight to your inbox',
+      'home.newsletter.subtitle': 'Best months for visibility, early access to small-group trip dates, and member-only deals.',
+      'home.newsletter.perk1': 'Best dive seasons & conditions guide',
+      'home.newsletter.perk2': 'Early access to group trips (often the cheapest)',
+      'home.newsletter.perk3': 'No spam — 1 email a month, unsubscribe in one click',
       'home.newsletter.name': 'Your name',
       'home.newsletter.email': 'Your email',
       'home.newsletter.level': 'Your diving level',
@@ -495,6 +500,7 @@
       'gallery.hero.subtitle': 'Cuba above and below the water',
       'gallery.photos.title': 'Photos',
       'gallery.photos.subtitle': "Captured by our divers and instructors across Cuba's dive sites",
+      'gallery.photos.credit': 'Underwater photography by <strong>Yoel de la Paz</strong>, ScubaCuba lead PADI instructor.',
       'gallery.tab.all': 'All',
       'gallery.tab.underwater': 'Underwater',
       'gallery.tab.surface': 'Above Water',
@@ -513,6 +519,8 @@
       'trust.label': 'Confiable y certificados',
       'cta.scroll.title': 'Cotización gratis',
       'cta.scroll.sub': 'Respuesta en 24 h',
+      'whatsapp.intro': 'Hola, me interesa información sobre un viaje de buceo a Cuba',
+      'quote.s5.submitting': 'Enviando…',
       'meta.404.title': 'Página no encontrada — ScubaCuba.ca',
       'meta.404.desc': 'La página que buscas no existe. Vuelve al inicio o explora nuestros viajes de buceo en Cuba.',
       'err404.code': '404 · Perdido en el mar',
@@ -648,8 +656,11 @@
       'home.faq.q8': '¿Cuánto cuesta el viaje?',
       'home.faq.a8': '<p>Los precios varían según temporada, ciudad de salida y tamaño del grupo — no publicamos un número fijo porque la misma semana puede variar más de $400 según los vuelos. Por eso cotizamos a pedido, normalmente dentro de 24 horas.</p><p>El paquete siempre incluye vuelos desde Canadá, hotel, comidas, traslados y 10 inmersiones. Sin sorpresas.</p>',
       'home.faq.cta': 'Pedir mi cotización personalizada',
-      'home.newsletter.title': 'Ofertas exclusivas de buceo',
-      'home.newsletter.subtitle': 'Suscríbete para promociones, novedades de viajes y tips de buceo',
+      'home.newsletter.title': 'Tips de buceo en Cuba — directo a tu correo',
+      'home.newsletter.subtitle': 'Las mejores épocas para visibilidad, acceso anticipado a viajes en grupo y ofertas solo para suscriptores.',
+      'home.newsletter.perk1': 'Guía de las mejores temporadas y condiciones',
+      'home.newsletter.perk2': 'Acceso anticipado a viajes en grupo (suelen ser los más económicos)',
+      'home.newsletter.perk3': 'Sin spam — 1 correo al mes, te das de baja con un clic',
       'home.newsletter.name': 'Tu nombre',
       'home.newsletter.email': 'Tu correo',
       'home.newsletter.level': 'Tu nivel de buceo',
@@ -996,6 +1007,7 @@
       'gallery.hero.subtitle': 'Cuba sobre y bajo el agua',
       'gallery.photos.title': 'Fotos',
       'gallery.photos.subtitle': 'Capturadas por nuestros buzos e instructores en los puntos de buceo de Cuba',
+      'gallery.photos.credit': 'Fotografía submarina por <strong>Yoel de la Paz</strong>, instructor PADI principal de ScubaCuba.',
       'gallery.tab.all': 'Todas',
       'gallery.tab.underwater': 'Bajo el agua',
       'gallery.tab.surface': 'Sobre el agua',
@@ -1064,6 +1076,15 @@
       btn.classList.toggle('is-active', btn.getAttribute('data-lang-btn') === lang);
       btn.setAttribute('aria-pressed', btn.getAttribute('data-lang-btn') === lang ? 'true' : 'false');
     });
+    // Pre-fill WhatsApp intro message based on active language
+    const waText = get(lang, 'whatsapp.intro');
+    if (waText) {
+      const encoded = encodeURIComponent(waText);
+      document.querySelectorAll('a[href^="https://wa.me/"]').forEach(a => {
+        const base = a.getAttribute('href').split('?')[0];
+        a.setAttribute('href', base + '?text=' + encoded);
+      });
+    }
     // Notify the rest of the app
     document.dispatchEvent(new CustomEvent('i18nchange', { detail: { lang } }));
   }

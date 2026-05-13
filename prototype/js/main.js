@@ -573,6 +573,96 @@ document.addEventListener('DOMContentLoaded', () => {
     stepForm.querySelectorAll('select[data-fill="dob-year"]').forEach(s => fillYear(s, true));
     stepForm.querySelectorAll('select[data-fill="passport"]').forEach(fillPassport);
 
+    // ---- a11y: wire aria-describedby on every form-group ----
+    // Each .form-group may have a .field-hint and/or .field-error; give them stable IDs
+    // and point every interactive control at them so screen readers announce both
+    // the hint and the validation message.
+    (function wireDescribedBy() {
+      let uid = 0;
+      stepForm.querySelectorAll('.form-group, .form-consent').forEach(grp => {
+        const hint = grp.querySelector(':scope > .field-hint');
+        const err = grp.querySelector(':scope > .field-error');
+        const ids = [];
+        if (hint) {
+          if (!hint.id) hint.id = `fh-${++uid}`;
+          ids.push(hint.id);
+        }
+        if (err) {
+          if (!err.id) err.id = `fe-${++uid}`;
+          err.setAttribute('aria-live', 'polite');
+          ids.push(err.id);
+        }
+        if (!ids.length) return;
+        const desc = ids.join(' ');
+        grp.querySelectorAll('input, select, textarea').forEach(ctrl => {
+          if (ctrl.type === 'hidden') return;
+          const existing = ctrl.getAttribute('aria-describedby');
+          const merged = existing ? `${existing} ${desc}` : desc;
+          ctrl.setAttribute('aria-describedby', merged);
+        });
+      });
+    })();
+
+    // ---- Native date input wired on top of the month/day/year trio ----
+    // Mobile users get the OS-native date picker; the underlying 3 selects stay
+    // populated so Jotform receives the structure it expects.
+    (function wireNativeDate() {
+      const today = new Date();
+      const iso = d => d.toISOString().slice(0, 10);
+      stepForm.querySelectorAll('.date-trio').forEach(trio => {
+        const monthSel = trio.querySelector('select[data-fill="month"]');
+        const daySel = trio.querySelector('select[data-fill="day"]');
+        const yearSel = trio.querySelector('select[data-fill$="-year"]');
+        if (!monthSel || !daySel || !yearSel) return;
+        const isDob = yearSel.dataset.fill === 'dob-year';
+
+        const native = document.createElement('input');
+        native.type = 'date';
+        native.className = 'date-native';
+        const labelEl = trio.parentElement?.querySelector(':scope > label');
+        if (labelEl) {
+          let labelId = labelEl.id;
+          if (!labelId) {
+            labelId = `dl-${Math.random().toString(36).slice(2, 8)}`;
+            labelEl.id = labelId;
+          }
+          native.setAttribute('aria-labelledby', labelId);
+        }
+        if (isDob) {
+          const max = new Date(today); max.setFullYear(today.getFullYear() - 5);
+          const min = new Date(today); min.setFullYear(today.getFullYear() - 90);
+          native.max = iso(max);
+          native.min = iso(min);
+        } else {
+          const max = new Date(today); max.setFullYear(today.getFullYear() + 3);
+          native.min = iso(today);
+          native.max = iso(max);
+        }
+
+        trio.classList.add('has-native-date');
+        trio.insertBefore(native, trio.firstChild);
+
+        const syncSelectsFromNative = () => {
+          const v = native.value;
+          if (!v) return;
+          const [y, m, d] = v.split('-');
+          monthSel.value = m;
+          daySel.value = d;
+          yearSel.value = String(parseInt(y, 10));
+          monthSel.dispatchEvent(new Event('change', { bubbles: true }));
+        };
+        const syncNativeFromSelects = () => {
+          const m = monthSel.value, d = daySel.value, y = yearSel.value;
+          if (m && d && y) native.value = `${y}-${m}-${d}`;
+        };
+        native.addEventListener('change', syncSelectsFromNative);
+        native.addEventListener('input', syncSelectsFromNative);
+        [monthSel, daySel, yearSel].forEach(s => s.addEventListener('change', syncNativeFromSelects));
+        // Initial sync (e.g. when autosave restores values)
+        syncNativeFromSelects();
+      });
+    })();
+
     // ---- Review rendering ----
     function renderReview() {
       const target = document.getElementById('review-body');
@@ -642,7 +732,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       const submitBtn = stepForm.querySelector('[data-final-submit]');
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+        const label = (window.SC_I18N && window.SC_I18N.get('quote.s5.submitting')) || 'Sending…';
+        submitBtn.innerHTML = `<span class="btn-spinner" aria-hidden="true"></span>${label}`;
+      }
 
       const formData = new FormData(stepForm);
       fetch(stepForm.action, {
@@ -839,6 +934,22 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
+
+
+  // ---- YouTube facade: click to inflate the real iframe ----
+  document.querySelectorAll('.yt-facade').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.yt;
+      const title = btn.dataset.ytTitle || 'YouTube video';
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.title = title;
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+      btn.replaceWith(iframe);
+    });
+  });
 
 });
 

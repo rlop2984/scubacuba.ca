@@ -42,8 +42,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="prefetch" href="quote.html" as="document">
   <link rel="preload" as="image" href="images/underwater/cave-divers-silhouette.webp" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="css/styles.css?v=20260513f">
-  <script src="js/i18n.js?v=20260513d"></script>
+  <link rel="stylesheet" href="css/styles.css?v=20260513g">
+  <script src="js/i18n.js?v=20260513g" defer></script>
 
   <!-- Structured data: TravelAgency -->
   <script type="application/ld+json">
@@ -236,9 +236,8 @@
     </filter>
   </svg>
 
-    <a id="main" tabindex="-1" class="sr-only">Main content</a>
-
-  <!-- Hero -->
+    <main id="main" tabindex="-1">
+<!-- Hero -->
   <section class="hero">
     <div class="hero-bg" style="background-image: image-set(url('images/underwater/cave-divers-silhouette.webp') type('image/webp'),url('images/underwater/cave-divers-silhouette.jpg'))"></div>
     <div class="hero-content">
@@ -352,7 +351,10 @@
       <h2 class="section-title" data-i18n="home.video.title">Experience Cuba Underwater</h2>
       <p class="section-subtitle" data-i18n="home.video.subtitle">See what awaits you beneath the crystal-clear Caribbean waters</p>
       <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/ovMAUEsPfr0" title="ScubaCuba - Dive Cuba" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <button class="yt-facade" data-yt="ovMAUEsPfr0" data-yt-title="ScubaCuba — Dive Cuba" aria-label="Play video: ScubaCuba — Dive Cuba" style="background-image: url('https://i.ytimg.com/vi/ovMAUEsPfr0/hqdefault.jpg');">
+          <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="yt-label">ScubaCuba — Dive Cuba</span>
+        </button>
       </div>
     </div>
   </section>
@@ -644,8 +646,13 @@
   <!-- Newsletter -->
   <section class="section newsletter-section">
     <div class="container">
-      <h2 class="section-title" data-i18n="home.newsletter.title">Get Exclusive Dive Deals</h2>
-      <p class="section-subtitle" data-i18n="home.newsletter.subtitle">Join our mailing list for special offers, trip updates, and diving tips</p>
+      <h2 class="section-title" data-i18n="home.newsletter.title">Cuba dive insider tips — straight to your inbox</h2>
+      <p class="section-subtitle" data-i18n="home.newsletter.subtitle">Best months for visibility, early access to small-group trip dates, and member-only deals.</p>
+      <ul class="newsletter-perks" aria-label="What you get">
+        <li><span aria-hidden="true">&#10003;</span> <span data-i18n="home.newsletter.perk1">Best dive seasons &amp; conditions guide</span></li>
+        <li><span aria-hidden="true">&#10003;</span> <span data-i18n="home.newsletter.perk2">Early access to group trips (often the cheapest)</span></li>
+        <li><span aria-hidden="true">&#10003;</span> <span data-i18n="home.newsletter.perk3">No spam — 1 email a month, unsubscribe in one click</span></li>
+      </ul>
       <form class="newsletter-form" id="newsletter-form">
         <div class="form-row">
           <input type="text" name="name" placeholder="Your name" data-i18n-placeholder="home.newsletter.name" required>
@@ -698,6 +705,8 @@
   <div class="wave-divider" aria-hidden="true">
     <svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,30 C200,5 400,55 600,30 C800,5 1000,55 1200,30 L1200,48 L0,48 Z" fill="#F7F7FC"/></svg>
   </div>
+
+  </main>
 
   <!-- Trust marks band -->
   <section class="trust-band" aria-label="Trusted by">
@@ -783,6 +792,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260513d"></script>
+  <script src="js/main.js?v=20260513g" defer></script>
 </body>
 </html>
