@@ -664,10 +664,102 @@ document.addEventListener('DOMContentLoaded', () => {
       stepForm.style.display = 'none';
       const stepper = document.querySelector('.quote-stepper-wrap');
       if (stepper) stepper.style.display = 'none';
+      clearAutosave();
       if (successCard) {
         successCard.style.display = 'block';
         successCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    }
+
+    // ---- Autosave form state to localStorage ----
+    // Persist every input the user touches so a reload, accidental
+    // close, or back navigation doesn't wipe their progress.
+    const SAVE_KEY = 'sc-quote-state-v1';
+
+    function saveState() {
+      try {
+        const state = { count: travelerCount, step: currentStep, fields: {} };
+        stepForm.querySelectorAll('input[name], select[name], textarea[name]').forEach(el => {
+          if (el.type === 'checkbox' || el.type === 'radio') {
+            if (el.checked) {
+              if (!state.fields[el.name]) state.fields[el.name] = [];
+              state.fields[el.name].push(el.value);
+            }
+          } else if (el.type !== 'hidden' || el.name === 'qcl_travelers') {
+            state.fields[el.name] = el.value;
+          }
+        });
+        // Also persist the destination radio (used to prefix the notes)
+        const dest = stepForm.querySelector('input[name="qcl_destination"]:checked');
+        if (dest) state.fields['qcl_destination'] = [dest.value];
+        const tos = stepForm.querySelector('#tos');
+        if (tos) state.fields['__tos'] = tos.checked;
+        localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+      } catch (e) { /* quota or disabled — ignore */ }
+    }
+
+    function restoreState() {
+      try {
+        const raw = localStorage.getItem(SAVE_KEY);
+        if (!raw) return false;
+        const state = JSON.parse(raw);
+        if (!state || !state.fields) return false;
+        // Restore traveler count first so companion blocks show/hide correctly
+        if (state.count && state.count >= 1 && state.count <= 4) {
+          travelerCount = state.count;
+          updateCounter();
+        }
+        for (const [name, value] of Object.entries(state.fields)) {
+          if (name === '__tos') {
+            const tos = stepForm.querySelector('#tos');
+            if (tos) tos.checked = !!value;
+            continue;
+          }
+          if (Array.isArray(value)) {
+            // radio / checkbox group
+            value.forEach(v => {
+              const el = stepForm.querySelector(`input[name="${CSS.escape(name)}"][value="${CSS.escape(v)}"]`);
+              if (el) el.checked = true;
+            });
+          } else {
+            const el = stepForm.querySelector(`[name="${CSS.escape(name)}"]`);
+            if (el && el.type !== 'checkbox' && el.type !== 'radio') el.value = value;
+          }
+        }
+        // Optionally restore step (but only if all data prior is filled — safer to start at step 0
+        // and let the user re-validate as they advance)
+        return true;
+      } catch (e) { return false; }
+    }
+
+    function clearAutosave() {
+      try { localStorage.removeItem(SAVE_KEY); } catch (e) {}
+    }
+
+    // Debounced save
+    let saveTimer = null;
+    function scheduleSave() {
+      if (saveTimer) clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveState, 400);
+    }
+    stepForm.addEventListener('input', scheduleSave);
+    stepForm.addEventListener('change', scheduleSave);
+
+    // Restore once SELECTS are populated (fillMonth/Day/Year run synchronously above this point)
+    const restored = restoreState();
+    if (restored) {
+      // Light visual hint that draft was loaded
+      const hint = document.createElement('div');
+      hint.className = 'field-hint';
+      hint.style.cssText = 'background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.25);border-radius:8px;padding:10px 14px;margin-bottom:16px;color:var(--gray-700);';
+      hint.innerHTML = '<strong>Draft restored</strong> — we saved what you typed last time. <a href="#" id="clear-draft" style="color:var(--accent);text-decoration:underline;">Start over</a>';
+      const firstStep = steps[0];
+      if (firstStep && firstStep.firstChild) firstStep.insertBefore(hint, firstStep.firstChild);
+      hint.querySelector('#clear-draft')?.addEventListener('click', e => {
+        e.preventDefault();
+        clearAutosave();
+        location.reload();
+      });
     }
 
     setProgress();

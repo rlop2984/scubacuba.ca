@@ -10,6 +10,9 @@
   <meta name="robots" content="index, follow">
   <meta name="author" content="ScubaCuba.ca">
   <link rel="canonical" href="https://www.scubacuba.ca/">
+  <link rel="alternate" hreflang="en" href="https://www.scubacuba.ca/">
+  <link rel="alternate" hreflang="es" href="https://www.scubacuba.ca/">
+  <link rel="alternate" hreflang="x-default" href="https://www.scubacuba.ca/">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ScubaCuba.ca">
@@ -39,8 +42,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="prefetch" href="quote.html" as="document">
   <link rel="preload" as="image" href="images/underwater/cave-divers-silhouette.webp" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="css/styles.css?v=20260513c">
-  <script src="js/i18n.js?v=20260513c"></script>
+  <link rel="stylesheet" href="css/styles.css?v=20260513d">
+  <script src="js/i18n.js?v=20260513d"></script>
 
   <!-- Structured data: TravelAgency -->
   <script type="application/ld+json">
@@ -93,6 +96,80 @@
       "description": "7 nights at Hotel Faro Luna, 3 meals/day, airport transfers, 10 boat dives, PADI instructor.",
       "areaServed": "Cuba"
     }
+  }
+  </script>
+
+  <!-- Structured data: FAQPage (matches the visible FAQ accordion) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need a visa for Cuba?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For most travelers — including Canadians, most Europeans and many Latin Americans — you'll need a Tourist Card, not a full visa. It costs around $25 CAD and we include it in every booking from Canada (it's handed out on the flight). US passport holders have additional requirements — talk to us first, we'll walk you through it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I pay for things in Cuba? Will my credit card work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bring cash — Canadian dollars, Euros, or Mexican pesos all work. We strongly recommend NOT bringing US dollars (a 10% penalty applies on exchange). Most North American credit cards don't work in Cuba due to US sanctions. ATMs are rare. Cash exchanged at the hotel front desk is the simplest. Budget roughly $40–60 CAD/day for tips, drinks outside the all-inclusive, and souvenirs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What about internet and phone in Cuba?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WiFi works at the hotel (sometimes paid by the hour). Outside the hotel, your North American SIM probably won't roam. If you need always-on, buy a Cubacel eSIM or local SIM at the airport. WhatsApp works fine for messaging back home."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need my own scuba gear?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tanks and weights are included in every trip. BCD, regulator and dive computer rental is $230 CAD per week if you don't bring your own. Bring your own mask, snorkel and fins for fit. A 3mm shorty is plenty year-round; water temps run 24–28°C."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Cuba safe for travelers right now?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — Cuba is one of the safer Caribbean destinations for travelers, with low violent crime and a strong tradition of welcoming foreign visitors. Petty theft can happen in cities; standard travel precautions apply. The bigger issue is logistics: occasional power cuts, limited supermarket variety, slow internet. The hotel is unaffected."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I've never dived before — can I still come?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. We run PADI Open Water certifications during the trip. You'll be diving for real by the third or fourth day. Non-divers also welcome — Cuba above water is just as good."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the visibility like? What are the best months to dive Cuba?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Visibility typically 20–30m, occasionally over 40m on the wall. The south coast is protected — generally calm year-round. Best diving: November through May (dry season). June–October is hurricane season; we usually pause group trips August–September."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does the trip actually cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prices vary by season, departure city and party size — we don't list a fixed number because the same week can swing $400+ depending on flights. That's why we quote per request, usually within 24 hours. The package always includes flights from Canada, hotel, meals, transfers, and 10 boat dives."
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -696,11 +773,16 @@
       </div>
       <div class="footer-bottom">
         <span data-i18n="footer.copyright">&copy; 2026 ScubaCuba.ca. All rights reserved.</span>
-        <span class="tico" data-i18n="footer.tico.long">Registered with TICO #5003057 | Booked through AquaSub Travel</span>
+        <span class="footer-legal-links">
+          <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+          &middot;
+          <a href="terms.html" data-i18n="footer.terms">Terms</a>
+        </span>
+        <span class="tico" data-i18n="footer.tico.short">Booked through AquaSub Travel &middot; TICO #5003057</span>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260513c"></script>
+  <script src="js/main.js?v=20260513d"></script>
 </body>
 </html>

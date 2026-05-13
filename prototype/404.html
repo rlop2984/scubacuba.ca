@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-doctitle="meta.404.title" data-i18n-docdesc="meta.404.desc">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found — ScubaCuba.ca</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Head back to the home page or explore our Cuba dive trips.">
+  <meta name="theme-color" content="#12122a">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20260513d">
+  <script src="js/i18n.js?v=20260513d"></script>
+  <style>
+    .err-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 24px 80px;
+      background: linear-gradient(180deg, var(--gray-900) 0%, var(--ocean-deep) 100%);
+      color: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .err-bubble {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 28px;
+      animation: bob 6s ease-in-out infinite;
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    .err-bubble svg { width: 56px; height: 56px; color: var(--white); opacity: 0.85; }
+    .err-code {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--turquoise);
+      margin-bottom: 8px;
+    }
+    .err-title {
+      color: var(--white);
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .err-desc {
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+      max-width: 480px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .err-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .err-links {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      width: 100%;
+      max-width: 480px;
+    }
+    .err-links p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .err-links ul {
+      display: flex; gap: 8px 22px; flex-wrap: wrap;
+      justify-content: center; list-style: none; padding: 0;
+    }
+    .err-links a {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.938rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(255,255,255,0.3);
+      padding-bottom: 1px;
+    }
+    .err-links a:hover { color: var(--white); border-bottom-color: var(--white); }
+  </style>
+</head>
+<body>
+
+  <div class="err-page">
+    <div class="err-bubble" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M3 12c2-4 7-4 9 0s7 4 9 0M3 18c2-4 7-4 9 0s7 4 9 0M3 6c2-4 7-4 9 0s7 4 9 0"/>
+      </svg>
+    </div>
+    <div class="err-code" data-i18n="err404.code">404 · Lost at sea</div>
+    <h1 class="err-title" data-i18n="err404.title">This page drifted off</h1>
+    <p class="err-desc" data-i18n="err404.desc">The link you followed doesn't lead anywhere — maybe the page moved, or the URL has a typo. Let's get you back to dry land.</p>
+    <div class="err-actions">
+      <a href="/" class="btn btn-primary btn-lg" data-i18n="err404.home">Back to home</a>
+      <a href="quote.html" class="btn btn-outline btn-lg" data-i18n="err404.quote">Get a free quote</a>
+    </div>
+    <div class="err-links">
+      <p data-i18n="err404.popular">Popular pages</p>
+      <ul>
+        <li><a href="diving-centers.html" data-i18n="nav.destinations">Destinations</a></li>
+        <li><a href="upcoming-trips.html" data-i18n="nav.trips">Trips</a></li>
+        <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
