@@ -113,15 +113,25 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
 
-    // Auto-advance every 5 seconds
-    let autoPlay = setInterval(() => {
+    // Auto-advance every 7s; pause on hover/focus, resume on leave
+    let autoPlay = null;
+    const advance = () => {
       const maxSlide = Math.max(0, totalSlides - getSlidesPerView());
       currentSlide = currentSlide < maxSlide ? currentSlide + 1 : 0;
       updateCarousel();
-    }, 5000);
+    };
+    const startAuto = () => { stopAuto(); autoPlay = setInterval(advance, 7000); };
+    const stopAuto = () => { if (autoPlay) { clearInterval(autoPlay); autoPlay = null; } };
+    startAuto();
 
-    track.addEventListener('mouseenter', () => clearInterval(autoPlay));
-    track.addEventListener('touchstart', () => clearInterval(autoPlay), { passive: true });
+    track.addEventListener('mouseenter', stopAuto);
+    track.addEventListener('mouseleave', startAuto);
+    track.addEventListener('focusin', stopAuto);
+    track.addEventListener('focusout', startAuto);
+    track.addEventListener('touchstart', stopAuto, { passive: true });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopAuto(); else startAuto();
+    });
 
     window.addEventListener('resize', updateCarousel);
     updateCarousel();
@@ -701,7 +711,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     const initialViewport = window.innerHeight;
-    document.querySelectorAll('.feature-card, .destination-card, .center-card, .partner-card, .gallery-item, .excursion-card, .spotlight-card').forEach(el => {
+    document.querySelectorAll('.feature-card, .destination-card, .center-card, .partner-card, .gallery-item, .excursion-card, .spotlight-card, .day-step, .trip-feature, .includes-card, .faq-item').forEach(el => {
       // Skip animation for elements already above/within initial viewport — show them immediately.
       const rect = el.getBoundingClientRect();
       if (reduceMotion || rect.top < initialViewport) {
@@ -711,6 +721,31 @@ document.addEventListener('DOMContentLoaded', () => {
       el.classList.add('reveal');
       revealObserver.observe(el);
     });
+  }
+
+
+  // ---- Scroll-trigger CTA (desktop): show after the user crosses ~30% of the page ----
+  const scrollCta = document.getElementById('scroll-cta');
+  if (scrollCta && window.matchMedia('(min-width: 1024px)').matches) {
+    let lastY = window.scrollY;
+    const threshold = () => Math.max(window.innerHeight * 0.4, document.documentElement.scrollHeight * 0.18);
+    let cttTicking = false;
+    const onScroll = () => {
+      if (cttTicking) return;
+      cttTicking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const goingDown = y > lastY;
+        const past = y > threshold();
+        // Hide near the very bottom so it doesn't overlap the footer agency info
+        const nearBottom = (window.innerHeight + y) > (document.documentElement.scrollHeight - 240);
+        scrollCta.classList.toggle('is-visible', past && !nearBottom && (goingDown || y > threshold() + 100));
+        lastY = y;
+        cttTicking = false;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
 });

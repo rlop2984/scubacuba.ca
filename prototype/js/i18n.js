@@ -8,6 +8,10 @@
     en: {
       // ---- Shared ----
       'phonebar.tico': '+1 (647) 221-7282 &nbsp;|&nbsp; TICO Reg. #5003057',
+      'a11y.skip': 'Skip to content',
+      'trust.label': 'Trusted &amp; certified',
+      'cta.scroll.title': 'Free quote',
+      'cta.scroll.sub': 'Reply in 24h',
       'nav.home': 'Home',
       'nav.destinations': 'Destinations',
       'nav.trips': 'Trips',
@@ -495,6 +499,10 @@
     es: {
       // ---- Shared ----
       'phonebar.tico': '+1 (647) 221-7282 &nbsp;|&nbsp; Reg. TICO #5003057',
+      'a11y.skip': 'Saltar al contenido',
+      'trust.label': 'Confiable y certificados',
+      'cta.scroll.title': 'Cotización gratis',
+      'cta.scroll.sub': 'Respuesta en 24 h',
       'nav.home': 'Inicio',
       'nav.destinations': 'Destinos',
       'nav.trips': 'Viajes',
