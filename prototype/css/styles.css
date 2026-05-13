@@ -405,7 +405,11 @@ a:hover { color: var(--ocean-deep); }
   position: absolute;
   top: -8%; left: -8%; right: -8%; bottom: -8%;
   background-size: cover;
-  background-position: center;
+  /* Anchor near the top so the two divers (in the upper-middle of the photo)
+     sit in the center of the viewport instead of getting smashed against the
+     header. On mobile portrait no vertical crop happens, so we zoom in a bit
+     to keep the composition centered there too. */
+  background-position: center 18%;
   z-index: 0;
   transform-origin: center;
   will-change: transform, filter;
@@ -413,6 +417,15 @@ a:hover { color: var(--ocean-deep); }
      The transform layer adds a slow scale "breath" so the whole image still drifts. */
   filter: url(#hero-water);
   animation: hero-breath 16s ease-in-out infinite;
+}
+
+/* Mobile: scale the image up a bit so vertical crop happens and we can
+   pull the divers into the center of the screen instead of the top. */
+@media (max-width: 768px) {
+  .hero-bg {
+    background-size: auto 145%;
+    background-position: 60% 30%;
+  }
 }
 
 @keyframes hero-breath {
