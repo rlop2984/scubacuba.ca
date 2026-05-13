@@ -1505,10 +1505,33 @@ a:hover { color: var(--ocean-deep); }
   border-color: transparent;
 }
 
-.partner-card img {
-  height: 48px;
+.partner-card .partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 72px;
+  margin-bottom: 18px;
+}
+.partner-card .partner-logo img {
+  max-height: 56px;
+  max-width: 180px;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  margin: 0 auto 16px;
+  display: block;
+  filter: saturate(0.95);
+}
+/* Backward-compat: old non-wrapped img markup */
+.partner-card > img,
+.partner-card picture img {
+  max-height: 56px;
+  max-width: 180px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 12px auto 18px;
+  display: block;
 }
 
 .partner-card h3 { margin-bottom: 8px; font-size: 1rem; }
