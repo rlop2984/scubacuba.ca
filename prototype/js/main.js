@@ -951,6 +951,93 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+  // ---- Back-to-top floating button: shows after the user scrolls past one viewport ----
+  const btt = document.getElementById('back-to-top');
+  if (btt) {
+    let bttTicking = false;
+    const onScrollBtt = () => {
+      if (bttTicking) return;
+      bttTicking = true;
+      requestAnimationFrame(() => {
+        btt.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.9);
+        bttTicking = false;
+      });
+    };
+    window.addEventListener('scroll', onScrollBtt, { passive: true });
+    btt.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Focus the skip link target for keyboard users after scroll completes
+      setTimeout(() => document.getElementById('main')?.focus({ preventScroll: true }), 600);
+    });
+    onScrollBtt();
+  }
+
+
+  // ---- Cookie consent (PIPEDA-friendly, dismissable, remembered in localStorage) ----
+  const cc = document.getElementById('cookie-consent');
+  const CC_KEY = 'sc-cookie-consent-v1';
+  if (cc) {
+    try {
+      if (!localStorage.getItem(CC_KEY)) {
+        // Delay slightly so it doesn't fight with first paint
+        setTimeout(() => {
+          cc.hidden = false;
+          cc.classList.add('is-visible');
+        }, 1200);
+      }
+    } catch (e) { /* localStorage blocked — show banner anyway */
+      cc.hidden = false;
+      cc.classList.add('is-visible');
+    }
+    document.getElementById('cc-accept')?.addEventListener('click', () => {
+      try { localStorage.setItem(CC_KEY, '1'); } catch (e) {}
+      cc.classList.remove('is-visible');
+      setTimeout(() => { cc.hidden = true; }, 300);
+    });
+  }
+
+
+  // ---- Quote form: phone auto-format (Canadian/US +1 NPA-NXX-XXXX) ----
+  const phoneInput = document.querySelector('input[name="q12_phoneNumber12[phone]"]');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', e => {
+      let v = e.target.value.replace(/\D/g, '').slice(0, 7);
+      // 3-4 split: NXX-XXXX
+      if (v.length > 3) v = v.slice(0, 3) + '-' + v.slice(3);
+      e.target.value = v;
+    });
+  }
+  const phoneArea = document.querySelector('input[name="q12_phoneNumber12[area]"]');
+  if (phoneArea) {
+    phoneArea.addEventListener('input', e => {
+      e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+    });
+    // Auto-jump to next field once area code is complete
+    phoneArea.addEventListener('input', e => {
+      if (e.target.value.length === 3 && phoneInput) phoneInput.focus();
+    });
+  }
+
+
+  // ---- Quote form: validate on blur (catch errors as user moves between fields) ----
+  const stepFormForBlur = document.getElementById('quote-step-form');
+  if (stepFormForBlur) {
+    stepFormForBlur.querySelectorAll('input[data-required], input[type="email"]').forEach(input => {
+      input.addEventListener('blur', e => {
+        const v = (e.target.value || '').trim();
+        const grp = e.target.closest('.form-group');
+        if (!grp) return;
+        const isEmail = e.target.type === 'email';
+        const hasReq = e.target.hasAttribute('data-required');
+        let bad = false;
+        if (hasReq && !v) bad = true;
+        if (isEmail && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) bad = true;
+        if (bad) grp.classList.add('has-error'); else grp.classList.remove('has-error');
+      });
+    });
+  }
+
 });
 
 // ---- CSS Animation Keyframes (injected) ----

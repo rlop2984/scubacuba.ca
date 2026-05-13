@@ -9,6 +9,10 @@
       // ---- Shared ----
       'phonebar.tico': '+1 (647) 221-7282 &nbsp;|&nbsp; TICO Reg. #5003057',
       'a11y.skip': 'Skip to content',
+      'cookie.title': 'Cookies & privacy',
+      'cookie.body': 'We use essential cookies to remember your language and form progress. No tracking, no ads.',
+      'cookie.learn': 'Learn more',
+      'cookie.accept': "OK, got it",
       'trust.label': 'Trusted &amp; certified',
       'cta.scroll.title': 'Free quote',
       'cta.scroll.sub': 'Reply in 24h',
@@ -516,6 +520,10 @@
       // ---- Shared ----
       'phonebar.tico': '+1 (647) 221-7282 &nbsp;|&nbsp; Reg. TICO #5003057',
       'a11y.skip': 'Saltar al contenido',
+      'cookie.title': 'Cookies y privacidad',
+      'cookie.body': 'Usamos cookies esenciales para recordar tu idioma y el progreso del formulario. Sin rastreo, sin anuncios.',
+      'cookie.learn': 'Más info',
+      'cookie.accept': 'OK, entendido',
       'trust.label': 'Confiable y certificados',
       'cta.scroll.title': 'Cotización gratis',
       'cta.scroll.sub': 'Respuesta en 24 h',

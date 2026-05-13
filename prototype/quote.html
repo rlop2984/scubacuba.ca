@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get a Free Quote — ScubaCuba.ca</title>
+  <title>Get a Free Cuba Dive Trip Quote in 24 Hours | ScubaCuba.ca</title>
   <meta name="description" content="Request a personalized scuba diving vacation quote for Cuba. Tell us about your trip and we'll respond within 24 hours.">
   <meta name="theme-color" content="#12122a">
   <meta name="robots" content="index, follow">
@@ -33,8 +33,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="images/mogotes.webp" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="css/styles.css?v=20260513j">
-  <script src="js/i18n.js?v=20260513j" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.scubacuba.ca/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Get a Quote",
+        "item": "https://www.scubacuba.ca/quote.html"
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="css/styles.css?v=20260513k">
+  <script src="js/i18n.js?v=20260513k" defer></script>
 </head>
 <body>
 
@@ -83,6 +103,14 @@
   </nav>
 
     <main id="main" tabindex="-1">
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container">
+      <ol>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li aria-current="page" data-i18n="nav.quote">Get a Quote</li>
+      </ol>
+    </div>
+  </nav>
 <!-- Page Hero -->
   <section class="page-hero" style="background-image: image-set(url('images/mogotes.webp') type('image/webp'),url('images/mogotes.jpg'))">
     <div class="page-hero-content">
@@ -633,6 +661,21 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260513j" defer></script>
+  <script src="js/main.js?v=20260513k" defer></script>
+
+  <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
+  <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>
+    <p id="cc-desc"><strong id="cc-title" data-i18n="cookie.title">Cookies &amp; privacy</strong> &mdash;
+      <span data-i18n="cookie.body">We use essential cookies to remember your language and form progress. No tracking, no ads.</span>
+      <a href="privacy.html" data-i18n="cookie.learn">Learn more</a>.</p>
+    <div class="cookie-consent-actions">
+      <button type="button" class="btn btn-primary btn-sm" id="cc-accept" data-i18n="cookie.accept">OK, got it</button>
+    </div>
+  </div>
+
+  <!-- Back-to-top -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
 </body>
 </html>

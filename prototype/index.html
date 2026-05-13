@@ -42,8 +42,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="prefetch" href="quote.html" as="document">
   <link rel="preload" as="image" href="images/hero-divers.webp" type="image/webp" fetchpriority="high">
-  <link rel="stylesheet" href="css/styles.css?v=20260513j">
-  <script src="js/i18n.js?v=20260513j" defer></script>
+  <link rel="stylesheet" href="css/styles.css?v=20260513k">
+  <script src="js/i18n.js?v=20260513k" defer></script>
 
   <!-- Structured data: TravelAgency -->
   <script type="application/ld+json">
@@ -95,6 +95,59 @@
       "name": "All-inclusive Cuba dive package",
       "description": "7 nights at Hotel Faro Luna, 3 meals/day, airport transfers, 10 boat dives, PADI instructor.",
       "areaServed": "Cuba"
+    }
+  }
+  </script>
+
+  <!-- Structured data: LocalBusiness (richer than TravelAgency alone — surfaces in Maps + Knowledge Panel) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.scubacuba.ca/#business",
+    "name": "ScubaCuba.ca",
+    "url": "https://www.scubacuba.ca/",
+    "image": "https://www.scubacuba.ca/images/hero-divers.jpg",
+    "logo": "https://www.scubacuba.ca/images/logo-icon.png",
+    "description": "Canadian dive travel operation specializing in all-inclusive scuba diving vacations to Cuba. PADI-instructor-led group trips to Faro Luna (Cienfuegos) and Guajimico year-round.",
+    "telephone": "+1-647-221-7282",
+    "email": "info@scubacuba.ca",
+    "priceRange": "$$",
+    "currenciesAccepted": "CAD, USD",
+    "paymentAccepted": "Credit Card, Bank Transfer, E-transfer",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2010 Winston Park Drive, Suite #200",
+      "addressLocality": "Oakville",
+      "addressRegion": "ON",
+      "postalCode": "L6H 5R7",
+      "addressCountry": "CA"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": "43.4816", "longitude": "-79.7064" },
+    "areaServed": [
+      { "@type": "Country", "name": "Canada" },
+      { "@type": "Country", "name": "United States" },
+      { "@type": "Country", "name": "Cuba" }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/AquaSubScuba",
+      "https://www.youtube.com/@scubacubaca8447",
+      "https://twitter.com/AquaSub"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "51",
+      "bestRating": "5",
+      "worstRating": "1"
     }
   }
   </script>
@@ -792,6 +845,21 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260513j" defer></script>
+  <script src="js/main.js?v=20260513k" defer></script>
+
+  <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
+  <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>
+    <p id="cc-desc"><strong id="cc-title" data-i18n="cookie.title">Cookies &amp; privacy</strong> &mdash;
+      <span data-i18n="cookie.body">We use essential cookies to remember your language and form progress. No tracking, no ads.</span>
+      <a href="privacy.html" data-i18n="cookie.learn">Learn more</a>.</p>
+    <div class="cookie-consent-actions">
+      <button type="button" class="btn btn-primary btn-sm" id="cc-accept" data-i18n="cookie.accept">OK, got it</button>
+    </div>
+  </div>
+
+  <!-- Back-to-top -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
 </body>
 </html>
