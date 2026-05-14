@@ -420,9 +420,14 @@ a:hover { color: var(--ocean-deep); }
 }
 
 /* Mobile: scale the image up a bit so vertical crop happens and we can
-   pull the divers into the center of the screen instead of the top. */
+   pull the divers into the center of the screen instead of the top.
+   Also swap to a smaller variant (1280w) so we don't ship 142KB to phones. */
 @media (max-width: 768px) {
   .hero-bg {
+    background-image: image-set(
+      url('../images/hero-divers-mobile.webp') type('image/webp'),
+      url('../images/hero-divers-mobile.jpg')
+    ) !important;
     background-size: auto 145%;
     background-position: 60% 30%;
   }

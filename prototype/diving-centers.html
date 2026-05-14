@@ -33,7 +33,8 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"></noscript>
   <link rel="preload" as="image" href="images/underwater/gorgonian-garden.webp" type="image/webp" fetchpriority="high">
   <script type="application/ld+json">
   {
@@ -55,8 +56,8 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="css/styles.css?v=20260513k">
-  <script src="js/i18n.js?v=20260513k" defer></script>
+  <link rel="stylesheet" href="css/styles.min.css?v=20260513m">
+  <script src="js/i18n.min.js?v=20260513m" defer></script>
 </head>
 <body>
 
@@ -70,7 +71,7 @@
   <!-- Header -->
   <header class="header">
     <div class="header-inner">
-      <a href="index.html" class="header-logo"><picture><source srcset="images/logo-icon.webp" type="image/webp"><img src="images/logo-icon.png" alt="" class="logo-icon"></picture><span class="logo-wordmark">ScubaCuba<span>.ca</span></span></a>
+      <a href="index.html" class="header-logo"><picture><source srcset="images/logo-icon.webp" type="image/webp"><img src="images/logo-icon.png" width="512" height="512" alt="" class="logo-icon"></picture><span class="logo-wordmark">ScubaCuba<span>.ca</span></span></a>
       <nav class="nav-desktop">
         <a href="index.html" data-i18n="nav.home">Home</a>
         <a href="diving-centers.html" class="active" data-i18n="nav.destinations">Destinations</a>
@@ -135,7 +136,7 @@
       <!-- Faro Luna -->
       <div class="spotlight-card">
         <div class="spotlight-img">
-          <picture><source srcset="images/underwater/gorgonian-garden.webp" type="image/webp"><img src="images/underwater/gorgonian-garden.jpg" alt="Faro Luna Dive Center, Cienfuegos" loading="lazy"></picture>
+          <picture><source srcset="images/underwater/gorgonian-garden.webp" type="image/webp"><img src="images/underwater/gorgonian-garden.jpg" width="1600" height="1067" alt="Faro Luna Dive Center, Cienfuegos" loading="lazy"></picture>
           <div class="spotlight-overlay"></div>
           <span class="spotlight-badge" data-i18n="home.dest.faroluna.badge">Flagship Resort</span>
         </div>
@@ -158,7 +159,7 @@
       <!-- Guajimico -->
       <div class="spotlight-card spotlight-reverse">
         <div class="spotlight-img">
-          <picture><source srcset="images/underwater/reef-sponge-porkfish.webp" type="image/webp"><img src="images/underwater/reef-sponge-porkfish.jpg" alt="Guajimico Eco-Retreat" loading="lazy"></picture>
+          <picture><source srcset="images/underwater/reef-sponge-porkfish.webp" type="image/webp"><img src="images/underwater/reef-sponge-porkfish.jpg" width="1024" height="768" alt="Guajimico Eco-Retreat" loading="lazy"></picture>
           <div class="spotlight-overlay"></div>
           <span class="spotlight-badge" data-i18n="home.dest.guajimico.badge">Eco-Retreat &middot; New</span>
         </div>
@@ -184,7 +185,7 @@
         <div class="excursion-grid">
           <div class="excursion-card">
             <div class="excursion-card-img">
-              <picture><source srcset="images/town/trinidad-colonial-building.webp" type="image/webp"><img src="images/town/trinidad-colonial-building.jpg" alt="Trinidad, Cuba" loading="lazy"></picture>
+              <picture><source srcset="images/town/trinidad-colonial-building.webp" type="image/webp"><img src="images/town/trinidad-colonial-building.jpg" width="1600" height="1600" alt="Trinidad, Cuba" loading="lazy"></picture>
               <div class="excursion-card-overlay"></div>
             </div>
             <div class="excursion-card-content">
@@ -194,7 +195,7 @@
           </div>
           <div class="excursion-card">
             <div class="excursion-card-img">
-              <picture><source srcset="images/landscape/nicho-waterfall.webp" type="image/webp"><img src="images/landscape/nicho-waterfall.jpg" alt="Nicho Waterfalls" loading="lazy"></picture>
+              <picture><source srcset="images/landscape/nicho-waterfall.webp" type="image/webp"><img src="images/landscape/nicho-waterfall.jpg" width="1600" height="1067" alt="Nicho Waterfalls" loading="lazy"></picture>
               <div class="excursion-card-overlay"></div>
             </div>
             <div class="excursion-card-content">
@@ -204,7 +205,7 @@
           </div>
           <div class="excursion-card">
             <div class="excursion-card-img">
-              <picture><source srcset="images/town/cienfuegos-dome-sunset.webp" type="image/webp"><img src="images/town/cienfuegos-dome-sunset.jpg" alt="Cienfuegos Bay" loading="lazy"></picture>
+              <picture><source srcset="images/town/cienfuegos-dome-sunset.webp" type="image/webp"><img src="images/town/cienfuegos-dome-sunset.jpg" width="1440" height="1080" alt="Cienfuegos Bay" loading="lazy"></picture>
               <div class="excursion-card-overlay"></div>
             </div>
             <div class="excursion-card-content">
@@ -254,7 +255,7 @@
         <div class="trust-mark"><div class="tm-stack"><span>PADI<sup>&reg;</sup> 5-Star</span><span class="tm-sub">IDC Center</span></div></div>
         <div class="trust-mark"><div class="tm-stack"><span>TICO</span><span class="tm-sub">#5003057</span></div></div>
         <div class="trust-mark"><div class="tm-stack"><span>TPI &middot; Trevello</span><span class="tm-sub">Travel Group</span></div></div>
-        <div class="trust-mark"><picture><source srcset="images/marlin-logo.webp" type="image/webp"><img src="images/marlin-logo.png" alt="MARLIN"></picture></div>
+        <div class="trust-mark"><picture><source srcset="images/marlin-logo.webp" type="image/webp"><img src="images/marlin-logo.png" width="225" height="225" alt="MARLIN"></picture></div>
         <div class="trust-mark"><img src="images/holasun-logo.svg" alt="Hola Sun Holidays"></div>
         <div class="trust-mark"><div class="tm-stack"><span class="tm-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="tm-sub">4.9/5 &middot; 51 reviews</span></div></div>
       </div>
@@ -266,7 +267,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <picture><source srcset="images/logo-icon.webp" type="image/webp"><img src="images/logo-icon.png" alt="" class="logo-icon"></picture><span class="logo-wordmark">ScubaCuba<span>.ca</span></span>
+          <picture><source srcset="images/logo-icon.webp" type="image/webp"><img src="images/logo-icon.png" width="512" height="512" alt="" class="logo-icon"></picture><span class="logo-wordmark">ScubaCuba<span>.ca</span></span>
           <p data-i18n="footer.brand.desc">All-inclusive scuba diving vacations in Cuba. A partnership between MARLIN, Aquasub Scuba Diving Centre, and Hola Sun Holidays.</p>
           <div class="footer-social">
             <a href="https://www.facebook.com/AquaSubScuba" aria-label="Facebook">f</a>
@@ -330,7 +331,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=20260513k" defer></script>
+  <script src="js/main.min.js?v=20260513m" defer></script>
 
   <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
   <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>
