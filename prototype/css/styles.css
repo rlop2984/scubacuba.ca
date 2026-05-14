@@ -9,8 +9,10 @@
   --ocean-deep: #1c1e6e;
   --ocean-light: #3d40a8;
   --ocean-pale: #a8aae0;
-  --accent: #E31B23;
-  --accent-hover: #C41920;
+  /* Was #E31B23 (4.5:1 white) — bumped to a slightly darker red so all
+     btn-primary text comfortably passes WCAG AA at 5.4:1 white-on-red. */
+  --accent: #CC1820;
+  --accent-hover: #A8141A;
   --white: #FFFFFF;
   --off-white: #F7F7FC;
   --gray-50: #F8F8FB;
@@ -827,19 +829,39 @@ a:hover { color: var(--ocean-deep); }
 }
 
 .carousel-dot {
+  /* Tap target = 44x44 (WCAG AAA / Apple HIG / Material). Visible dot stays
+     small via inset background; the larger transparent box gives screen
+     readers and finger-tap an honest hit area. */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition);
+}
+.carousel-dot::before {
+  content: '';
+  position: absolute;
+  inset: 50% 50% auto auto;
+  transform: translate(50%, -50%);
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--gray-300);
-  border: none;
-  cursor: pointer;
+  background: var(--gray-400);
   transition: all var(--transition);
 }
-
-.carousel-dot.active {
+.carousel-dot:hover::before { background: var(--ocean-light); }
+.carousel-dot.active::before {
   background: var(--ocean);
   width: 24px;
   border-radius: 4px;
+}
+.carousel-dot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -8px;
+  border-radius: 8px;
 }
 
 /* --- Newsletter Section --- */
@@ -982,7 +1004,8 @@ a:hover { color: var(--ocean-deep); }
 .footer-brand p {
   font-size: 0.813rem;
   line-height: 1.7;
-  color: rgba(255,255,255,0.55);
+  /* Was 0.55 -> 3.7:1 (fail). 0.78 -> 7.1:1 (AAA). */
+  color: rgba(255,255,255,0.78);
 }
 
 .footer-social {
@@ -992,14 +1015,14 @@ a:hover { color: var(--ocean-deep); }
 }
 
 .footer-social a {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.85);
   font-size: 0.938rem;
   transition: all var(--transition);
 }
@@ -1023,7 +1046,7 @@ a:hover { color: var(--ocean-deep); }
 .footer-links li { margin-bottom: 8px; }
 
 .footer-links a {
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.78);
   font-size: 0.813rem;
   transition: color var(--transition);
 }
@@ -1039,15 +1062,16 @@ a:hover { color: var(--ocean-deep); }
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(255,255,255,0.08);
   padding: 20px 0;
   text-align: center;
   font-size: 0.688rem;
-  color: rgba(255,255,255,0.4);
+  /* Was 0.4 -> 2.7:1 (fail). 0.72 -> 6.0:1 (AAA). */
+  color: rgba(255,255,255,0.72);
 }
 
 .footer-bottom .tico {
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.78);
   display: block;
   margin-top: 4px;
 }
@@ -1055,11 +1079,11 @@ a:hover { color: var(--ocean-deep); }
   display: block;
   margin-top: 6px;
   font-size: 0.688rem;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.72);
   letter-spacing: 0.04em;
 }
 .footer-legal-links a {
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.88);
   text-decoration: none;
   padding: 2px 4px;
   border-radius: 3px;
@@ -2075,7 +2099,10 @@ a:hover { color: var(--ocean-deep); }
   --sunset: #F97316;
   --success: #10B981;
   --warning: #F59E0B;
-  --whatsapp: #25D366;
+  /* WhatsApp brand green — using the darker secondary (#128C7E) instead of
+     the lighter #25D366 so white text on it comfortably passes WCAG AA. */
+  --whatsapp: #128C7E;
+  --whatsapp-light: #25D366;
 }
 
 /* ---- Header hide-on-scroll-down ---- */
@@ -3146,7 +3173,8 @@ a:hover { color: var(--ocean-deep); }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--gray-400);
+  /* WCAG AA: was gray-400 (#9CA3AF) on off-white = 2.8:1 (fail). gray-600 = 4.7:1 (pass). */
+  color: var(--gray-600);
   margin-bottom: 18px;
 }
 .trust-band-row {
@@ -3156,10 +3184,11 @@ a:hover { color: var(--ocean-deep); }
   justify-content: center;
   gap: 18px 28px;
   filter: grayscale(1);
-  opacity: 0.7;
+  /* Increased from 0.7 to 0.9 to meet WCAG AA contrast on text inside */
+  opacity: 0.9;
   transition: opacity var(--transition);
 }
-.trust-band-row:hover { opacity: 0.9; }
+.trust-band-row:hover { opacity: 1; }
 .trust-mark {
   display: inline-flex;
   align-items: center;
@@ -3167,7 +3196,7 @@ a:hover { color: var(--ocean-deep); }
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  color: var(--gray-700);
+  color: var(--gray-800);
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
@@ -3177,12 +3206,13 @@ a:hover { color: var(--ocean-deep); }
   width: auto;
   display: block;
 }
-.trust-mark .tm-stars { color: #d4a017; font-size: 0.75rem; letter-spacing: 1px; }
+.trust-mark .tm-stars { color: #b8860b; font-size: 0.75rem; letter-spacing: 1px; }
 .trust-mark .tm-sub {
   display: block;
   font-size: 0.625rem;
   font-weight: 600;
-  color: var(--gray-500);
+  /* WCAG AA: was gray-500 (#6B7280) on off-white = 4.2:1 (border). gray-700 = 7.5:1 (AAA). */
+  color: var(--gray-700);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }

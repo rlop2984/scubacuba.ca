@@ -44,8 +44,8 @@
     <link rel="prefetch" href="quote.html" as="document">
   <link rel="preload" as="image" href="images/hero-divers.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
   <link rel="preload" as="image" href="images/hero-divers-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
-  <link rel="stylesheet" href="css/styles.min.css?v=20260513m">
-  <script src="js/i18n.min.js?v=20260513m" defer></script>
+  <link rel="stylesheet" href="css/styles.min.css?v=20260513n">
+  <script src="js/i18n.min.js?v=20260513n" defer></script>
 
   <!-- Structured data: TravelAgency -->
   <script type="application/ld+json">
@@ -518,49 +518,49 @@
         <div class="day-step">
           <div class="day-time">7:30<br>AM</div>
           <div class="day-body">
-            <h4 data-i18n="home.day.s1.title">Breakfast at the hotel</h4>
+            <h3 data-i18n="home.day.s1.title">Breakfast at the hotel</h3>
             <p data-i18n="home.day.s1.desc">Fresh fruit, eggs your way, strong Cuban coffee. The dive center is a 100m walk down to the water.</p>
           </div>
         </div>
         <div class="day-step">
           <div class="day-time">9:00<br>AM</div>
           <div class="day-body">
-            <h4 data-i18n="home.day.s2.title">Boat dive #1 — the wall</h4>
+            <h3 data-i18n="home.day.s2.title">Boat dive #1 — the wall</h3>
             <p data-i18n="home.day.s2.desc">The reef wall starts 60 meters offshore and drops past 30m. Gorgonians, schooling fish, sometimes turtles or a curious shark.</p>
           </div>
         </div>
         <div class="day-step">
           <div class="day-time">11:30<br>AM</div>
           <div class="day-body">
-            <h4 data-i18n="home.day.s3.title">Surface interval &amp; snack on the boat</h4>
+            <h3 data-i18n="home.day.s3.title">Surface interval &amp; snack on the boat</h3>
             <p data-i18n="home.day.s3.desc">Coffee, water, fresh fruit — and time to swap stories with the rest of the group.</p>
           </div>
         </div>
         <div class="day-step">
           <div class="day-time">12:30<br>PM</div>
           <div class="day-body">
-            <h4 data-i18n="home.day.s4.title">Boat dive #2 — shallow reef or wreck</h4>
+            <h3 data-i18n="home.day.s4.title">Boat dive #2 — shallow reef or wreck</h3>
             <p data-i18n="home.day.s4.desc">Shorter, shallower, perfect for photography. Marine life is denser in the 12&ndash;18m range.</p>
           </div>
         </div>
         <div class="day-step">
           <div class="day-time">2:00<br>PM</div>
           <div class="day-body">
-            <h4 data-i18n="home.day.s5.title">Lunch by the pool</h4>
+            <h3 data-i18n="home.day.s5.title">Lunch by the pool</h3>
             <p data-i18n="home.day.s5.desc">Grilled fish, rice &amp; beans, ropa vieja, plantains. Free drinks at the bar all afternoon.</p>
           </div>
         </div>
         <div class="day-step">
           <div class="day-time" data-i18n="home.day.s6.time">FREE</div>
           <div class="day-body">
-            <h4 data-i18n="home.day.s6.title">The Cuban afternoon is yours</h4>
+            <h3 data-i18n="home.day.s6.title">The Cuban afternoon is yours</h3>
             <p data-i18n="home.day.s6.desc">Nap with the breeze. Hop a taxi to Cienfuegos. Hike Nicho. Day-trip to Trinidad. Or another shore dive — your call.</p>
           </div>
         </div>
         <div class="day-step">
           <div class="day-time">7:00<br>PM</div>
           <div class="day-body">
-            <h4 data-i18n="home.day.s7.title">Dinner &amp; mojitos at sunset</h4>
+            <h3 data-i18n="home.day.s7.title">Dinner &amp; mojitos at sunset</h3>
             <p data-i18n="home.day.s7.desc">The hotel restaurant overlooks the sea. Some nights we head into town for live music in Trinidad.</p>
           </div>
         </div>
@@ -615,10 +615,10 @@
             </div>
           </div>
         </div>
-        <div class="carousel-dots">
-          <button class="carousel-dot active" data-index="0"></button>
-          <button class="carousel-dot" data-index="1"></button>
-          <button class="carousel-dot" data-index="2"></button>
+        <div class="carousel-dots" role="tablist" aria-label="Testimonials">
+          <button type="button" class="carousel-dot active" data-index="0" role="tab" aria-selected="true" aria-label="Show testimonial 1" data-i18n-aria-label="testimonials.dot.1"></button>
+          <button type="button" class="carousel-dot" data-index="1" role="tab" aria-selected="false" aria-label="Show testimonial 2" data-i18n-aria-label="testimonials.dot.2"></button>
+          <button type="button" class="carousel-dot" data-index="2" role="tab" aria-selected="false" aria-label="Show testimonial 3" data-i18n-aria-label="testimonials.dot.3"></button>
         </div>
       </div>
     </div>
@@ -710,10 +710,13 @@
       </ul>
       <form class="newsletter-form" id="newsletter-form">
         <div class="form-row">
-          <input type="text" name="name" placeholder="Your name" data-i18n-placeholder="home.newsletter.name" required>
-          <input type="email" name="email" placeholder="Your email" data-i18n-placeholder="home.newsletter.email" required>
+          <label class="sr-only" for="nl-name" data-i18n="home.newsletter.name">Your name</label>
+          <input id="nl-name" type="text" name="name" placeholder="Your name" data-i18n-placeholder="home.newsletter.name" autocomplete="name" required>
+          <label class="sr-only" for="nl-email" data-i18n="home.newsletter.email">Your email</label>
+          <input id="nl-email" type="email" name="email" placeholder="Your email" data-i18n-placeholder="home.newsletter.email" autocomplete="email" required>
         </div>
-        <select name="dive_level">
+        <label class="sr-only" for="nl-level" data-i18n="home.newsletter.level">Your diving level</label>
+        <select id="nl-level" name="dive_level" aria-label="Your diving level" data-i18n-aria-label="home.newsletter.level">
           <option value="" disabled selected data-i18n="home.newsletter.level">Your diving level</option>
           <option value="non-diver" data-i18n="home.newsletter.level.nondiver">Non-diver (interested in learning)</option>
           <option value="open-water" data-i18n="home.newsletter.level.ow">Open Water Diver</option>
@@ -792,7 +795,7 @@
           </div>
         </div>
         <div>
-          <h4 data-i18n="footer.quicklinks">Quick Links</h4>
+          <h3 data-i18n="footer.quicklinks">Quick Links</h4>
           <ul class="footer-links">
             <li><a href="diving-centers.html" data-i18n="nav.destinations">Destinations</a></li>
             <li><a href="upcoming-trips.html" data-i18n="nav.trips">Upcoming Trips</a></li>
@@ -802,7 +805,7 @@
           </ul>
         </div>
         <div>
-          <h4 data-i18n="footer.destinations">Destinations</h4>
+          <h3 data-i18n="footer.destinations">Destinations</h4>
           <ul class="footer-links">
             <li><a href="diving-centers.html">Faro Luna, Cienfuegos</a></li>
             <li><a href="diving-centers.html">Guajimico Eco-Retreat</a></li>
@@ -811,7 +814,7 @@
           </ul>
         </div>
         <div class="footer-contact">
-          <h4 data-i18n="footer.contact">Contact Us</h4>
+          <h3 data-i18n="footer.contact">Contact Us</h4>
           <p>&#128222; <a href="tel:+16472217282">+1 (647) 221-7282</a></p>
           <p>&#9993; <a href="mailto:info@scubacuba.ca">info@scubacuba.ca</a></p>
           <p>&#128205; <span data-i18n="footer.location">Richmond Hill, Ontario, Canada</span></p>
@@ -847,7 +850,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=20260513m" defer></script>
+  <script src="js/main.min.js?v=20260513n" defer></script>
 
   <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
   <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>

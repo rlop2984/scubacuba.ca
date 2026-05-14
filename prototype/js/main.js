@@ -82,7 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentSlide > maxSlide) currentSlide = maxSlide;
       const offset = -(currentSlide * (100 / slidesPerView));
       track.style.transform = `translateX(${offset}%)`;
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+      dots.forEach((dot, i) => {
+        const isActive = i === currentSlide;
+        dot.classList.toggle('active', isActive);
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
     }
 
     dots.forEach(dot => {
