@@ -3611,26 +3611,70 @@ a:hover { color: var(--ocean-deep); }
   font-style: italic;
 }
 
-/* Slider wrapper — relative for arrow positioning */
+/* Slider wrapper — relative for arrow + fade overlays */
 .resort-gallery-wrap {
   position: relative;
 }
 
-/* Horizontal scroll container with snap. The user swipes naturally on
-   touch, or uses the arrows + keyboard on desktop. */
+/* Right-edge gradient fade — visual cue that more content is to the right.
+   Switches off via class when the user scrolls to the end. The left fade
+   only appears once the user has scrolled past the start. */
+.resort-gallery-wrap::before,
+.resort-gallery-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 12px;
+  width: 60px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.resort-gallery-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--off-white) 0%, transparent 100%);
+}
+.resort-gallery-wrap::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--off-white) 0%, transparent 100%);
+}
+.resort-gallery-wrap.has-prev::before { opacity: 1; }
+.resort-gallery-wrap.has-next::after  { opacity: 1; }
+
+/* Live counter "3 / 14" pinned to top-right of the slider area */
+.rg-counter {
+  position: absolute;
+  top: -38px;
+  right: 0;
+  font-size: 0.813rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gray-600);
+  background: var(--white);
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--gray-100);
+  z-index: 2;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Horizontal scroll container with snap. */
 .resort-gallery-grid {
   display: flex;
+  align-items: stretch;
   gap: 10px;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: 4px;
+  /* Inline padding so the first/last slide can be centered by snap, and
+     the half-visible neighbour acts as a "there's more" affordance. */
+  scroll-padding-inline: 20px;
+  padding-inline: 4px;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   padding-bottom: 12px;
-  /* Prevent vertical scroll capture when swiping horizontally */
   overscroll-behavior-x: contain;
-  /* Slim scrollbar */
   scrollbar-width: thin;
   scrollbar-color: var(--gray-300) transparent;
 }
@@ -3646,31 +3690,36 @@ a:hover { color: var(--ocean-deep); }
   border-radius: 12px;
 }
 
+/* Each slide: FIXED HEIGHT, width auto = follows the photo's real
+   aspect ratio. Portrait shots get a tall narrow card, landscape gets a
+   wider one. Nothing gets cropped by aspect-ratio mismatch. */
 .resort-gallery-grid picture {
-  display: block;
-  flex: 0 0 240px;
+  flex: 0 0 auto;
+  height: 240px;
   scroll-snap-align: center;
   border-radius: 10px;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
   background: var(--gray-100);
   box-shadow: 0 2px 10px rgba(18, 18, 42, 0.06);
   transition: transform var(--transition), box-shadow var(--transition);
+  display: block;
 }
-@media (min-width: 600px) { .resort-gallery-grid picture { flex-basis: 300px; } }
-@media (min-width: 1024px) { .resort-gallery-grid picture { flex-basis: 360px; } }
+@media (min-width: 600px)  { .resort-gallery-grid picture { height: 280px; } }
+@media (min-width: 1024px) { .resort-gallery-grid picture { height: 340px; } }
 .resort-gallery-grid picture:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 22px rgba(18, 18, 42, 0.14);
 }
 .resort-gallery-grid img {
-  width: 100%;
   height: 100%;
+  width: auto;
+  max-width: none;
   object-fit: cover;
   display: block;
 }
 
-/* Prev / Next arrows (desktop) — overlay on the slider */
+/* Prev / Next arrows — overlay on the slider, now visible on mobile too
+   so the user has an obvious tap target ("there's more to see"). */
 .rg-arrow {
   position: absolute;
   top: 50%;
@@ -3678,33 +3727,35 @@ a:hover { color: var(--ocean-deep); }
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid rgba(18,18,42,0.08);
-  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(18,18,42,0.1);
+  background: rgba(255,255,255,0.94);
   color: var(--gray-800);
   font-size: 1.5rem;
   cursor: pointer;
   display: grid;
   place-items: center;
-  box-shadow: 0 6px 18px rgba(18,18,42,0.12);
-  z-index: 2;
-  transition: background 0.15s, transform 0.15s, opacity 0.15s;
+  box-shadow: 0 6px 18px rgba(18,18,42,0.14);
+  z-index: 3;
+  transition: background 0.15s, transform 0.15s, opacity 0.2s;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
+  -webkit-tap-highlight-color: transparent;
 }
 .rg-arrow:hover {
   background: var(--white);
   transform: translateY(-50%) scale(1.06);
 }
 .rg-arrow:disabled {
-  opacity: 0.35;
+  opacity: 0;
   cursor: not-allowed;
-  transform: translateY(-50%);
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.9);
 }
-.rg-prev { left: -8px; }
-.rg-next { right: -8px; }
-@media (max-width: 768px) {
-  /* Hide arrows on mobile — touch swipe is the natural input */
-  .rg-arrow { display: none; }
+.rg-prev { left: 4px; }
+.rg-next { right: 4px; }
+@media (min-width: 768px) {
+  .rg-prev { left: -10px; }
+  .rg-next { right: -10px; }
 }
 
 /* ---- Photographer credit (gallery) ---- */
