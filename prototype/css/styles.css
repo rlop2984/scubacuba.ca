@@ -2971,6 +2971,34 @@ a:hover { color: var(--ocean-deep); }
   margin-bottom: 14px;
 }
 .footer-agency .agency-affiliate strong { color: rgba(255,255,255,0.95); font-weight: 700; }
+.footer-agency .agency-direct {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.938rem;
+  margin: 0 0 18px;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: rgba(204, 24, 32, 0.08);
+  border-radius: 6px;
+  color: rgba(255,255,255,0.92);
+}
+.footer-agency .agency-direct strong {
+  color: rgba(255,255,255,0.95);
+  font-weight: 700;
+  font-size: 0.813rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.footer-agency .agency-direct a {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1rem;
+  border-bottom: none;
+  letter-spacing: 0.01em;
+}
+.footer-agency .agency-direct a:hover { color: var(--accent); }
 .footer-agency-grid {
   display: grid;
   grid-template-columns: 1fr;

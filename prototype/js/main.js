@@ -713,17 +713,32 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       if (!validateStep(currentStep)) return;
 
-      // Prepend the destination choice into the special-requests textarea so it
-      // lands in the existing Jotform inbox alongside user notes.
+      // Prepend the destination choice as a HIGHLY visible banner at the top of
+      // the special-requests textarea — that field is the most prominent free-text
+      // section in the email Norbert receives, so the destination can't be missed.
       const destInput = stepForm.querySelector('input[name="qcl_destination"]:checked');
       const notes = stepForm.querySelector('textarea[name="q73_doYou"]');
       let originalNotes = null;
       if (destInput && notes) {
         originalNotes = notes.value;
-        const prefix = `Destination: ${destInput.value}`;
+        const banner = [
+          '================================',
+          `>>> DESTINATION: ${destInput.value.toUpperCase()} <<<`,
+          '================================',
+        ].join('\n');
         notes.value = originalNotes && originalNotes.trim()
-          ? `${prefix}\n\n${originalNotes}`
-          : prefix;
+          ? `${banner}\n\n${originalNotes}`
+          : banner;
+      }
+      // Also append destination to the "How did you hear about us" checkbox group
+      // as a synthetic value, so it appears in another email field too — belt &
+      // suspenders. Jotform accepts unexpected values in checkbox arrays.
+      if (destInput) {
+        const synthetic = document.createElement('input');
+        synthetic.type = 'hidden';
+        synthetic.name = 'q85_howDid[]';
+        synthetic.value = `[Destination requested: ${destInput.value}]`;
+        stepForm.appendChild(synthetic);
       }
 
       // Remove name attribute from fields inside hidden companion blocks so they aren't submitted
