@@ -56,8 +56,8 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="css/styles.min.css?v=20260515b">
-  <script src="js/i18n.min.js?v=20260515b" defer></script>
+  <link rel="stylesheet" href="css/styles.min.css?v=20260515c">
+  <script src="js/i18n.min.js?v=20260515c" defer></script>
 </head>
 <body>
 
@@ -253,6 +253,14 @@
     </div>
   </section>
 
+  <!-- Lightbox (click any photo in the resort galleries to enlarge) -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close" data-i18n-aria-label="lightbox.close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous" data-i18n-aria-label="lightbox.prev">&#8249;</button>
+    <button class="lightbox-nav lightbox-next" aria-label="Next" data-i18n-aria-label="lightbox.next">&#8250;</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
   <!-- Sticky mobile CTA bar -->
   <div class="mobile-cta-bar is-hidden">
     <a href="quote.html" class="mcta-quote"><span class="mcta-label" data-i18n="cta.quote.mobile">Get a free quote</span></a>
@@ -358,7 +366,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=20260515b" defer></script>
+  <script src="js/main.min.js?v=20260515c" defer></script>
 
   <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
   <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>

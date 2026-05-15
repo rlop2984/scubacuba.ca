@@ -192,76 +192,148 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ---- Lightbox ----
+  // ---- Universal Lightbox ---------------------------------------------------
+  // Works on ANY group: .gallery-grid .gallery-item OR .resort-gallery-grid picture.
+  // Click the small thumbnail → opens a full-screen viewer with the image at
+  // its largest available resolution, with prev/next, counter, and caption.
   const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxClose = document.querySelector('.lightbox-close');
-  const lightboxPrev = document.querySelector('.lightbox-prev');
-  const lightboxNext = document.querySelector('.lightbox-next');
+  if (lightbox) {
+    const lightboxImg     = document.getElementById('lightbox-img');
+    const lightboxClose   = document.querySelector('.lightbox-close');
+    const lightboxPrev    = document.querySelector('.lightbox-prev');
+    const lightboxNext    = document.querySelector('.lightbox-next');
+    let lightboxCounter   = document.querySelector('.lightbox-counter');
+    let lightboxCaption   = document.querySelector('.lightbox-caption');
+    // Lazily create counter + caption if the host page didn't include them
+    if (!lightboxCounter) {
+      lightboxCounter = document.createElement('div');
+      lightboxCounter.className = 'lightbox-counter';
+      lightbox.appendChild(lightboxCounter);
+    }
+    if (!lightboxCaption) {
+      lightboxCaption = document.createElement('div');
+      lightboxCaption.className = 'lightbox-caption';
+      lightbox.appendChild(lightboxCaption);
+    }
 
-  if (lightbox && galleryItems.length) {
+    let group = [];            // currently active group of <img> elements
     let lightboxIndex = 0;
-    const visibleImages = () => Array.from(galleryItems).filter(item => item.style.display !== 'none');
 
-    galleryItems.forEach((item, i) => {
-      item.addEventListener('click', () => {
-        const visible = visibleImages();
-        lightboxIndex = visible.indexOf(item);
-        const img = item.querySelector('img');
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
+    function imgsInGroup(container) {
+      // For .gallery-grid: visible .gallery-item > img
+      // For .resort-gallery-grid: picture > img
+      if (container.classList.contains('gallery-grid')) {
+        return Array.from(container.querySelectorAll('.gallery-item'))
+          .filter(it => it.style.display !== 'none')
+          .map(it => it.querySelector('img'))
+          .filter(Boolean);
+      }
+      return Array.from(container.querySelectorAll('img'));
+    }
+
+    function paint() {
+      const img = group[lightboxIndex];
+      if (!img) return;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || '';
+      lightboxCounter.textContent = `${lightboxIndex + 1} / ${group.length}`;
+      lightboxCaption.textContent = img.alt || '';
+      // Hide nav when only one image
+      const single = group.length <= 1;
+      if (lightboxPrev) lightboxPrev.style.visibility = single ? 'hidden' : '';
+      if (lightboxNext) lightboxNext.style.visibility = single ? 'hidden' : '';
+    }
+
+    function open(container, img) {
+      group = imgsInGroup(container);
+      lightboxIndex = Math.max(0, group.indexOf(img));
+      paint();
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lightboxClose && lightboxClose.focus();
+    }
+
+    function close() {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+      group = [];
+    }
+
+    function prev() {
+      if (!group.length) return;
+      lightboxIndex = (lightboxIndex - 1 + group.length) % group.length;
+      paint();
+    }
+    function next() {
+      if (!group.length) return;
+      lightboxIndex = (lightboxIndex + 1) % group.length;
+      paint();
+    }
+
+    // Wire up every gallery group on the page
+    document.querySelectorAll('.gallery-grid, .resort-gallery-grid').forEach(grid => {
+      grid.addEventListener('click', e => {
+        const img = e.target.closest('img');
+        if (!img) return;
+        // For .gallery-grid, allow clicking anywhere on .gallery-item
+        const container = grid.classList.contains('gallery-grid')
+          ? grid
+          : grid;
+        // Prevent clicks on links (e.g. wrapping the picture) from following
+        const wrappingLink = e.target.closest('a');
+        if (wrappingLink) e.preventDefault();
+        open(container, img);
+      });
+      // Cursor + a11y hint
+      grid.querySelectorAll('img').forEach(img => {
+        img.style.cursor = 'zoom-in';
+        if (!img.closest('a')) {
+          // Make non-link images keyboard-focusable
+          img.setAttribute('tabindex', '0');
+          img.setAttribute('role', 'button');
+          if (!img.hasAttribute('aria-label')) {
+            img.setAttribute('aria-label', `View ${img.alt || 'image'} larger`);
+          }
+        }
+      });
+      // Keyboard activation (Enter / Space)
+      grid.addEventListener('keydown', e => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const img = e.target.closest('img');
+        if (!img) return;
+        e.preventDefault();
+        open(grid, img);
       });
     });
 
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-      lightboxImg.src = '';
-    }
-
-    function showPrev() {
-      const visible = visibleImages();
-      lightboxIndex = (lightboxIndex - 1 + visible.length) % visible.length;
-      const img = visible[lightboxIndex].querySelector('img');
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-    }
-
-    function showNext() {
-      const visible = visibleImages();
-      lightboxIndex = (lightboxIndex + 1) % visible.length;
-      const img = visible[lightboxIndex].querySelector('img');
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-    }
-
-    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-    if (lightboxPrev) lightboxPrev.addEventListener('click', showPrev);
-    if (lightboxNext) lightboxNext.addEventListener('click', showNext);
+    if (lightboxClose) lightboxClose.addEventListener('click', close);
+    if (lightboxPrev)  lightboxPrev.addEventListener('click', prev);
+    if (lightboxNext)  lightboxNext.addEventListener('click', next);
 
     lightbox.addEventListener('click', e => {
-      if (e.target === lightbox) closeLightbox();
+      // Close on backdrop click (anywhere outside the image / buttons)
+      if (e.target === lightbox || e.target === lightboxCaption) close();
     });
 
-    // Keyboard navigation
     document.addEventListener('keydown', e => {
       if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') showPrev();
-      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'Escape')      close();
+      if (e.key === 'ArrowLeft')   prev();
+      if (e.key === 'ArrowRight')  next();
     });
 
-    // Swipe in lightbox
+    // Swipe
     let lbTouchStartX = 0;
     lightbox.addEventListener('touchstart', e => {
       lbTouchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
-
     lightbox.addEventListener('touchend', e => {
       const diff = lbTouchStartX - e.changedTouches[0].screenX;
-      if (diff > 50) showNext();
-      else if (diff < -50) showPrev();
+      if (diff > 50) next();
+      else if (diff < -50) prev();
     }, { passive: true });
   }
 
