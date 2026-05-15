@@ -16,6 +16,10 @@
 /*.svg
 !/README.png
 
+# Backup of source photos, organized into subfolders by filename pattern
+# (logos, named-descriptive, wordpress-dated, phone-uploads, uuid-named, misc)
+/originals/
+
 # Keep prototype assets
 !prototype/**
 
