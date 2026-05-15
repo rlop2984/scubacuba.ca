@@ -1046,6 +1046,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Resort photo slider (Faro Luna / Guajimico) ----
   // Each wrapper gets a live counter ("3 / 14") + edge-fade classes
   // (has-prev / has-next) so users always know there's more to see.
+  //
+  // Important: slides have variable widths (portrait vs landscape), so the
+  // arrows must navigate by SLIDE INDEX, not by a fixed pixel delta — else
+  // a single tap can leave the user mid-way between two slides.
   document.querySelectorAll('.resort-gallery-wrap').forEach(wrap => {
     const grid = wrap.querySelector('.resort-gallery-grid');
     const prev = wrap.querySelector('.rg-prev');
@@ -1062,14 +1066,6 @@ document.addEventListener('DOMContentLoaded', () => {
     counter.setAttribute('aria-atomic', 'true');
     wrap.appendChild(counter);
 
-    function step() {
-      const slide = slides[0];
-      if (!slide) return grid.clientWidth * 0.8;
-      const slideWidth = slide.getBoundingClientRect().width;
-      const gap = parseFloat(getComputedStyle(grid).gap) || 10;
-      return slideWidth + gap;
-    }
-
     function currentIndex() {
       // Pick the slide whose center is closest to the viewport center
       const gridRect = grid.getBoundingClientRect();
@@ -1081,6 +1077,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (d < bestDist) { bestDist = d; best = i; }
       });
       return best;
+    }
+
+    function scrollToSlide(idx) {
+      idx = Math.max(0, Math.min(total - 1, idx));
+      const slide = slides[idx];
+      if (!slide) return;
+      // Compute the scrollLeft that puts the slide's center at the grid's
+      // visible center (matching scroll-snap-align: center).
+      const slideOffset = slide.offsetLeft;       // relative to grid (no scrollLeft)
+      const slideWidth  = slide.offsetWidth;
+      const gridVisible = grid.clientWidth;
+      const targetLeft  = slideOffset - (gridVisible - slideWidth) / 2;
+      grid.scrollTo({ left: targetLeft, behavior: 'smooth' });
     }
 
     function refresh() {
@@ -1095,12 +1104,8 @@ document.addEventListener('DOMContentLoaded', () => {
       counter.textContent = `${idx + 1} / ${total}`;
     }
 
-    if (prev) prev.addEventListener('click', () => {
-      grid.scrollBy({ left: -step(), behavior: 'smooth' });
-    });
-    if (next) next.addEventListener('click', () => {
-      grid.scrollBy({ left:  step(), behavior: 'smooth' });
-    });
+    if (prev) prev.addEventListener('click', () => scrollToSlide(currentIndex() - 1));
+    if (next) next.addEventListener('click', () => scrollToSlide(currentIndex() + 1));
 
     let raf = 0;
     grid.addEventListener('scroll', () => {
@@ -1109,10 +1114,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     grid.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft')  { e.preventDefault(); grid.scrollBy({ left: -step(), behavior: 'smooth' }); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); grid.scrollBy({ left:  step(), behavior: 'smooth' }); }
-      if (e.key === 'Home')       { e.preventDefault(); grid.scrollTo({ left: 0, behavior: 'smooth' }); }
-      if (e.key === 'End')        { e.preventDefault(); grid.scrollTo({ left: grid.scrollWidth, behavior: 'smooth' }); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); scrollToSlide(currentIndex() - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); scrollToSlide(currentIndex() + 1); }
+      if (e.key === 'Home')       { e.preventDefault(); scrollToSlide(0); }
+      if (e.key === 'End')        { e.preventDefault(); scrollToSlide(total - 1); }
     });
 
     refresh();
