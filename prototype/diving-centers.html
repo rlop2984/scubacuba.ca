@@ -56,8 +56,8 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="css/styles.min.css?v=20260515e">
-  <script src="js/i18n.min.js?v=20260515e" defer></script>
+  <link rel="stylesheet" href="css/styles.min.css?v=20260515f">
+  <script src="js/i18n.min.js?v=20260515f" defer></script>
 </head>
 <body>
 
@@ -156,18 +156,33 @@
         </div>
       </div>
 
-      <!-- Faro Luna mini-gallery: see the actual hotel -->
-      <div class="resort-gallery" aria-label="Faro Luna hotel photos">
-        <h3 class="resort-gallery-title" data-i18n="dest.faroluna.see">See Faro Luna</h3>
-        <div class="resort-gallery-grid">
-          <picture><source srcset="images/faro-luna/faro-luna-02.webp" type="image/webp"><img src="images/faro-luna/faro-luna-02.jpg" width="1024" height="683" alt="Faro Luna hotel lobby and reception" loading="lazy"></picture>
-          <picture><source srcset="images/faro-luna/faro-luna-08.webp" type="image/webp"><img src="images/faro-luna/faro-luna-08.jpg" width="1024" height="683" alt="Faro Luna guest room with double bed" loading="lazy"></picture>
-          <picture><source srcset="images/faro-luna/faro-luna-09.webp" type="image/webp"><img src="images/faro-luna/faro-luna-09.jpg" width="1024" height="683" alt="Faro Luna dive boat ready for departure" loading="lazy"></picture>
-          <picture><source srcset="images/faro-luna/faro-luna-10.webp" type="image/webp"><img src="images/faro-luna/faro-luna-10.jpg" width="1024" height="683" alt="Faro Luna restaurant table setting" loading="lazy"></picture>
-          <picture><source srcset="images/faro-luna/faro-luna-06.webp" type="image/webp"><img src="images/faro-luna/faro-luna-06.jpg" width="1024" height="683" alt="Faro Luna shore-dive entry dock" loading="lazy"></picture>
-          <picture><source srcset="images/faro-luna/faro-luna-12.webp" type="image/webp"><img src="images/faro-luna/faro-luna-12.jpg" width="1024" height="683" alt="Faro Luna shoreline with palm trees and the hotel" loading="lazy"></picture>
+      <!-- Faro Luna slider: every photo, swipe to browse, tap to enlarge -->
+      <section class="resort-gallery" aria-label="Faro Luna hotel photos">
+        <div class="resort-gallery-head">
+          <h3 class="resort-gallery-title" data-i18n="dest.faroluna.see">See Faro Luna</h3>
+          <span class="resort-gallery-hint" data-i18n="dest.gallery.hint">Swipe or use arrows · tap any photo to enlarge</span>
         </div>
-      </div>
+        <div class="resort-gallery-wrap">
+          <button type="button" class="rg-arrow rg-prev" aria-label="Previous photos" data-i18n-aria-label="lightbox.prev">&#8249;</button>
+          <button type="button" class="rg-arrow rg-next" aria-label="Next photos" data-i18n-aria-label="lightbox.next">&#8250;</button>
+          <div class="resort-gallery-grid" tabindex="0">
+        <picture><source srcset="images/faro-luna/faro-luna-01.webp" type="image/webp"><img src="images/faro-luna/faro-luna-01.jpg" width="1024" height="682" alt="Faro Luna — photo 01" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-02.webp" type="image/webp"><img src="images/faro-luna/faro-luna-02.jpg" width="1024" height="682" alt="Faro Luna — photo 02" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-03.webp" type="image/webp"><img src="images/faro-luna/faro-luna-03.jpg" width="1024" height="682" alt="Faro Luna — photo 03" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-04.webp" type="image/webp"><img src="images/faro-luna/faro-luna-04.jpg" width="1024" height="682" alt="Faro Luna — photo 04" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-05.webp" type="image/webp"><img src="images/faro-luna/faro-luna-05.jpg" width="1024" height="682" alt="Faro Luna — photo 05" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-06.webp" type="image/webp"><img src="images/faro-luna/faro-luna-06.jpg" width="1024" height="682" alt="Faro Luna — photo 06" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-07.webp" type="image/webp"><img src="images/faro-luna/faro-luna-07.jpg" width="1024" height="682" alt="Faro Luna — photo 07" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-08.webp" type="image/webp"><img src="images/faro-luna/faro-luna-08.jpg" width="1024" height="682" alt="Faro Luna — photo 08" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-09.webp" type="image/webp"><img src="images/faro-luna/faro-luna-09.jpg" width="1024" height="682" alt="Faro Luna — photo 09" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-10.webp" type="image/webp"><img src="images/faro-luna/faro-luna-10.jpg" width="1024" height="682" alt="Faro Luna — photo 10" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-11.webp" type="image/webp"><img src="images/faro-luna/faro-luna-11.jpg" width="1024" height="682" alt="Faro Luna — photo 11" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-12.webp" type="image/webp"><img src="images/faro-luna/faro-luna-12.jpg" width="1024" height="682" alt="Faro Luna — photo 12" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-13.webp" type="image/webp"><img src="images/faro-luna/faro-luna-13.jpg" width="1024" height="682" alt="Faro Luna — photo 13" loading="lazy"></picture>
+        <picture><source srcset="images/faro-luna/faro-luna-14.webp" type="image/webp"><img src="images/faro-luna/faro-luna-14.jpg" width="1024" height="682" alt="Faro Luna — photo 14" loading="lazy"></picture>
+          </div>
+        </div>
+      </section>
 
       <!-- Guajimico -->
       <div class="spotlight-card spotlight-reverse">
@@ -192,18 +207,48 @@
         </div>
       </div>
 
-      <!-- Guajimico mini-gallery -->
-      <div class="resort-gallery" aria-label="Guajimico eco-lodge photos">
-        <h3 class="resort-gallery-title" data-i18n="dest.guajimico.see">See Guajimico</h3>
-        <div class="resort-gallery-grid">
-          <picture><source srcset="images/guajimico/guajimico-05.webp" type="image/webp"><img src="images/guajimico/guajimico-05.jpg" width="1280" height="962" alt="Dive boat anchored in a Guajimico cove" loading="lazy"></picture>
-          <picture><source srcset="images/guajimico/guajimico-12.webp" type="image/webp"><img src="images/guajimico/guajimico-12.jpg" width="1008" height="756" alt="Guajimico waterfront pavilion with red-tile roof" loading="lazy"></picture>
-          <picture><source srcset="images/guajimico/guajimico-08.webp" type="image/webp"><img src="images/guajimico/guajimico-08.jpg" width="1008" height="756" alt="Sunset over the water at Guajimico" loading="lazy"></picture>
-          <picture><source srcset="images/guajimico/guajimico-19.webp" type="image/webp"><img src="images/guajimico/guajimico-19.jpg" width="756" height="1008" alt="Turquoise cove framed by limestone rocks at Guajimico" loading="lazy"></picture>
-          <picture><source srcset="images/guajimico/guajimico-13.webp" type="image/webp"><img src="images/guajimico/guajimico-13.jpg" width="756" height="1008" alt="View through trees of the turquoise Guajimico cove" loading="lazy"></picture>
-          <picture><source srcset="images/guajimico/guajimico-11.webp" type="image/webp"><img src="images/guajimico/guajimico-11.jpg" width="756" height="1008" alt="Sunset over the lake at Guajimico eco-lodge" loading="lazy"></picture>
+      <!-- Guajimico slider: every photo, swipe to browse, tap to enlarge -->
+      <section class="resort-gallery" aria-label="Guajimico eco-lodge photos">
+        <div class="resort-gallery-head">
+          <h3 class="resort-gallery-title" data-i18n="dest.guajimico.see">See Guajimico</h3>
+          <span class="resort-gallery-hint" data-i18n="dest.gallery.hint">Swipe or use arrows · tap any photo to enlarge</span>
         </div>
-      </div>
+        <div class="resort-gallery-wrap">
+          <button type="button" class="rg-arrow rg-prev" aria-label="Previous photos" data-i18n-aria-label="lightbox.prev">&#8249;</button>
+          <button type="button" class="rg-arrow rg-next" aria-label="Next photos" data-i18n-aria-label="lightbox.next">&#8250;</button>
+          <div class="resort-gallery-grid" tabindex="0">
+        <picture><source srcset="images/guajimico/guajimico-01.webp" type="image/webp"><img src="images/guajimico/guajimico-01.jpg" width="810" height="1080" alt="Guajimico — photo 01" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-02.webp" type="image/webp"><img src="images/guajimico/guajimico-02.jpg" width="962" height="1280" alt="Guajimico — photo 02" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-03.webp" type="image/webp"><img src="images/guajimico/guajimico-03.jpg" width="962" height="1280" alt="Guajimico — photo 03" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-04.webp" type="image/webp"><img src="images/guajimico/guajimico-04.jpg" width="1080" height="810" alt="Guajimico — photo 04" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-05.webp" type="image/webp"><img src="images/guajimico/guajimico-05.jpg" width="1280" height="962" alt="Guajimico — photo 05" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-06.webp" type="image/webp"><img src="images/guajimico/guajimico-06.jpg" width="962" height="1280" alt="Guajimico — photo 06" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-07.webp" type="image/webp"><img src="images/guajimico/guajimico-07.jpg" width="1008" height="756" alt="Guajimico — photo 07" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-08.webp" type="image/webp"><img src="images/guajimico/guajimico-08.jpg" width="1008" height="756" alt="Guajimico — photo 08" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-09.webp" type="image/webp"><img src="images/guajimico/guajimico-09.jpg" width="756" height="1008" alt="Guajimico — photo 09" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-10.webp" type="image/webp"><img src="images/guajimico/guajimico-10.jpg" width="1008" height="756" alt="Guajimico — photo 10" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-11.webp" type="image/webp"><img src="images/guajimico/guajimico-11.jpg" width="756" height="1008" alt="Guajimico — photo 11" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-12.webp" type="image/webp"><img src="images/guajimico/guajimico-12.jpg" width="1008" height="756" alt="Guajimico — photo 12" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-13.webp" type="image/webp"><img src="images/guajimico/guajimico-13.jpg" width="756" height="1008" alt="Guajimico — photo 13" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-14.webp" type="image/webp"><img src="images/guajimico/guajimico-14.jpg" width="1008" height="756" alt="Guajimico — photo 14" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-15.webp" type="image/webp"><img src="images/guajimico/guajimico-15.jpg" width="756" height="1008" alt="Guajimico — photo 15" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-16.webp" type="image/webp"><img src="images/guajimico/guajimico-16.jpg" width="756" height="1008" alt="Guajimico — photo 16" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-17.webp" type="image/webp"><img src="images/guajimico/guajimico-17.jpg" width="756" height="1008" alt="Guajimico — photo 17" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-18.webp" type="image/webp"><img src="images/guajimico/guajimico-18.jpg" width="1008" height="756" alt="Guajimico — photo 18" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-19.webp" type="image/webp"><img src="images/guajimico/guajimico-19.jpg" width="962" height="1280" alt="Guajimico — photo 19" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-20.webp" type="image/webp"><img src="images/guajimico/guajimico-20.jpg" width="1008" height="756" alt="Guajimico — photo 20" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-21.webp" type="image/webp"><img src="images/guajimico/guajimico-21.jpg" width="756" height="1008" alt="Guajimico — photo 21" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-22.webp" type="image/webp"><img src="images/guajimico/guajimico-22.jpg" width="756" height="1008" alt="Guajimico — photo 22" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-23.webp" type="image/webp"><img src="images/guajimico/guajimico-23.jpg" width="756" height="1008" alt="Guajimico — photo 23" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-24.webp" type="image/webp"><img src="images/guajimico/guajimico-24.jpg" width="1280" height="960" alt="Guajimico — photo 24" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-25.webp" type="image/webp"><img src="images/guajimico/guajimico-25.jpg" width="962" height="1280" alt="Guajimico — photo 25" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-26.webp" type="image/webp"><img src="images/guajimico/guajimico-26.jpg" width="756" height="1008" alt="Guajimico — photo 26" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-27.webp" type="image/webp"><img src="images/guajimico/guajimico-27.jpg" width="756" height="1008" alt="Guajimico — photo 27" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-28.webp" type="image/webp"><img src="images/guajimico/guajimico-28.jpg" width="1280" height="962" alt="Guajimico — photo 28" loading="lazy"></picture>
+        <picture><source srcset="images/guajimico/guajimico-29.webp" type="image/webp"><img src="images/guajimico/guajimico-29.jpg" width="1156" height="868" alt="Guajimico — photo 29" loading="lazy"></picture>
+          </div>
+        </div>
+      </section>
 
       <!-- Beyond Diving -->
       <div class="excursion-section">
@@ -366,7 +411,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=20260515e" defer></script>
+  <script src="js/main.min.js?v=20260515f" defer></script>
 
   <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
   <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>

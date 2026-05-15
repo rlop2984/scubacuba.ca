@@ -1043,6 +1043,58 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
+  // ---- Resort photo slider (Faro Luna / Guajimico) ----
+  // Wires the prev/next arrows to scroll the carousel by ~one viewport of
+  // slides, and reflects "can't go further" state via the disabled attr.
+  document.querySelectorAll('.resort-gallery-wrap').forEach(wrap => {
+    const grid = wrap.querySelector('.resort-gallery-grid');
+    const prev = wrap.querySelector('.rg-prev');
+    const next = wrap.querySelector('.rg-next');
+    if (!grid) return;
+
+    function step() {
+      // Scroll by the width of one slide + gap (read CSS dynamically so it
+      // stays in sync with the responsive flex-basis breakpoints).
+      const slide = grid.querySelector('picture');
+      if (!slide) return grid.clientWidth * 0.8;
+      const slideWidth = slide.getBoundingClientRect().width;
+      const gap = parseFloat(getComputedStyle(grid).gap) || 10;
+      return slideWidth + gap;
+    }
+
+    function refreshArrows() {
+      if (!prev || !next) return;
+      const max = grid.scrollWidth - grid.clientWidth - 1;
+      prev.disabled = grid.scrollLeft <= 1;
+      next.disabled = grid.scrollLeft >= max;
+    }
+
+    if (prev) prev.addEventListener('click', () => {
+      grid.scrollBy({ left: -step(), behavior: 'smooth' });
+    });
+    if (next) next.addEventListener('click', () => {
+      grid.scrollBy({ left:  step(), behavior: 'smooth' });
+    });
+
+    let raf = 0;
+    grid.addEventListener('scroll', () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => { refreshArrows(); raf = 0; });
+    }, { passive: true });
+
+    // Keyboard nav when the slider has focus
+    grid.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); grid.scrollBy({ left: -step(), behavior: 'smooth' }); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); grid.scrollBy({ left:  step(), behavior: 'smooth' }); }
+      if (e.key === 'Home')       { e.preventDefault(); grid.scrollTo({ left: 0, behavior: 'smooth' }); }
+      if (e.key === 'End')        { e.preventDefault(); grid.scrollTo({ left: grid.scrollWidth, behavior: 'smooth' }); }
+    });
+
+    refreshArrows();
+    window.addEventListener('resize', refreshArrows);
+  });
+
+
   // ---- Back-to-top floating button: shows after the user scrolls past one viewport ----
   const btt = document.getElementById('back-to-top');
   if (btt) {
