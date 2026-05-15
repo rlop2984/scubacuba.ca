@@ -1992,6 +1992,10 @@ a:hover { color: var(--ocean-deep); }
   margin-bottom: 8px;
 }
 
+/* Spotlight title — covers h2 (diving-centers) and h3 (home) after the
+   heading-order audit promoted the destination cards on diving-centers
+   from h3 to h2. */
+.spotlight-content h2,
 .spotlight-content h3 {
   font-size: 1.5rem;
   margin-bottom: 12px;
@@ -2081,17 +2085,25 @@ a:hover { color: var(--ocean-deep); }
   z-index: 1;
 }
 
+/* Any heading inside the overlay band must stay white — when the heading-
+   order audit promoted these from h4 to h3 the old h4-only selector stopped
+   matching and the titles inherited the page text color (illegible on the
+   bright photos). Use h2,h3,h4 to be future-proof. */
+.excursion-card-content h2,
+.excursion-card-content h3,
 .excursion-card-content h4 {
   color: var(--white);
   font-size: 1.125rem;
   margin-bottom: 4px;
   font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.45);
 }
 
 .excursion-card-content p {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.9);
   font-size: 0.813rem;
   line-height: 1.5;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
 /* --- Utility --- */
