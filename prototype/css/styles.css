@@ -1738,7 +1738,8 @@ a:hover { color: var(--ocean-deep); }
 }
 
 .gallery-item {
-  border-radius: var(--radius);
+  /* Match all other image cards in the design system (16px). */
+  border-radius: var(--radius-lg);
   overflow: hidden;
   cursor: pointer;
   aspect-ratio: 1;
@@ -1924,7 +1925,9 @@ a:hover { color: var(--ocean-deep); }
   display: grid;
   grid-template-columns: 1fr;
   background: var(--white);
-  border-radius: var(--radius-xl);
+  /* Match the slider thumbnails below so the destinations section feels
+     visually consistent (was --radius-xl 24px → now 16px shared token). */
+  border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--gray-100);
   margin-bottom: 20px;
@@ -3710,7 +3713,8 @@ a:hover { color: var(--ocean-deep); }
   flex: 0 0 auto;
   height: 240px;
   scroll-snap-align: center;
-  border-radius: 10px;
+  /* Unified with .spotlight-card and .gallery-item via design-system token */
+  border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--gray-100);
   box-shadow: 0 2px 10px rgba(18, 18, 42, 0.06);
