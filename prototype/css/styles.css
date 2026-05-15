@@ -3616,20 +3616,27 @@ a:hover { color: var(--ocean-deep); }
   position: relative;
 }
 
-/* Right-edge gradient fade — visual cue that more content is to the right.
-   Switches off via class when the user scrolls to the end. The left fade
-   only appears once the user has scrolled past the start. */
+/* Edge fades — only on desktop where the slider is wide enough for the
+   gradient not to overlay the photo itself. On mobile the photo nearly
+   fills the viewport and a fade band looks like image damage. There the
+   counter + arrows + scroll-snap half-visible-next slide already signal
+   "more to scroll". */
 .resort-gallery-wrap::before,
 .resort-gallery-wrap::after {
   content: '';
   position: absolute;
   top: 0;
   bottom: 12px;
-  width: 60px;
+  width: 24px;
   pointer-events: none;
   z-index: 1;
   opacity: 0;
   transition: opacity 0.2s ease;
+  display: none;
+}
+@media (min-width: 768px) {
+  .resort-gallery-wrap::before,
+  .resort-gallery-wrap::after { display: block; width: 36px; }
 }
 .resort-gallery-wrap::before {
   left: 0;
@@ -3639,24 +3646,30 @@ a:hover { color: var(--ocean-deep); }
   right: 0;
   background: linear-gradient(-90deg, var(--off-white) 0%, transparent 100%);
 }
-.resort-gallery-wrap.has-prev::before { opacity: 1; }
-.resort-gallery-wrap.has-next::after  { opacity: 1; }
+.resort-gallery-wrap.has-prev::before { opacity: 0.85; }
+.resort-gallery-wrap.has-next::after  { opacity: 0.85; }
 
-/* Live counter "3 / 14" pinned to top-right of the slider area */
+/* Live counter "3 / 14" — sits INSIDE the slider, top-right corner, on a
+   frosted-dark chip so it reads on any photo and doesn't collide with the
+   hint text in the header. */
 .rg-counter {
   position: absolute;
-  top: -38px;
-  right: 0;
-  font-size: 0.813rem;
+  top: 10px;
+  right: 10px;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--gray-600);
-  background: var(--white);
-  padding: 4px 12px;
+  color: var(--white);
+  background: rgba(18, 18, 42, 0.6);
+  padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid var(--gray-100);
-  z-index: 2;
+  border: 1px solid rgba(255,255,255,0.16);
+  z-index: 3;
   font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
 
 /* Horizontal scroll container with snap. */
