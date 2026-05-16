@@ -44,8 +44,8 @@
     <link rel="prefetch" href="quote.html" as="document">
   <link rel="preload" as="image" href="images/hero-divers.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
   <link rel="preload" as="image" href="images/hero-divers-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
-  <link rel="stylesheet" href="css/styles.min.css?v=20260515k">
-  <script src="js/i18n.min.js?v=20260515k" defer></script>
+  <link rel="stylesheet" href="css/styles.min.css?v=20260516a">
+  <script src="js/i18n.min.js?v=20260516a" defer></script>
 
   <!-- Structured data: TravelAgency -->
   <script type="application/ld+json">
@@ -708,15 +708,19 @@
         <li><span aria-hidden="true">&#10003;</span> <span data-i18n="home.newsletter.perk2">Early access to group trips (often the cheapest)</span></li>
         <li><span aria-hidden="true">&#10003;</span> <span data-i18n="home.newsletter.perk3">No spam — 1 email a month, unsubscribe in one click</span></li>
       </ul>
-      <form class="newsletter-form" id="newsletter-form">
+      <!-- Newsletter — wired to MailerLite. The form posts via fetch(no-cors)
+           so the user stays on the page. Replace data-ml-action with the URL
+           MailerLite gives you when you create a Custom HTML form. -->
+      <form class="newsletter-form" id="newsletter-form"
+            data-ml-action="REPLACE_ME_WITH_MAILERLITE_FORM_ACTION_URL">
         <div class="form-row">
           <label class="sr-only" for="nl-name" data-i18n="home.newsletter.name">Your name</label>
-          <input id="nl-name" type="text" name="name" placeholder="Your name" data-i18n-placeholder="home.newsletter.name" autocomplete="name" required>
+          <input id="nl-name" type="text" name="fields[name]" placeholder="Your name" data-i18n-placeholder="home.newsletter.name" autocomplete="name" required>
           <label class="sr-only" for="nl-email" data-i18n="home.newsletter.email">Your email</label>
-          <input id="nl-email" type="email" name="email" placeholder="Your email" data-i18n-placeholder="home.newsletter.email" autocomplete="email" required>
+          <input id="nl-email" type="email" name="fields[email]" placeholder="Your email" data-i18n-placeholder="home.newsletter.email" autocomplete="email" required>
         </div>
         <label class="sr-only" for="nl-level" data-i18n="home.newsletter.level">Your diving level</label>
-        <select id="nl-level" name="dive_level" aria-label="Your diving level" data-i18n-aria-label="home.newsletter.level">
+        <select id="nl-level" name="fields[dive_level]" aria-label="Your diving level" data-i18n-aria-label="home.newsletter.level">
           <option value="" disabled selected data-i18n="home.newsletter.level">Your diving level</option>
           <option value="non-diver" data-i18n="home.newsletter.level.nondiver">Non-diver (interested in learning)</option>
           <option value="open-water" data-i18n="home.newsletter.level.ow">Open Water Diver</option>
@@ -728,6 +732,8 @@
           <input type="checkbox" id="consent" required>
           <label for="consent" data-i18n="home.newsletter.consent">I agree to receive promotional emails from ScubaCuba.ca. You can unsubscribe at any time. We respect your privacy.</label>
         </div>
+        <!-- Honeypot: bots fill this; real users won't. Server discards if set. -->
+        <input type="text" name="b_hp" tabindex="-1" autocomplete="off" value="" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
         <button type="submit" class="btn btn-primary btn-lg" data-i18n="home.newsletter.submit">Subscribe</button>
       </form>
     </div>
@@ -851,7 +857,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=20260515k" defer></script>
+  <script src="js/main.min.js?v=20260516a" defer></script>
 
   <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
   <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>

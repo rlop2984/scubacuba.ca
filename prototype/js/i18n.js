@@ -181,6 +181,10 @@
       'home.newsletter.level.dm': 'Divemaster / Professional',
       'home.newsletter.consent': 'I agree to receive promotional emails from ScubaCuba.ca. You can unsubscribe at any time. We respect your privacy.',
       'home.newsletter.submit': 'Subscribe',
+      'home.newsletter.sending': 'Subscribing…',
+      'home.newsletter.required': 'Please enter your email and agree to receive communications.',
+      'home.newsletter.thanks.title': "You're in!",
+      'home.newsletter.thanks.body': "Welcome to the ScubaCuba.ca dive community. Check your inbox for a confirmation email.",
 
       // ---- Footer (shared) ----
       'footer.brand.desc': 'All-inclusive scuba diving vacation packages in Cuba. A partnership between MARLIN, Aquasub Scuba Diving Centre, and Hola Sun Holidays.',
@@ -705,6 +709,10 @@
       'home.newsletter.level.dm': 'Divemaster / Profesional',
       'home.newsletter.consent': 'Acepto recibir correos promocionales de ScubaCuba.ca. Puedo darme de baja en cualquier momento. Respetamos tu privacidad.',
       'home.newsletter.submit': 'Suscribirme',
+      'home.newsletter.sending': 'Suscribiendo…',
+      'home.newsletter.required': 'Por favor ingresa tu correo y acepta recibir comunicaciones.',
+      'home.newsletter.thanks.title': '¡Listo!',
+      'home.newsletter.thanks.body': 'Bienvenido a la comunidad ScubaCuba.ca. Revisa tu correo para confirmar la suscripción.',
 
       // ---- Footer (shared) ----
       'footer.brand.desc': 'Paquetes de vacaciones de buceo todo incluido en Cuba. Una alianza entre MARLIN, Aquasub Scuba Diving Centre y Hola Sun Holidays.',

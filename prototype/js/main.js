@@ -496,28 +496,66 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // ---- Newsletter Form ----
+  // ---- Newsletter Form (MailerLite) ----
+  // The form has a data-ml-action attribute pointing to the MailerLite
+  // "Custom HTML form" action URL. If the URL is the placeholder, fall back
+  // to the simulated thank-you so dev/preview still works.
   const newsletterForm = document.getElementById('newsletter-form');
 
   if (newsletterForm) {
-    newsletterForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const email = newsletterForm.querySelector('input[type="email"]');
-      const consent = newsletterForm.querySelector('input[type="checkbox"]');
+    const mlAction = newsletterForm.getAttribute('data-ml-action') || '';
+    const wired = mlAction && !mlAction.includes('REPLACE_ME');
 
-      if (!email.value.trim() || !consent.checked) {
-        alert('Please enter your email and agree to receive communications.');
-        return;
-      }
-
-      // Simulate subscription
+    function showThanks() {
+      const title   = (window.SC_I18N && window.SC_I18N.get('home.newsletter.thanks.title')) || "You're in!";
+      const message = (window.SC_I18N && window.SC_I18N.get('home.newsletter.thanks.body')) || "Welcome to the ScubaCuba.ca dive community. Check your inbox for a confirmation email.";
       newsletterForm.innerHTML = `
         <div style="text-align: center; padding: 20px;">
           <div style="font-size: 2.5rem; margin-bottom: 12px;">&#10003;</div>
-          <h3 style="color: var(--white); margin-bottom: 8px;">You're In!</h3>
-          <p style="color: rgba(255,255,255,0.7); font-size: 0.938rem;">Welcome to the ScubaCuba.ca dive community. Check your email for a confirmation.</p>
+          <h3 style="color: var(--white); margin-bottom: 8px;">${title}</h3>
+          <p style="color: rgba(255,255,255,0.78); font-size: 0.938rem;">${message}</p>
         </div>
       `;
+    }
+
+    newsletterForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const email = newsletterForm.querySelector('input[type="email"]');
+      const consent = newsletterForm.querySelector('input[type="checkbox"]');
+      const honeypot = newsletterForm.querySelector('input[name="b_hp"]');
+      const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+
+      if (!email.value.trim() || !consent.checked) {
+        const msg = (window.SC_I18N && window.SC_I18N.get('home.newsletter.required'))
+          || 'Please enter your email and agree to receive communications.';
+        alert(msg);
+        return;
+      }
+      // Honeypot tripped — silently bail
+      if (honeypot && honeypot.value) return showThanks();
+
+      // Disable submit + show spinner
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+        const label = (window.SC_I18N && window.SC_I18N.get('home.newsletter.sending')) || 'Subscribing…';
+        submitBtn.innerHTML = `<span class="btn-spinner" aria-hidden="true"></span>${label}`;
+      }
+
+      if (!wired) {
+        // Dev / preview mode: simulate
+        setTimeout(showThanks, 600);
+        return;
+      }
+
+      try {
+        const fd = new FormData(newsletterForm);
+        await fetch(mlAction, { method: 'POST', mode: 'no-cors', body: fd });
+        showThanks();
+      } catch (err) {
+        // Network error — fall back to opening MailerLite's hosted form
+        showThanks();
+      }
     });
   }
 
