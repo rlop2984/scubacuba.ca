@@ -171,27 +171,65 @@ document.addEventListener('DOMContentLoaded', () => {
   const galleryItems = document.querySelectorAll('.gallery-item');
 
   if (galleryTabs.length && galleryItems.length) {
+    const galleryGrid = document.querySelector('.gallery-grid');
+    // Create the empty-state placeholder once (hidden by default). Shown
+    // when the active filter has zero matching photos.
+    let emptyState = null;
+    if (galleryGrid) {
+      emptyState = document.createElement('div');
+      emptyState.className = 'gallery-empty';
+      emptyState.hidden = true;
+      emptyState.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <path d="M21 15l-5-5L5 21"/>
+        </svg>
+        <p data-i18n="gallery.empty">No photos in this category yet — try another filter.</p>
+      `;
+      galleryGrid.parentNode.insertBefore(emptyState, galleryGrid.nextSibling);
+    }
+
     galleryTabs.forEach(tab => {
       tab.addEventListener('click', () => {
         const filter = tab.dataset.tab;
-        galleryTabs.forEach(t => t.classList.remove('active'));
+        galleryTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
         tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
 
+        let visibleCount = 0;
         galleryItems.forEach(item => {
           const cats = (item.dataset.category || '').split(/\s+/).filter(Boolean);
           if (filter === 'all' || cats.includes(filter)) {
             item.style.display = '';
             item.style.animation = 'fadeIn 0.4s ease';
+            visibleCount++;
           } else {
             item.style.display = 'none';
           }
         });
+        if (emptyState) emptyState.hidden = visibleCount > 0;
       });
     });
   }
 
 
   // ---- Lightbox ----
+  // ---- Lazy-image loaded hook --------------------------------------------
+  // Adds a "loaded" class to every img once it finishes loading, which lets
+  // the CSS shimmer skeleton fade out cleanly underneath. Uses the loading
+  // event + a fallback for images already in the cache (complete === true).
+  document.querySelectorAll('.gallery-item img, .resort-gallery-grid img').forEach(img => {
+    const markLoaded = () => img.classList.add('loaded');
+    if (img.complete && img.naturalWidth > 0) markLoaded();
+    else img.addEventListener('load', markLoaded, { once: true });
+    img.addEventListener('error', markLoaded, { once: true });
+  });
+
+
   // ---- Universal Lightbox ---------------------------------------------------
   // Works on ANY group: .gallery-grid .gallery-item OR .resort-gallery-grid picture.
   // Click the small thumbnail → opens a full-screen viewer with the image at
@@ -244,7 +282,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (lightboxNext) lightboxNext.style.visibility = single ? 'hidden' : '';
     }
 
+    // The thumbnail that opened the lightbox — used to restore focus on close
+    // (proper modal focus management for keyboard / screen-reader users).
+    let lastTrigger = null;
+
     function open(container, img) {
+      lastTrigger = img;
       group = imgsInGroup(container);
       lightboxIndex = Math.max(0, group.indexOf(img));
       paint();
@@ -260,6 +303,11 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = '';
       lightboxImg.src = '';
       group = [];
+      // Return focus to where the user came from
+      if (lastTrigger && lastTrigger.focus) {
+        lastTrigger.focus({ preventScroll: true });
+        lastTrigger = null;
+      }
     }
 
     function prev() {
@@ -323,6 +371,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape')      close();
       if (e.key === 'ArrowLeft')   prev();
       if (e.key === 'ArrowRight')  next();
+      // Focus trap: Tab cycles between Close / Prev / Next inside the modal.
+      // Without this, Tab walks out into the underlying page (broken UX for
+      // keyboard / screen-reader users).
+      if (e.key === 'Tab') {
+        const focusables = [lightboxClose, lightboxPrev, lightboxNext].filter(Boolean);
+        if (!focusables.length) return;
+        const active = document.activeElement;
+        const idx = focusables.indexOf(active);
+        e.preventDefault();
+        const dir = e.shiftKey ? -1 : 1;
+        const nextIdx = idx < 0 ? 0 : (idx + dir + focusables.length) % focusables.length;
+        focusables[nextIdx].focus();
+      }
     });
 
     // Swipe

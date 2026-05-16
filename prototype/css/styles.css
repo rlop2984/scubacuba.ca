@@ -769,11 +769,31 @@ a:hover { color: var(--ocean-deep); }
   padding: 0 8px;
 }
 
+/* Testimonial card — single source of truth (was split across two
+   blocks at lines 772 + 3417 in earlier revisions; merged here). */
 .testimonial-inner {
+  position: relative;
   background: var(--white);
+  background-image:
+    radial-gradient(ellipse 120% 50% at 100% 0%, rgba(40, 42, 137, 0.04), transparent 50%),
+    radial-gradient(ellipse 80% 40% at 0% 100%, rgba(6, 182, 212, 0.03), transparent 50%);
   border-radius: var(--radius-lg);
   padding: 32px 28px;
   border: 1px solid var(--gray-100);
+  overflow: hidden;
+}
+.testimonial-inner::before {
+  content: '\201C';
+  position: absolute;
+  top: -8px;
+  left: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 5.5rem;
+  line-height: 1;
+  color: var(--ocean);
+  opacity: 0.08;
+  pointer-events: none;
+  user-select: none;
 }
 
 .testimonial-stars {
@@ -3413,32 +3433,8 @@ a:hover { color: var(--ocean-deep); }
 }
 @media (min-width: 1024px) { .scroll-cta { display: inline-flex; } }
 
-/* ---- Testimonial visual polish ---- */
-.testimonial-inner {
-  position: relative;
-  background: var(--white);
-  background-image:
-    radial-gradient(ellipse 120% 50% at 100% 0%, rgba(40, 42, 137, 0.04), transparent 50%),
-    radial-gradient(ellipse 80% 40% at 0% 100%, rgba(6, 182, 212, 0.03), transparent 50%);
-  overflow: hidden;
-}
-.testimonial-inner::before {
-  content: '\201C';
-  position: absolute;
-  top: -8px;
-  left: 14px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 5.5rem;
-  line-height: 1;
-  color: var(--ocean);
-  opacity: 0.08;
-  pointer-events: none;
-  user-select: none;
-}
-.testimonial-text {
-  position: relative;
-  z-index: 1;
-}
+/* ---- Testimonial visual polish (extends the base rules above) ---- */
+.testimonial-text { position: relative; z-index: 1; }
 .testimonial-photo {
   width: 52px;
   height: 52px;
@@ -3773,6 +3769,53 @@ a:hover { color: var(--ocean-deep); }
 @media (min-width: 768px) {
   .rg-prev { left: -10px; }
   .rg-next { right: -10px; }
+}
+
+/* ---- Gallery empty state (filter tab → no matches) ---- */
+.gallery-empty {
+  display: grid;
+  place-items: center;
+  gap: 14px;
+  padding: 60px 24px;
+  text-align: center;
+  color: var(--gray-500);
+  background: var(--gray-50);
+  border: 1px dashed var(--gray-200);
+  border-radius: var(--radius-lg);
+  margin-top: 16px;
+  animation: fadeIn 0.3s ease;
+}
+.gallery-empty svg {
+  width: 56px;
+  height: 56px;
+  color: var(--gray-300);
+}
+.gallery-empty p { margin: 0; font-size: 0.938rem; max-width: 360px; line-height: 1.5; }
+
+/* ---- Image-loading skeleton (subtle shimmer while lazy images load) ---- */
+.gallery-item picture,
+.resort-gallery-grid picture {
+  background: linear-gradient(
+    100deg,
+    var(--gray-100) 30%,
+    var(--gray-50) 50%,
+    var(--gray-100) 70%
+  );
+  background-size: 200% 100%;
+  animation: img-shimmer 1.4s ease-in-out infinite;
+}
+.gallery-item picture:has(img.loaded),
+.resort-gallery-grid picture:has(img.loaded) {
+  animation: none;
+  background: var(--gray-100);
+}
+@keyframes img-shimmer {
+  0%   { background-position: 100% 50%; }
+  100% { background-position: -100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item picture,
+  .resort-gallery-grid picture { animation: none; }
 }
 
 /* ---- Photographer credit (gallery) ---- */
