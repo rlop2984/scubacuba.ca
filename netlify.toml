@@ -48,38 +48,53 @@
     Cache-Control = "public, max-age=3600"
     Content-Type = "text/plain; charset=utf-8"
 
-# Pretty URLs — let `/about` serve `/about.html` etc.
+# Pretty URLs — 301 redirect bare paths to the canonical .html versions
+# so Google indexes ONE URL per page (was status=200 rewrite which served
+# the same content under two URLs and confused crawlers).
 [[redirects]]
   from = "/about"
   to = "/about.html"
-  status = 200
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/diving-centers"
   to = "/diving-centers.html"
-  status = 200
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/trips"
   to = "/upcoming-trips.html"
-  status = 200
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/upcoming-trips"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/gallery"
   to = "/gallery.html"
-  status = 200
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/quote"
   to = "/quote.html"
-  status = 200
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/privacy"
   to = "/privacy.html"
-  status = 200
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/terms"
   to = "/terms.html"
-  status = 200
+  status = 301
+  force = true

@@ -3,66 +3,66 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.scubacuba.ca/</loc>
+    <loc>https://scubacuba.ca/</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scubacuba.ca/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.scubacuba.ca/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scubacuba.ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scubacuba.ca/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://scubacuba.ca/"/>
     <image:image>
-      <image:loc>https://www.scubacuba.ca/images/hero-divers.jpg</image:loc>
+      <image:loc>https://scubacuba.ca/images/hero-divers.jpg</image:loc>
       <image:title>Two scuba divers descending through god rays in Cuba's deep blue waters</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://www.scubacuba.ca/upcoming-trips.html</loc>
+    <loc>https://scubacuba.ca/upcoming-trips.html</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scubacuba.ca/upcoming-trips.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.scubacuba.ca/upcoming-trips.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/upcoming-trips.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scubacuba.ca/upcoming-trips.html"/>
   </url>
   <url>
-    <loc>https://www.scubacuba.ca/quote.html</loc>
+    <loc>https://scubacuba.ca/quote.html</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scubacuba.ca/quote.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.scubacuba.ca/quote.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/quote.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scubacuba.ca/quote.html"/>
   </url>
   <url>
-    <loc>https://www.scubacuba.ca/diving-centers.html</loc>
+    <loc>https://scubacuba.ca/diving-centers.html</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scubacuba.ca/diving-centers.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.scubacuba.ca/diving-centers.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/diving-centers.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scubacuba.ca/diving-centers.html"/>
   </url>
   <url>
-    <loc>https://www.scubacuba.ca/gallery.html</loc>
+    <loc>https://scubacuba.ca/gallery.html</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scubacuba.ca/gallery.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.scubacuba.ca/gallery.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/gallery.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scubacuba.ca/gallery.html"/>
   </url>
   <url>
-    <loc>https://www.scubacuba.ca/about.html</loc>
+    <loc>https://scubacuba.ca/about.html</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scubacuba.ca/about.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.scubacuba.ca/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scubacuba.ca/about.html"/>
   </url>
   <url>
-    <loc>https://www.scubacuba.ca/privacy.html</loc>
+    <loc>https://scubacuba.ca/privacy.html</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://www.scubacuba.ca/terms.html</loc>
+    <loc>https://scubacuba.ca/terms.html</loc>
     <lastmod>2026-05-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
