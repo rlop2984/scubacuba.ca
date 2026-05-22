@@ -59,36 +59,110 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="css/styles.min.css?v=20260522b">
-  <script src="js/i18n.min.js?v=20260522b" defer></script>
+  <link rel="stylesheet" href="css/styles.min.css?v=20260522c">
+  <script src="js/i18n.min.js?v=20260522c" defer></script>
 
-  <!-- Structured data: TouristTrip / Product offering -->
+  <!-- Structured data: TouristTrip + Product Offering (rich result candidate) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
-    "name": "All-inclusive Cuba dive package — 7 nights at Hotel Faro Luna",
-    "description": "7-night all-inclusive scuba diving vacation in Cienfuegos, Cuba. Beachfront hotel, 3 meals/day, airport transfers, 10 boat dives, PADI instructor.",
-    "image": "https://scubacuba.ca/images/faro-luna-hotel.jpg",
+    "@id": "https://scubacuba.ca/upcoming-trips.html#trip",
+    "name": "All-Inclusive Cuba Scuba Diving Vacation — 7 Nights at Hotel Faro Luna",
+    "description": "7-night all-inclusive scuba diving vacation in Cienfuegos, Cuba. Beachfront hotel, 3 meals/day with drinks, round-trip airport transfers, 10 boat dives over 5 days with English-speaking PADI instructor. Flights arranged from your home city; divers worldwide welcome.",
+    "image": [
+      "https://scubacuba.ca/images/faro-luna/faro-luna-03.jpg",
+      "https://scubacuba.ca/images/group-sunset.jpg",
+      "https://scubacuba.ca/images/hero-divers.jpg"
+    ],
     "url": "https://scubacuba.ca/upcoming-trips.html",
-    "touristType": "Scuba divers",
+    "touristType": ["Scuba divers", "PADI certified divers", "Open Water Divers", "Advanced Open Water Divers", "Divemasters"],
+    "duration": "P7D",
+    "inLanguage": ["en", "es"],
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Scuba divers and snorkelers worldwide",
+      "geographicArea": { "@type": "Place", "name": "Worldwide" }
+    },
     "itinerary": {
       "@type": "ItemList",
       "itemListElement": [
-        { "@type": "Place", "name": "Hotel Faro Luna", "address": "Cienfuegos, Cuba" },
-        { "@type": "Place", "name": "Faro Luna dive sites", "description": "30+ dive sites with walls, caves and shipwrecks" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "name": "Hotel Faro Luna",
+            "description": "Beachfront all-inclusive resort on Cuba's south coast",
+            "address": { "@type": "PostalAddress", "addressLocality": "Cienfuegos", "addressCountry": "CU" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Faro Luna dive sites",
+            "description": "30+ named dive sites with walls dropping past 30m, caves, shipwrecks and gorgonian gardens — accessible from shore or by boat"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "El Nicho waterfalls (optional excursion)",
+            "description": "Crystal-clear natural pools in the Escambray Mountains, ~90 min from the resort"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Trinidad UNESCO colonial town (optional excursion)",
+            "description": "Pastel-colored colonial streets, live Cuban music and historical architecture"
+          }
+        }
       ]
     },
     "provider": {
       "@type": "TravelAgency",
+      "@id": "https://scubacuba.ca/#business",
       "name": "ScubaCuba.ca",
       "url": "https://scubacuba.ca/",
-      "telephone": "+1-647-221-7282"
+      "telephone": "+1-647-221-7282",
+      "identifier": "TICO #5003057"
+    },
+    "subjectOf": {
+      "@type": "FAQPage",
+      "url": "https://scubacuba.ca/#faq"
     },
     "offers": {
       "@type": "Offer",
+      "name": "Custom-quoted dive package",
       "availability": "https://schema.org/InStock",
-      "url": "https://scubacuba.ca/quote.html"
+      "url": "https://scubacuba.ca/quote.html",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "description": "Quoted on request — price varies by season, departure city and party size. Includes flights, hotel, meals, transfers, 10 boat dives and PADI instructor.",
+        "priceCurrency": "CAD",
+        "valueAddedTaxIncluded": true
+      },
+      "seller": {
+        "@type": "TravelAgency",
+        "@id": "https://scubacuba.ca/#business",
+        "name": "ScubaCuba.ca"
+      },
+      "eligibleRegion": { "@type": "Place", "name": "Worldwide" }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "51",
+      "bestRating": "5",
+      "worstRating": "1"
     }
   }
   </script>
@@ -466,7 +540,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=20260522b" defer></script>
+  <script src="js/main.min.js?v=20260522c" defer></script>
 
   <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
   <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>
