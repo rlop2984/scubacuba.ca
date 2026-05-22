@@ -24,7 +24,10 @@
   <meta property="og:image:height" content="1440">
   <meta property="og:image:alt" content="Two scuba divers descending through god rays in Cuba's deep blue waters">
   <meta property="og:locale" content="en_CA">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="en_GB">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="es_MX">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@AquaSub">
@@ -44,8 +47,8 @@
     <link rel="prefetch" href="quote.html" as="document">
   <link rel="preload" as="image" href="images/hero-divers.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
   <link rel="preload" as="image" href="images/hero-divers-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
-  <link rel="stylesheet" href="css/styles.min.css?v=20260516a">
-  <script src="js/i18n.min.js?v=20260516a" defer></script>
+  <link rel="stylesheet" href="css/styles.min.css?v=20260521a">
+  <script src="js/i18n.min.js?v=20260521a" defer></script>
 
   <!-- Structured data: TravelAgency -->
   <script type="application/ld+json">
@@ -57,7 +60,7 @@
     "url": "https://www.scubacuba.ca/",
     "logo": "https://www.scubacuba.ca/images/logo-icon.png",
     "image": "https://www.scubacuba.ca/images/hero-divers.jpg",
-    "description": "All-inclusive scuba diving vacation packages in Cuba — Faro Luna's dramatic coral walls and Guajimico's eco-paradise. PADI instruction, all-inclusive hotel, transfers and 10 boat dives.",
+    "description": "All-inclusive scuba diving vacation packages in Cuba for divers worldwide — Faro Luna's dramatic coral walls and Guajimico's eco-paradise. PADI instruction, all-inclusive hotel, transfers and 10 boat dives. We arrange flights from any major city.",
     "telephone": "+1-647-221-7282",
     "email": "info@scubacuba.ca",
     "priceRange": "$$",
@@ -95,9 +98,14 @@
     "makesOffer": {
       "@type": "Offer",
       "name": "All-inclusive Cuba dive package",
-      "description": "7 nights at Hotel Faro Luna, 3 meals/day, airport transfers, 10 boat dives, PADI instructor.",
-      "areaServed": "Cuba"
-    }
+      "description": "7 nights at Hotel Faro Luna, 3 meals/day, airport transfers, 10 boat dives, PADI instructor. Available for divers from any country.",
+      "areaServed": { "@type": "Place", "name": "Worldwide" },
+      "eligibleRegion": { "@type": "Place", "name": "Worldwide" }
+    },
+    "availableLanguage": [
+      { "@type": "Language", "name": "English", "alternateName": "en" },
+      { "@type": "Language", "name": "Spanish", "alternateName": "es" }
+    ]
   }
   </script>
 
@@ -111,12 +119,12 @@
     "url": "https://www.scubacuba.ca/",
     "image": "https://www.scubacuba.ca/images/hero-divers.jpg",
     "logo": "https://www.scubacuba.ca/images/logo-icon.png",
-    "description": "Canadian dive travel operation specializing in all-inclusive scuba diving vacations to Cuba. PADI-instructor-led group trips to Faro Luna (Cienfuegos) and Guajimico year-round.",
+    "description": "Canadian-licensed dive travel agency serving divers worldwide. All-inclusive scuba diving vacations to Cuba — PADI-instructor-led group trips to Faro Luna (Cienfuegos) and Guajimico year-round. We arrange flights from any major city, multi-currency payments, and visa coordination for most nationalities.",
     "telephone": "+1-647-221-7282",
     "email": "info@scubacuba.ca",
     "priceRange": "$$",
-    "currenciesAccepted": "CAD, USD",
-    "paymentAccepted": "Credit Card, Bank Transfer, E-transfer",
+    "currenciesAccepted": "CAD, USD, EUR, GBP, MXN",
+    "paymentAccepted": "Credit Card, Bank Transfer, E-transfer, Wire Transfer",
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -135,9 +143,26 @@
     },
     "geo": { "@type": "GeoCoordinates", "latitude": "43.4816", "longitude": "-79.7064" },
     "areaServed": [
+      { "@type": "Place", "name": "Worldwide" },
       { "@type": "Country", "name": "Canada" },
       { "@type": "Country", "name": "United States" },
+      { "@type": "Country", "name": "Mexico" },
+      { "@type": "Country", "name": "United Kingdom" },
+      { "@type": "Country", "name": "Spain" },
+      { "@type": "Country", "name": "Germany" },
+      { "@type": "Country", "name": "France" },
+      { "@type": "Country", "name": "Australia" },
       { "@type": "Country", "name": "Cuba" }
+    ],
+    "knowsLanguage": ["en", "es"],
+    "knowsAbout": [
+      "Scuba Diving",
+      "PADI Certification",
+      "Cuba Travel",
+      "Caribbean Diving",
+      "Coral Reef Conservation",
+      "Underwater Photography",
+      "Shipwreck Diving"
     ],
     "sameAs": [
       "https://www.facebook.com/AquaSubScuba",
@@ -165,7 +190,7 @@
         "name": "Do I need a visa for Cuba?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For most travelers — including Canadians, most Europeans and many Latin Americans — you'll need a Tourist Card, not a full visa. It costs around $25 CAD and we include it in every booking from Canada (it's handed out on the flight). US passport holders have additional requirements — talk to us first, we'll walk you through it."
+          "text": "For most travelers — Canadians, US citizens, Europeans, Latin Americans, Australians, New Zealanders and most other nationalities — you'll need a Cuban Tourist Card, not a full visa. It costs around $25 CAD (~$18 USD / ~€17) and we include it in every booking departing from Canada (handed out on the flight). For other departure cities, we arrange the Tourist Card with you before travel. US passport holders have additional requirements due to OFAC regulations — talk to us first."
         }
       },
       {
@@ -173,7 +198,7 @@
         "name": "How do I pay for things in Cuba? Will my credit card work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Bring cash — Canadian dollars, Euros, or US dollars all work. Most North American credit cards don't work in Cuba due to US sanctions. ATMs are rare. Cash exchanged at the hotel front desk is the simplest. Budget roughly $40–60 CAD/day for tips, drinks outside the all-inclusive, and souvenirs."
+          "text": "Bring cash — Canadian dollars, Euros, US dollars, Pounds Sterling or Mexican Pesos all work and exchange easily in Cuba. Most North American and many European credit cards don't work in Cuba due to US sanctions. ATMs are rare. Cash exchanged at the hotel front desk is the simplest. Budget roughly $40–60 CAD / $30–45 USD / €28–42 per day for tips, drinks outside the all-inclusive, and souvenirs."
         }
       },
       {
@@ -189,7 +214,7 @@
         "name": "Do I need my own scuba gear?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Tanks and weights are included in every trip. BCD, regulator and dive computer rental is $230 CAD per week if you don't bring your own. Bring your own mask, snorkel and fins for fit. A 3mm shorty is plenty year-round; water temps run 24–28°C."
+          "text": "Tanks and weights are included in every trip. BCD, regulator and dive computer rental is $230 CAD / ~$170 USD / ~€160 per week if you don't bring your own. Bring your own mask, snorkel and fins for fit. A 3mm shorty is plenty year-round; water temps run 24–28°C (75–82°F)."
         }
       },
       {
@@ -221,7 +246,7 @@
         "name": "What does the trip actually cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Prices vary by season, departure city and party size — we don't list a fixed number because the same week can swing $400+ depending on flights. That's why we quote per request, usually within 24 hours. The package always includes flights from Canada, hotel, meals, transfers, and 10 boat dives."
+          "text": "Prices vary by season, departure city and party size — we don't list a fixed number because the same week can swing hundreds of dollars depending on flights. That's why we quote per request, usually within 24 hours. The package always includes flights from your home city (or you can join us in Cuba if you book your own flights), hotel, meals, transfers, and 10 boat dives. We work in CAD, USD, EUR, GBP and MXN."
         }
       }
     ]
@@ -634,14 +659,14 @@
         <details class="faq-item">
           <summary data-i18n="home.faq.q1">Do I need a visa for Cuba?</summary>
           <div class="faq-answer" data-i18n="home.faq.a1">
-            <p>For most travelers — including Canadians, most Europeans and many Latin Americans — you'll need a Tourist Card, not a full visa. It costs around $25 CAD and we include it in every booking from Canada (it's handed out on the flight).</p>
+            <p>For most travelers — Canadians, US citizens, Europeans, Latin Americans, Australians, New Zealanders and most other nationalities — you'll need a Cuban Tourist Card, not a full visa. It costs around $25 CAD (~$18 USD / ~€17) and we include it in every booking departing from Canada (handed out on the flight). For other departure cities, we arrange it with you before travel.</p>
             <p>US passport holders have additional requirements — talk to us first, we'll walk you through it.</p>
           </div>
         </details>
         <details class="faq-item">
           <summary data-i18n="home.faq.q2">How do I pay for things in Cuba? Will my credit card work?</summary>
           <div class="faq-answer" data-i18n="home.faq.a2">
-            <p>Bring cash — <strong>Canadian dollars, Euros, or US dollars</strong> all work.</p>
+            <p>Bring cash — <strong>Canadian dollars, Euros, US dollars, Pounds Sterling or Mexican Pesos</strong> all work and exchange easily in Cuba.</p>
             <p>Most North American credit cards don't work in Cuba due to US sanctions. ATMs are rare. Cash exchanged at the hotel front desk is the simplest. Budget roughly $40&ndash;60 CAD/day for tips, drinks outside the all-inclusive, and souvenirs.</p>
           </div>
         </details>
@@ -655,7 +680,7 @@
         <details class="faq-item">
           <summary data-i18n="home.faq.q4">Do I need my own gear?</summary>
           <div class="faq-answer" data-i18n="home.faq.a4">
-            <p>Tanks and weights are included in every trip. BCD, regulator and dive computer rental is $230 CAD per week if you don't bring your own — let us know in your quote.</p>
+            <p>Tanks and weights are included in every trip. BCD, regulator and dive computer rental is <strong>$230 CAD / ~$170 USD / ~€160 per week</strong> if you don't bring your own — let us know in your quote.</p>
             <p>Bring your own mask, snorkel and fins for fit. A 3mm shorty is plenty year-round; water temps run 24–28°C.</p>
           </div>
         </details>
@@ -682,8 +707,8 @@
         <details class="faq-item">
           <summary data-i18n="home.faq.q8">What does the trip actually cost?</summary>
           <div class="faq-answer" data-i18n="home.faq.a8">
-            <p>Prices vary by season, departure city and party size — we don't list a fixed number because the same week can swing $400+ depending on flights. That's why we quote per request, usually within 24 hours.</p>
-            <p>The package always includes flights from Canada, hotel, meals, transfers, and 10 boat dives. No surprises.</p>
+            <p>Prices vary by season, departure city and party size — we don't list a fixed number because the same week can swing hundreds of dollars depending on flights. That's why we quote per request, usually within 24 hours.</p>
+            <p>The package always includes flights from your home city (or join us in Cuba if you book your own flights), hotel, meals, transfers, and 10 boat dives. We work in CAD, USD, EUR, GBP and MXN — no surprises.</p>
           </div>
         </details>
       </div>
@@ -857,7 +882,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=20260516a" defer></script>
+  <script src="js/main.min.js?v=20260521a" defer></script>
 
   <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
   <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>
