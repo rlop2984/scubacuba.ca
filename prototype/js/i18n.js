@@ -58,7 +58,7 @@
       'cta.call.aria': 'Call us',
 
       // ---- Home page ----
-      'meta.home.title': 'ScubaCuba.ca — Dive the Real Cuba',
+      'meta.home.title': 'Cuba Scuba Diving Trips · PADI · All-Inclusive | ScubaCuba.ca',
       'meta.home.desc': "All-inclusive scuba diving vacations in Cuba. Faro Luna's dramatic coral walls and Guajimico's eco-paradise — pristine reefs, PADI instructors, and the adventure of a lifetime.",
       'home.hero.badge': '4.9/5 from 51+ reviews',
       'home.hero.title': 'Dive the <span>Real Cuba</span>',
@@ -586,7 +586,7 @@
       'cta.call.aria': 'Llámanos',
 
       // ---- Home page ----
-      'meta.home.title': 'ScubaCuba.ca — Bucea la Cuba real',
+      'meta.home.title': 'Viajes de Buceo en Cuba · PADI · Todo Incluido | ScubaCuba.ca',
       'meta.home.desc': 'Viajes de buceo todo incluido en Cuba. Las paredes de coral de Faro Luna y el eco-paraíso de Guajimico — arrecifes vírgenes, instructores PADI y la aventura de tu vida.',
       'home.hero.badge': '4.9/5 con más de 51 reseñas',
       'home.hero.title': 'Bucea la <span>Cuba real</span>',
