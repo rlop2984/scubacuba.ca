@@ -1780,7 +1780,9 @@ a:hover { color: var(--ocean-deep); }
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-  margin-top: 36px;
+  margin: 36px auto 0;
+  /* Cap the total width so the videos look like clips, not theatre screens */
+  max-width: 640px;
 }
 
 .video-card {
@@ -2158,7 +2160,7 @@ a:hover { color: var(--ocean-deep); }
   .centers-grid { grid-template-columns: repeat(2, 1fr); }
   .partners-grid { grid-template-columns: repeat(3, 1fr); }
   .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .videos-grid { grid-template-columns: repeat(2, 1fr); }
+  .videos-grid { grid-template-columns: repeat(2, 1fr); max-width: 880px; }
   .form-row-2 { grid-template-columns: 1fr 1fr; }
   .newsletter-form .form-row { flex-direction: row; }
   .founder-layout { grid-template-columns: 1fr 1.5fr; }

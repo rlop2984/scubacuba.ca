@@ -1127,12 +1127,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ---- YouTube facade: click to inflate the real iframe ----
+  // Privacy-friendly embed with YouTube branding stripped to the minimum
+  // legally allowed: no related videos, no annotations, no captions, no
+  // keyboard shortcuts, no "modest" branding (controls minimized), no
+  // playlist suggestions at end. The "Watch on YouTube" pill in the
+  // bottom-right cannot be removed via embed params per YT's TOS.
   document.querySelectorAll('.yt-facade').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.yt;
       const title = btn.dataset.ytTitle || 'YouTube video';
+      const params = new URLSearchParams({
+        autoplay: '1',
+        rel: '0',                // no related videos from other channels
+        modestbranding: '1',     // remove the YT logo from the control bar
+        iv_load_policy: '3',     // hide annotations / cards
+        cc_load_policy: '0',     // don't auto-show captions
+        disablekb: '1',          // ignore keyboard shortcuts
+        fs: '1',                 // keep fullscreen button (UX)
+        playsinline: '1',        // inline on iOS (no auto-fullscreen takeover)
+        controls: '1',           // keep play/pause/volume (UX)
+        color: 'white',          // progress bar in white instead of YT red
+      });
       const iframe = document.createElement('iframe');
-      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?${params}`;
       iframe.title = title;
       iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
       iframe.setAttribute('allowfullscreen', '');
