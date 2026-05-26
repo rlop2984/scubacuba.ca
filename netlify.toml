@@ -253,3 +253,346 @@
   to = "/diving-centers.html"
   status = 301
   force = true
+
+# ----- Faro Luna summer dive camps (specific patterns before /faro-luna-* splat) -----
+[[redirects]]
+  from = "/faro-luna-summer-dive-camp-*"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
+
+# Typo variant ("sumner" instead of "summer") — Google has it indexed
+[[redirects]]
+  from = "/faro-luna-sumner-dive-camp-*"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
+
+# ----- Splats for grouped legacy patterns -----
+# All other Faro Luna posts (weekly diary, news, etc.)
+[[redirects]]
+  from = "/faro-luna-*"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+# Variant with typo "tha-faro-luna"
+[[redirects]]
+  from = "/tha-faro-luna*"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+# Old WP "single dive center" pages (eagle-ray, casilda, etc.)
+[[redirects]]
+  from = "/diving-centers/*"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+# All "get-a-quote-on-your-next..." variants including the truncated one
+[[redirects]]
+  from = "/get-a-quote-on-your-next*"
+  to = "/quote.html"
+  status = 301
+  force = true
+
+# All scuba-diving-courses* variants
+[[redirects]]
+  from = "/scuba-diving-courses*"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
+
+# Photo posts
+[[redirects]]
+  from = "/discovery-of-the-underwater-treasure*"
+  to = "/gallery.html"
+  status = 301
+  force = true
+
+# Weekly diving diary posts
+[[redirects]]
+  from = "/week-of-*"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+# Old date-based archive URLs (without /20YY/ prefix)
+[[redirects]]
+  from = "/february-*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/march-*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/january-*"
+  to = "/"
+  status = 301
+  force = true
+
+# ----- Individual legacy slugs (no good splat fits) -----
+
+# About-style pages
+[[redirects]]
+  from = "/about-us/"
+  to = "/about.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about-diving/"
+  to = "/about.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/scubacuba/"
+  to = "/about.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/205-days-in-cuba/"
+  to = "/about.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/why-there-are-two-different-dive-flags/"
+  to = "/about.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/home/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/poll/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/merry-christmas/"
+  to = "/"
+  status = 301
+  force = true
+
+# Trip / course / travel info pages
+[[redirects]]
+  from = "/experiences/"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/usa-travelers/"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/advanced-open-water-diver/"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/its-time-canadians-will-be-able-to-travel-without-restrictions/"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/travel-to-cuba-updates-for-canadians/"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/updates-for-canadians-traveling-to-cuba-starting-january-2022/"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-latest-updates-from-minister-of-tourism-on-cuban-tv-september-9-21/"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/outdoor-adventure-show-toronto-2022/"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/5-reasons-why-you-should-be-packing-your-dive-gear-for-the-trip-to-cuba-rig*"
+  to = "/upcoming-trips.html"
+  status = 301
+  force = true
+
+# Photo / gallery posts
+[[redirects]]
+  from = "/macro-creatures/"
+  to = "/gallery.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/encounter-with-bizarre-batfish/"
+  to = "/gallery.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/balloonfish-the-protector/"
+  to = "/gallery.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fotosub-2021/"
+  to = "/gallery.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/farosub-underwater-photography-contest/"
+  to = "/gallery.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/welcome-to-divers-bar/"
+  to = "/gallery.html"
+  status = 301
+  force = true
+
+# Dive center / dive site posts → /diving-centers.html
+[[redirects]]
+  from = "/eagle-ray/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/albacora/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/casilda/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sharks-friends/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blue-diving/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/colony/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/banco-de-jagua/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sidemount-diving-in-faro-luna/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipwrecks-of-faro-luna/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/night-dive-at-faro-luna/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/free-diving-with-azul-profundo/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/diving-cienfuegos-the-pearl-of-the-south/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/5-facts-you-might-not-know-about-cienfuegos/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-english-cable/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/final-resting-place/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+# Typo "hemingwuay" → it was a Hemingway-related dive post
+[[redirects]]
+  from = "/hemingwuay/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/the-deco-stop-in-the-hotel-rancho-luna/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/diving-bar-in-hotel-rancho-luna/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+# Quote / form pages
+[[redirects]]
+  from = "/form-group/"
+  to = "/quote.html"
+  status = 301
+  force = true
