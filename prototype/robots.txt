@@ -1,4 +1,38 @@
 User-agent: *
 Allow: /
 
+# Legacy WordPress paths — the site used to run on WP. These directories
+# no longer exist; block crawling so Google stops re-discovering them.
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /wp-json/
+Disallow: /xmlrpc.php
+Disallow: /wp-login.php
+Disallow: /wp-signup.php
+
+# Legacy WP query strings
+Disallow: /*?p=
+Disallow: /*?page_id=
+Disallow: /*?cat=
+Disallow: /*?author=
+Disallow: /*?s=
+Disallow: /*?replytocom=
+
+# Legacy WP feeds, comments, trackbacks, author archives
+Disallow: /feed/
+Disallow: /*/feed/
+Disallow: /comments/feed/
+Disallow: /trackback/
+Disallow: /*/trackback/
+Disallow: /author/
+Disallow: /category/
+Disallow: /tag/
+Disallow: /date/
+Disallow: /20*/
+
+# Don't index the 404 page or auto-saved drafts
+Disallow: /404.html
+Disallow: /?preview=
+
 Sitemap: https://scubacuba.ca/sitemap.xml

@@ -48,9 +48,10 @@
     Cache-Control = "public, max-age=3600"
     Content-Type = "text/plain; charset=utf-8"
 
+# ============================================================================
 # Pretty URLs — 301 redirect bare paths to the canonical .html versions
-# so Google indexes ONE URL per page (was status=200 rewrite which served
-# the same content under two URLs and confused crawlers).
+# so Google indexes ONE URL per page.
+# ============================================================================
 [[redirects]]
   from = "/about"
   to = "/about.html"
@@ -96,5 +97,159 @@
 [[redirects]]
   from = "/terms"
   to = "/terms.html"
+  status = 301
+  force = true
+
+# ============================================================================
+# Legacy WordPress URLs — the site used to run on WordPress. Google still
+# crawls many old paths and lists them as "Crawled but not indexed" or 404.
+# 410 Gone tells Google to drop them from the index faster than a 404.
+# ============================================================================
+
+# WordPress core/admin paths
+[[redirects]]
+  from = "/wp-admin/*"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wp-includes/*"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wp-json/*"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/xmlrpc.php"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wp-login.php"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/wp-signup.php"
+  to = "/"
+  status = 410
+  force = true
+
+# WordPress feeds, comments, trackbacks
+[[redirects]]
+  from = "/feed"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/feed/"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/*/feed/"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/comments/feed/"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/trackback/"
+  to = "/"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/*/trackback/"
+  to = "/"
+  status = 410
+  force = true
+
+# WordPress archive pages — collapse to relevant section
+[[redirects]]
+  from = "/author/norbert/*"
+  to = "/about.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/author/*"
+  to = "/about.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/category/*"
+  to = "/gallery.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tag/*"
+  to = "/gallery.html"
+  status = 301
+  force = true
+
+# WordPress date-based archives (e.g. /2024/05/12/)
+[[redirects]]
+  from = "/20*"
+  to = "/"
+  status = 301
+  force = true
+
+# ============================================================================
+# Legacy blog post slugs — map to closest equivalent on the new static site.
+# These are real posts Google still has indexed; 301 preserves some SEO juice.
+# ============================================================================
+
+[[redirects]]
+  from = "/find-out-the-advantages-that-offers-you-to-stay-at-faro-luna-hotel/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+# The truncated/broken variant Google reported
+[[redirects]]
+  from = "/find-out-the-advantages-"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/find-out-the-advantages*"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/from-the-shore-to-the-depth/"
+  to = "/gallery.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sinking-of-the-ocean-defender/"
+  to = "/diving-centers.html"
   status = 301
   force = true
