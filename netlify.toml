@@ -596,3 +596,47 @@
   to = "/quote.html"
   status = 301
   force = true
+
+# ----- More legacy dive-center & destination slugs (2nd GSC pass) -----
+[[redirects]]
+  from = "/barracuda/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/bucanero/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tarara/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cayo-largo-del-sur/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cuba-dive-destination*"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cuba-a-divers-paradise/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+# Old WP /home/ landing and its sub-paths (all-posts, login)
+[[redirects]]
+  from = "/home/*"
+  to = "/"
+  status = 301
+  force = true
