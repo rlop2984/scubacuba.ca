@@ -407,11 +407,10 @@ a:hover { color: var(--ocean-deep); }
   position: absolute;
   top: -8%; left: -8%; right: -8%; bottom: -8%;
   background-size: cover;
-  /* Anchor near the top so the two divers (in the upper-middle of the photo)
-     sit in the center of the viewport instead of getting smashed against the
-     header. On mobile portrait no vertical crop happens, so we zoom in a bit
-     to keep the composition centered there too. */
-  background-position: center 18%;
+  /* The lone diver sits in the lower-middle of the hero photo, so anchor the
+     background lower (55%) to lift the diver into the center of the viewport
+     instead of leaving them near the bottom edge. */
+  background-position: center 63%;
   z-index: 0;
   transform-origin: center;
   will-change: transform, filter;
@@ -427,11 +426,11 @@ a:hover { color: var(--ocean-deep); }
 @media (max-width: 768px) {
   .hero-bg {
     background-image: image-set(
-      url('../images/hero-divers-mobile.webp') type('image/webp'),
-      url('../images/hero-divers-mobile.jpg')
+      url('../images/hero-blue-wall-mobile.webp') type('image/webp'),
+      url('../images/hero-blue-wall-mobile.jpg')
     ) !important;
-    background-size: auto 145%;
-    background-position: 60% 30%;
+    background-size: auto 135%;
+    background-position: 45% 58%;
   }
 }
 
