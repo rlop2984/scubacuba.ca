@@ -20,6 +20,10 @@
 # (logos, named-descriptive, wordpress-dated, phone-uploads, uuid-named, misc)
 /originals/
 
+# Raw photo drop folder — full-res GoPro/dive originals (hundreds of MB).
+# Optimized versions get committed under prototype/images/ only.
+/Pictures ScubaCuba.ca/
+
 # Keep prototype assets
 !prototype/**
 
