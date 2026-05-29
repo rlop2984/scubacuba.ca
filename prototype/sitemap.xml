@@ -4,7 +4,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://scubacuba.ca/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/"/>
@@ -17,7 +17,7 @@
   </url>
   <url>
     <loc>https://scubacuba.ca/upcoming-trips.html</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/upcoming-trips.html"/>
@@ -25,7 +25,7 @@
   </url>
   <url>
     <loc>https://scubacuba.ca/quote.html</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/quote.html"/>
@@ -33,7 +33,7 @@
   </url>
   <url>
     <loc>https://scubacuba.ca/diving-centers.html</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/diving-centers.html"/>
@@ -41,7 +41,7 @@
   </url>
   <url>
     <loc>https://scubacuba.ca/gallery.html</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/gallery.html"/>
@@ -49,7 +49,7 @@
   </url>
   <url>
     <loc>https://scubacuba.ca/about.html</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/about.html"/>
@@ -57,14 +57,18 @@
   </url>
   <url>
     <loc>https://scubacuba.ca/privacy.html</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scubacuba.ca/privacy.html"/>
   </url>
   <url>
     <loc>https://scubacuba.ca/terms.html</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://scubacuba.ca/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://scubacuba.ca/terms.html"/>
   </url>
 </urlset>
