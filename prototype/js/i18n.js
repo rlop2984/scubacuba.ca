@@ -458,7 +458,7 @@
 
       // ---- Destinations page ----
       'meta.dest.title': 'Our Destinations — ScubaCuba.ca',
-      'meta.dest.desc': 'Two world-class diving destinations in Cuba: Faro Luna — our flagship resort in Cienfuegos with 30+ dive sites — and Guajimico, a secluded eco-retreat for nature-first divers.',
+      'meta.dest.desc': 'Two world-class Cuba dive destinations: Faro Luna in Cienfuegos with 30+ dive sites, and Guajimico, a secluded eco-retreat for nature-first divers.',
       'dest.hero.title': 'Our Destinations',
       'dest.hero.subtitle': 'Two ways to dive the south coast of Cuba — choose comfort or commune with nature',
       'dest.intro': "We've focused our operation on two destinations along Cuba's pristine south coast — minutes apart, but worlds apart in style. <strong>Faro Luna</strong> for divers who want resort comfort and an iconic wall right off the shore. <strong>Guajimico</strong> for travelers who put nature first.",
@@ -490,7 +490,7 @@
 
       // ---- About page ----
       'meta.about.title': 'About Us — ScubaCuba.ca',
-      'meta.about.desc': 'Meet the team behind ScubaCuba.ca — a Canadian-licensed dive travel operation welcoming divers from across the Americas, Europe and beyond.',
+      'meta.about.desc': 'The team behind ScubaCuba.ca: a Canadian-licensed dive travel agency, PADI 5★ IDC instructors, 35+ years diving Cuba. Divers welcome worldwide.',
       'about.hero.title': 'About Us',
       'about.hero.subtitle': 'The team that makes your Cuban diving dreams come true',
       'about.story.title': 'Our Story',
@@ -988,7 +988,7 @@
 
       // ---- Destinations page ----
       'meta.dest.title': 'Nuestros destinos — ScubaCuba.ca',
-      'meta.dest.desc': 'Dos destinos de buceo de clase mundial en Cuba: Faro Luna — nuestro resort principal en Cienfuegos con más de 30 puntos — y Guajimico, un eco-retiro apartado para buzos que priorizan la naturaleza.',
+      'meta.dest.desc': 'Dos destinos de buceo de clase mundial en Cuba: Faro Luna en Cienfuegos con 30+ puntos, y Guajimico, un eco-retiro para buzos naturalistas.',
       'dest.hero.title': 'Nuestros destinos',
       'dest.hero.subtitle': 'Dos formas de bucear la costa sur de Cuba — elige comodidad o conexión con la naturaleza',
       'dest.intro': 'Hemos enfocado nuestra operación en dos destinos sobre la prístina costa sur de Cuba — a minutos de distancia, pero a mundos en estilo. <strong>Faro Luna</strong> para buzos que buscan comodidad de resort y una pared icónica frente a la costa. <strong>Guajimico</strong> para viajeros que priorizan la naturaleza.',
@@ -1020,7 +1020,7 @@
 
       // ---- About page ----
       'meta.about.title': 'Nosotros — ScubaCuba.ca',
-      'meta.about.desc': 'Conoce al equipo detrás de ScubaCuba.ca — una operación de viajes de buceo con licencia canadiense que recibe buzos de América, Europa y más allá.',
+      'meta.about.desc': 'El equipo detrás de ScubaCuba.ca: agencia de buceo con licencia canadiense, instructores PADI 5★ y 35+ años buceando Cuba. Buzos bienvenidos.',
       'about.hero.title': 'Nosotros',
       'about.hero.subtitle': 'El equipo que hace realidad tus sueños de buceo en Cuba',
       'about.story.title': 'Nuestra historia',
