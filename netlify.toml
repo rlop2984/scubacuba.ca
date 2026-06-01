@@ -640,3 +640,17 @@
   to = "/"
   status = 301
   force = true
+
+# Sidemount training post about El Laberinto dive site (Faro Luna area)
+[[redirects]]
+  from = "/labirynt-the-sidemount-training-paradise/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+# Variant in case the typo'd or canonical slug appears
+[[redirects]]
+  from = "/labirynt*"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
