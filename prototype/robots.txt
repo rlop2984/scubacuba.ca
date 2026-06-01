@@ -1,38 +1,18 @@
 User-agent: *
 Allow: /
 
-# Legacy WordPress paths — the site used to run on WP. These directories
-# no longer exist; block crawling so Google stops re-discovering them.
-Disallow: /wp-admin/
-Disallow: /wp-content/
-Disallow: /wp-includes/
-Disallow: /wp-json/
-Disallow: /xmlrpc.php
-Disallow: /wp-login.php
-Disallow: /wp-signup.php
+# IMPORTANT: we DELIBERATELY don't Disallow legacy WordPress paths here.
+# Those paths return 410 Gone (via netlify.toml redirects), but Google can
+# only see the 410 if it's allowed to crawl them. Disallowing them in
+# robots.txt would keep already-indexed URLs in the index forever (GSC
+# reports them as "Indexed though blocked by robots.txt"). Letting Googlebot
+# crawl them once is the fastest path to dropping them from the index.
 
-# Legacy WP query strings
-Disallow: /*?p=
-Disallow: /*?page_id=
-Disallow: /*?cat=
-Disallow: /*?author=
-Disallow: /*?s=
-Disallow: /*?replytocom=
-
-# Legacy WP feeds, comments, trackbacks, author archives
-Disallow: /feed/
-Disallow: /*/feed/
-Disallow: /comments/feed/
-Disallow: /trackback/
-Disallow: /*/trackback/
-Disallow: /author/
-Disallow: /category/
-Disallow: /tag/
-Disallow: /date/
-Disallow: /20*/
-
-# Don't index the 404 page or auto-saved drafts
+# Only block the in-app 404 page (it has its own noindex meta but belt-and-suspenders)
 Disallow: /404.html
+
+# Block obvious draft/preview leak vectors
 Disallow: /?preview=
+Disallow: /*?preview=
 
 Sitemap: https://scubacuba.ca/sitemap.xml
