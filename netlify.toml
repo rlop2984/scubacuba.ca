@@ -634,6 +634,19 @@
   status = 301
   force = true
 
+# Cover the "is-a-scuba-divers-paradise" variant + any other variants
+[[redirects]]
+  from = "/cuba-is-a-scuba-divers-paradise/"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cuba-is-*paradise*"
+  to = "/diving-centers.html"
+  status = 301
+  force = true
+
 # Old WP /home/ landing and its sub-paths (all-posts, login)
 [[redirects]]
   from = "/home/*"
