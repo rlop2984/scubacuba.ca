@@ -57,8 +57,8 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="css/styles.min.css?v=20260614a">
-  <script src="js/i18n.min.js?v=20260614a" defer></script>
+  <link rel="stylesheet" href="css/styles.min.css?v=20260614b">
+  <script src="js/i18n.min.js?v=20260614b" defer></script>
 </head>
 <body>
 
@@ -160,32 +160,32 @@
               <label>Should be empty: <input type="text" name="website" tabindex="-1" autocomplete="off" value=""></label>
             </div>
             <!-- Used by JS only; not submitted -->
-            <input type="hidden" name="qcl_travelers" value="1">
+            <input type="hidden" name="travelers_count" value="1">
             <!-- Signature/agreement field — populated on submit -->
-            <input type="hidden" name="q49_bySigning" value="">
+            <input type="hidden" name="agreement" value="">
 
             <!-- ============ STEP 1: YOUR TRIP ============ -->
             <section class="quote-step is-active" data-step="trip" role="tabpanel" aria-label="Step 1 of 5: Your trip">
               <h2 class="quote-step-title" data-i18n="quote.s1.title">Tell us about your trip</h2>
               <p class="quote-step-hint" data-i18n="quote.s1.hint">A few quick details so we can build the right quote for you.</p>
 
-              <div class="form-group" data-radio-required="qcl_destination">
+              <div class="form-group" data-radio-required="destination">
                 <label><span data-i18n="quote.s1.destination.label">Which destination?</span> <span class="required">*</span></label>
                 <div class="choice-grid cols-3">
-                  <label class="choice"><input type="radio" name="qcl_destination" value="Faro Luna"><span class="choice-title" data-i18n="quote.s1.destination.faroluna">Faro Luna</span><span class="choice-sub" data-i18n="quote.s1.destination.faroluna.sub">Flagship resort</span></label>
-                  <label class="choice"><input type="radio" name="qcl_destination" value="Guajimico"><span class="choice-title" data-i18n="quote.s1.destination.guajimico">Guajimico</span><span class="choice-sub" data-i18n="quote.s1.destination.guajimico.sub">Eco-retreat</span></label>
-                  <label class="choice"><input type="radio" name="qcl_destination" value="Not sure / recommend one"><span class="choice-title" data-i18n="quote.s1.destination.either">Not sure</span><span class="choice-sub" data-i18n="quote.s1.destination.either.sub">Recommend one</span></label>
+                  <label class="choice"><input type="radio" name="destination" value="Faro Luna"><span class="choice-title" data-i18n="quote.s1.destination.faroluna">Faro Luna</span><span class="choice-sub" data-i18n="quote.s1.destination.faroluna.sub">Flagship resort</span></label>
+                  <label class="choice"><input type="radio" name="destination" value="Guajimico"><span class="choice-title" data-i18n="quote.s1.destination.guajimico">Guajimico</span><span class="choice-sub" data-i18n="quote.s1.destination.guajimico.sub">Eco-retreat</span></label>
+                  <label class="choice"><input type="radio" name="destination" value="Not sure / recommend one"><span class="choice-title" data-i18n="quote.s1.destination.either">Not sure</span><span class="choice-sub" data-i18n="quote.s1.destination.either.sub">Recommend one</span></label>
                 </div>
                 <div class="field-hint" data-i18n="quote.s1.destination.hint">Faro Luna for resort comfort &amp; the coral wall. Guajimico for the eco-lodge &amp; untouched reefs.</div>
                 <div class="field-error" data-i18n="quote.s1.destination.err">Please pick a destination.</div>
               </div>
 
-              <div class="form-group" data-radio-required="q80_typeA80">
+              <div class="form-group" data-radio-required="departure_city">
                 <label><span data-i18n="quote.s1.departure.label">Where are you departing from?</span> <span class="required">*</span></label>
                 <div class="choice-grid cols-3">
-                  <label class="choice"><input type="radio" name="q80_typeA80" value="Departing Toronto on"><span class="choice-title" data-i18n="quote.s1.departure.toronto">Toronto</span><span class="choice-sub" data-i18n="quote.s1.departure.toronto.sub">YYZ</span></label>
-                  <label class="choice"><input type="radio" name="q80_typeA80" value="Departing Montreal on"><span class="choice-title" data-i18n="quote.s1.departure.montreal">Montreal</span><span class="choice-sub" data-i18n="quote.s1.departure.montreal.sub">YUL</span></label>
-                  <label class="choice"><input type="radio" name="q80_typeA80" value="Other Departure City on"><span class="choice-title" data-i18n="quote.s1.departure.other">Other</span><span class="choice-sub" data-i18n="quote.s1.departure.other.sub">Tell us below</span></label>
+                  <label class="choice"><input type="radio" name="departure_city" value="Departing Toronto on"><span class="choice-title" data-i18n="quote.s1.departure.toronto">Toronto</span><span class="choice-sub" data-i18n="quote.s1.departure.toronto.sub">YYZ</span></label>
+                  <label class="choice"><input type="radio" name="departure_city" value="Departing Montreal on"><span class="choice-title" data-i18n="quote.s1.departure.montreal">Montreal</span><span class="choice-sub" data-i18n="quote.s1.departure.montreal.sub">YUL</span></label>
+                  <label class="choice"><input type="radio" name="departure_city" value="Other Departure City on"><span class="choice-title" data-i18n="quote.s1.departure.other">Other</span><span class="choice-sub" data-i18n="quote.s1.departure.other.sub">Tell us below</span></label>
                 </div>
                 <div class="field-hint" data-i18n="quote.s1.departure.hint">Other city? Add it in the special requests field on step 3.</div>
                 <div class="field-error" data-i18n="quote.s1.departure.err">Please pick a departure city.</div>
@@ -194,23 +194,23 @@
               <div class="form-group">
                 <label><span data-i18n="quote.s1.date.label">Ideal trip start date</span> <span class="required">*</span></label>
                 <div class="date-trio" data-date-required="trip">
-                  <select name="q82_myTrip[month]" data-fill="month" aria-label="Month"></select>
-                  <select name="q82_myTrip[day]" data-fill="day" aria-label="Day"></select>
-                  <select name="q82_myTrip[year]" data-fill="trip-year" aria-label="Year"></select>
+                  <select name="trip_start_date[month]" data-fill="month" aria-label="Month"></select>
+                  <select name="trip_start_date[day]" data-fill="day" aria-label="Day"></select>
+                  <select name="trip_start_date[year]" data-fill="trip-year" aria-label="Year"></select>
                 </div>
                 <div class="field-hint" data-i18n="quote.s1.date.hint">Flexible? Pick your ideal — we'll suggest neighboring departures with better prices.</div>
                 <div class="field-error" data-i18n="quote.s1.date.err">Please choose a full date.</div>
               </div>
 
-              <div class="form-group" data-radio-required="q81_typeA81">
+              <div class="form-group" data-radio-required="trip_length">
                 <label><span data-i18n="quote.s1.length.label">How long would you like to stay?</span> <span class="required">*</span></label>
                 <div class="choice-grid cols-3">
-                  <label class="choice"><input type="radio" name="q81_typeA81" value="One Week"><span class="choice-title" data-i18n="quote.s1.length.1w">1 week</span><span class="choice-sub" data-i18n="quote.s1.length.1w.sub">7 nights</span></label>
-                  <label class="choice"><input type="radio" name="q81_typeA81" value="Two Weeks"><span class="choice-title" data-i18n="quote.s1.length.2w">2 weeks</span><span class="choice-sub" data-i18n="quote.s1.length.2w.sub">14 nights</span></label>
-                  <label class="choice"><input type="radio" name="q81_typeA81" value="Three Weeks"><span class="choice-title" data-i18n="quote.s1.length.3w">3 weeks</span><span class="choice-sub" data-i18n="quote.s1.length.3w.sub">21 nights</span></label>
-                  <label class="choice"><input type="radio" name="q81_typeA81" value="Four Weeks"><span class="choice-title" data-i18n="quote.s1.length.4w">4 weeks</span><span class="choice-sub" data-i18n="quote.s1.length.4w.sub">28 nights</span></label>
-                  <label class="choice"><input type="radio" name="q81_typeA81" value="More than Four Weeks"><span class="choice-title" data-i18n="quote.s1.length.more">More</span><span class="choice-sub" data-i18n="quote.s1.length.more.sub">Long stay</span></label>
-                  <label class="choice"><input type="radio" name="q81_typeA81" value="Other"><span class="choice-title" data-i18n="quote.s1.length.other">Other</span><span class="choice-sub" data-i18n="quote.s1.length.other.sub">3, 4 or 5 nights also possible</span></label>
+                  <label class="choice"><input type="radio" name="trip_length" value="One Week"><span class="choice-title" data-i18n="quote.s1.length.1w">1 week</span><span class="choice-sub" data-i18n="quote.s1.length.1w.sub">7 nights</span></label>
+                  <label class="choice"><input type="radio" name="trip_length" value="Two Weeks"><span class="choice-title" data-i18n="quote.s1.length.2w">2 weeks</span><span class="choice-sub" data-i18n="quote.s1.length.2w.sub">14 nights</span></label>
+                  <label class="choice"><input type="radio" name="trip_length" value="Three Weeks"><span class="choice-title" data-i18n="quote.s1.length.3w">3 weeks</span><span class="choice-sub" data-i18n="quote.s1.length.3w.sub">21 nights</span></label>
+                  <label class="choice"><input type="radio" name="trip_length" value="Four Weeks"><span class="choice-title" data-i18n="quote.s1.length.4w">4 weeks</span><span class="choice-sub" data-i18n="quote.s1.length.4w.sub">28 nights</span></label>
+                  <label class="choice"><input type="radio" name="trip_length" value="More than Four Weeks"><span class="choice-title" data-i18n="quote.s1.length.more">More</span><span class="choice-sub" data-i18n="quote.s1.length.more.sub">Long stay</span></label>
+                  <label class="choice"><input type="radio" name="trip_length" value="Other"><span class="choice-title" data-i18n="quote.s1.length.other">Other</span><span class="choice-sub" data-i18n="quote.s1.length.other.sub">3, 4 or 5 nights also possible</span></label>
                 </div>
                 <div class="field-error" data-i18n="quote.s1.length.err">Please choose a trip length.</div>
               </div>
@@ -240,7 +240,7 @@
               <div class="form-group">
                 <label><span data-i18n="quote.s2.name.label">Full name (as on passport)</span> <span class="required">*</span></label>
                 <div class="field-grid-3">
-                  <select name="q8_primaryTraveler8[prefix]" aria-label="Prefix">
+                  <select name="traveler1_name[prefix]" aria-label="Prefix">
                     <option value="" data-i18n="quote.s2.name.title">Title</option>
                     <option value="Mr.">Mr.</option>
                     <option value="Mrs.">Mrs.</option>
@@ -248,16 +248,16 @@
                     <option value="Mx.">Mx.</option>
                     <option value="Dr.">Dr.</option>
                   </select>
-                  <input type="text" name="q8_primaryTraveler8[first]" placeholder="First name" data-i18n-placeholder="quote.s2.name.first" autocomplete="given-name" data-required>
-                  <input type="text" name="q8_primaryTraveler8[last]" placeholder="Last name" data-i18n-placeholder="quote.s2.name.last" autocomplete="family-name" data-required>
+                  <input type="text" name="traveler1_name[first]" placeholder="First name" data-i18n-placeholder="quote.s2.name.first" autocomplete="given-name" data-required>
+                  <input type="text" name="traveler1_name[last]" placeholder="Last name" data-i18n-placeholder="quote.s2.name.last" autocomplete="family-name" data-required>
                 </div>
-                <input type="hidden" name="q8_primaryTraveler8[middle]" value="">
+                <input type="hidden" name="traveler1_name[middle]" value="">
                 <div class="field-error" data-i18n="quote.s2.name.err">Please enter your first and last name.</div>
               </div>
 
               <div class="form-group">
                 <label><span data-i18n="quote.s2.email.label">Email</span> <span class="required">*</span></label>
-                <input type="email" name="q38_email38" placeholder="you@example.com" data-i18n-placeholder="quote.s2.email.ph" autocomplete="email" data-required>
+                <input type="email" name="email" placeholder="you@example.com" data-i18n-placeholder="quote.s2.email.ph" autocomplete="email" data-required>
                 <div class="field-hint" data-i18n="quote.s2.email.hint">We'll send your quote here. We don't share your email.</div>
                 <div class="field-error" data-i18n="quote.s2.email.err">Please enter a valid email address.</div>
               </div>
@@ -265,18 +265,18 @@
               <div class="form-group">
                 <label><span data-i18n="quote.s2.dob.label">Date of birth</span> <span class="required">*</span></label>
                 <div class="date-trio" data-date-required="dob">
-                  <select name="q44_dateOf[month]" data-fill="month" aria-label="Birth month"></select>
-                  <select name="q44_dateOf[day]" data-fill="day" aria-label="Birth day"></select>
-                  <select name="q44_dateOf[year]" data-fill="dob-year" aria-label="Birth year"></select>
+                  <select name="traveler1_birthdate[month]" data-fill="month" aria-label="Birth month"></select>
+                  <select name="traveler1_birthdate[day]" data-fill="day" aria-label="Birth day"></select>
+                  <select name="traveler1_birthdate[year]" data-fill="dob-year" aria-label="Birth year"></select>
                 </div>
                 <div class="field-error" data-i18n="quote.s2.dob.err">Please pick a full date of birth.</div>
               </div>
 
-              <div class="form-group" data-radio-required="q45_areYou">
+              <div class="form-group" data-radio-required="traveler1_diver">
                 <label><span data-i18n="quote.s2.diver.label">Are you a diver?</span> <span class="required">*</span></label>
                 <div class="choice-grid cols-2">
-                  <label class="choice"><input type="radio" name="q45_areYou" value="Diver"><span class="choice-title" data-i18n="quote.s2.diver.yes">Yes, I dive</span><span class="choice-sub" data-i18n="quote.s2.diver.yes.sub">Diving package</span></label>
-                  <label class="choice"><input type="radio" name="q45_areYou" value="Non-Diver (no diving package)"><span class="choice-title" data-i18n="quote.s2.diver.no">No, non-diver</span><span class="choice-sub" data-i18n="quote.s2.diver.no.sub">No diving package</span></label>
+                  <label class="choice"><input type="radio" name="traveler1_diver" value="Diver"><span class="choice-title" data-i18n="quote.s2.diver.yes">Yes, I dive</span><span class="choice-sub" data-i18n="quote.s2.diver.yes.sub">Diving package</span></label>
+                  <label class="choice"><input type="radio" name="traveler1_diver" value="Non-Diver (no diving package)"><span class="choice-title" data-i18n="quote.s2.diver.no">No, non-diver</span><span class="choice-sub" data-i18n="quote.s2.diver.no.sub">No diving package</span></label>
                 </div>
                 <div class="field-hint" data-i18n="quote.s2.diver.hint">Non-divers welcome — Cuba above water is just as amazing.</div>
                 <div class="field-error" data-i18n="quote.s2.diver.err">Please tell us if you're a diver.</div>
@@ -284,19 +284,19 @@
 
               <div class="form-group">
                 <label><span data-i18n="quote.s2.passport.label">Passport issuing country</span> <span class="required">*</span></label>
-                <select name="q47_allTravelers47" data-fill="passport" data-required></select>
+                <select name="traveler1_passport_country" data-fill="passport" data-required></select>
                 <div class="field-error" data-i18n="quote.s2.passport.err">Please pick your passport country.</div>
               </div>
 
               <div class="form-group">
                 <label data-i18n="quote.s2.heard.label">How did you hear about us?</label>
                 <div class="choice-grid cols-2">
-                  <label class="choice"><input type="checkbox" name="q85_howDid[]" value="I am an existing Aquasub customer"><span class="choice-title" data-i18n="quote.s2.heard.customer">Existing customer</span></label>
-                  <label class="choice"><input type="checkbox" name="q85_howDid[]" value="Internet Search"><span class="choice-title" data-i18n="quote.s2.heard.search">Internet search</span></label>
-                  <label class="choice"><input type="checkbox" name="q85_howDid[]" value="Facebook"><span class="choice-title" data-i18n="quote.s2.heard.fb">Facebook</span></label>
-                  <label class="choice"><input type="checkbox" name="q85_howDid[]" value="Instagram"><span class="choice-title" data-i18n="quote.s2.heard.ig">Instagram</span></label>
-                  <label class="choice"><input type="checkbox" name="q85_howDid[]" value="From a friend or family member"><span class="choice-title" data-i18n="quote.s2.heard.friend">Friend or family</span></label>
-                  <label class="choice"><input type="checkbox" name="q85_howDid[]" value="Other"><span class="choice-title" data-i18n="quote.s2.heard.other">Other</span></label>
+                  <label class="choice"><input type="checkbox" name="how_heard[]" value="I am an existing Aquasub customer"><span class="choice-title" data-i18n="quote.s2.heard.customer">Existing customer</span></label>
+                  <label class="choice"><input type="checkbox" name="how_heard[]" value="Internet Search"><span class="choice-title" data-i18n="quote.s2.heard.search">Internet search</span></label>
+                  <label class="choice"><input type="checkbox" name="how_heard[]" value="Facebook"><span class="choice-title" data-i18n="quote.s2.heard.fb">Facebook</span></label>
+                  <label class="choice"><input type="checkbox" name="how_heard[]" value="Instagram"><span class="choice-title" data-i18n="quote.s2.heard.ig">Instagram</span></label>
+                  <label class="choice"><input type="checkbox" name="how_heard[]" value="From a friend or family member"><span class="choice-title" data-i18n="quote.s2.heard.friend">Friend or family</span></label>
+                  <label class="choice"><input type="checkbox" name="how_heard[]" value="Other"><span class="choice-title" data-i18n="quote.s2.heard.other">Other</span></label>
                 </div>
               </div>
 
@@ -313,15 +313,15 @@
 
               <div class="form-group">
                 <label><span data-i18n="quote.s3.addr.label">Home address</span> <span class="required">*</span></label>
-                <input type="text" name="q34_billingAddress[addr_line1]" placeholder="Street address" data-i18n-placeholder="quote.s3.addr.street" autocomplete="address-line1" data-required>
-                <input type="text" name="q34_billingAddress[addr_line2]" placeholder="Apartment, suite, etc. (optional)" data-i18n-placeholder="quote.s3.addr.street2" autocomplete="address-line2" style="margin-top:8px;">
+                <input type="text" name="home_address[addr_line1]" placeholder="Street address" data-i18n-placeholder="quote.s3.addr.street" autocomplete="address-line1" data-required>
+                <input type="text" name="home_address[addr_line2]" placeholder="Apartment, suite, etc. (optional)" data-i18n-placeholder="quote.s3.addr.street2" autocomplete="address-line2" style="margin-top:8px;">
                 <div class="field-grid-2" style="margin-top:8px;">
-                  <input type="text" name="q34_billingAddress[city]" placeholder="City" data-i18n-placeholder="quote.s3.addr.city" autocomplete="address-level2" data-required>
-                  <input type="text" name="q34_billingAddress[state]" placeholder="State / Province" data-i18n-placeholder="quote.s3.addr.state" autocomplete="address-level1" data-required>
+                  <input type="text" name="home_address[city]" placeholder="City" data-i18n-placeholder="quote.s3.addr.city" autocomplete="address-level2" data-required>
+                  <input type="text" name="home_address[state]" placeholder="State / Province" data-i18n-placeholder="quote.s3.addr.state" autocomplete="address-level1" data-required>
                 </div>
                 <div class="field-grid-2" style="margin-top:8px;">
-                  <input type="text" name="q34_billingAddress[postal]" placeholder="Postal / Zip" data-i18n-placeholder="quote.s3.addr.zip" autocomplete="postal-code" data-required>
-                  <input type="text" name="q34_billingAddress[country]" placeholder="Country" data-i18n-placeholder="quote.s3.addr.country" autocomplete="country-name" data-required>
+                  <input type="text" name="home_address[postal]" placeholder="Postal / Zip" data-i18n-placeholder="quote.s3.addr.zip" autocomplete="postal-code" data-required>
+                  <input type="text" name="home_address[country]" placeholder="Country" data-i18n-placeholder="quote.s3.addr.country" autocomplete="country-name" data-required>
                 </div>
                 <div class="field-error" data-i18n="quote.s3.addr.err">Please complete your address.</div>
               </div>
@@ -329,24 +329,24 @@
               <div class="form-group">
                 <label><span data-i18n="quote.s3.phone.label">Phone number</span> <span class="required">*</span></label>
                 <div class="phone-duo">
-                  <input type="tel" name="q12_phoneNumber12[area]" placeholder="Area" data-i18n-placeholder="quote.s3.phone.area" maxlength="4" inputmode="numeric" autocomplete="tel-area-code" data-required>
-                  <input type="tel" name="q12_phoneNumber12[phone]" placeholder="Phone number" data-i18n-placeholder="quote.s3.phone.num" autocomplete="tel-national" data-required>
+                  <input type="tel" name="phone[area]" placeholder="Area" data-i18n-placeholder="quote.s3.phone.area" maxlength="4" inputmode="numeric" autocomplete="tel-area-code" data-required>
+                  <input type="tel" name="phone[phone]" placeholder="Phone number" data-i18n-placeholder="quote.s3.phone.num" autocomplete="tel-national" data-required>
                 </div>
                 <div class="field-error" data-i18n="quote.s3.phone.err">Please enter your phone number.</div>
               </div>
 
-              <div class="form-group" data-radio-required="q50_travelInsurance">
+              <div class="form-group" data-radio-required="travel_insurance">
                 <label><span data-i18n="quote.s3.ins.label">Travel insurance</span> <span class="required">*</span></label>
                 <div class="choice-grid cols-2">
-                  <label class="choice"><input type="radio" name="q50_travelInsurance" value="Yes, provide a quote for travel insurance."><span class="choice-title" data-i18n="quote.s3.ins.yes">Yes, quote me</span><span class="choice-sub" data-i18n="quote.s3.ins.yes.sub">Recommended for Cuba</span></label>
-                  <label class="choice"><input type="radio" name="q50_travelInsurance" value="No, I do not want travel insurance."><span class="choice-title" data-i18n="quote.s3.ins.no">No, thanks</span><span class="choice-sub" data-i18n="quote.s3.ins.no.sub">I have my own</span></label>
+                  <label class="choice"><input type="radio" name="travel_insurance" value="Yes, provide a quote for travel insurance."><span class="choice-title" data-i18n="quote.s3.ins.yes">Yes, quote me</span><span class="choice-sub" data-i18n="quote.s3.ins.yes.sub">Recommended for Cuba</span></label>
+                  <label class="choice"><input type="radio" name="travel_insurance" value="No, I do not want travel insurance."><span class="choice-title" data-i18n="quote.s3.ins.no">No, thanks</span><span class="choice-sub" data-i18n="quote.s3.ins.no.sub">I have my own</span></label>
                 </div>
                 <div class="field-error" data-i18n="quote.s3.ins.err">Please choose an option.</div>
               </div>
 
               <div class="form-group">
                 <label data-i18n="quote.s3.notes.label">Special requests or notes</label>
-                <textarea name="q73_doYou" rows="4" placeholder="Diving certifications, dietary requirements, accessibility, dive buddy preferences, other departure city, additional travelers beyond 4, etc." data-i18n-placeholder="quote.s3.notes.ph"></textarea>
+                <textarea name="special_requests" rows="4" placeholder="Diving certifications, dietary requirements, accessibility, dive buddy preferences, other departure city, additional travelers beyond 4, etc." data-i18n-placeholder="quote.s3.notes.ph"></textarea>
               </div>
 
               <div class="quote-nav">
@@ -366,7 +366,7 @@
                 <div class="form-group">
                   <label data-i18n="quote.s2.name.label">Full name (as on passport)</label>
                   <div class="field-grid-3">
-                    <select name="q57_traveler257[prefix]" aria-label="Prefix">
+                    <select name="traveler2_name[prefix]" aria-label="Prefix">
                       <option value="" data-i18n="quote.s2.name.title">Title</option>
                       <option value="Mr.">Mr.</option>
                       <option value="Mrs.">Mrs.</option>
@@ -374,29 +374,29 @@
                       <option value="Mx.">Mx.</option>
                       <option value="Dr.">Dr.</option>
                     </select>
-                    <input type="text" name="q57_traveler257[first]" placeholder="First name" data-i18n-placeholder="quote.s2.name.first" data-required>
-                    <input type="text" name="q57_traveler257[last]" placeholder="Last name" data-i18n-placeholder="quote.s2.name.last" data-required>
+                    <input type="text" name="traveler2_name[first]" placeholder="First name" data-i18n-placeholder="quote.s2.name.first" data-required>
+                    <input type="text" name="traveler2_name[last]" placeholder="Last name" data-i18n-placeholder="quote.s2.name.last" data-required>
                   </div>
-                  <input type="hidden" name="q57_traveler257[middle]" value="">
+                  <input type="hidden" name="traveler2_name[middle]" value="">
                 </div>
                 <div class="form-group">
                   <label data-i18n="quote.s2.dob.label">Date of birth</label>
                   <div class="date-trio" data-date-required="dob2">
-                    <select name="q58_traveler2[month]" data-fill="month" aria-label="Month"></select>
-                    <select name="q58_traveler2[day]" data-fill="day" aria-label="Day"></select>
-                    <select name="q58_traveler2[year]" data-fill="dob-year" aria-label="Year"></select>
+                    <select name="traveler2_birthdate[month]" data-fill="month" aria-label="Month"></select>
+                    <select name="traveler2_birthdate[day]" data-fill="day" aria-label="Day"></select>
+                    <select name="traveler2_birthdate[year]" data-fill="dob-year" aria-label="Year"></select>
                   </div>
                 </div>
-                <div class="form-group" data-radio-required="q59_traveler259">
+                <div class="form-group" data-radio-required="traveler2_diver">
                   <label data-i18n="quote.s4.companion.diver.label">Are they a diver?</label>
                   <div class="choice-grid cols-2">
-                    <label class="choice"><input type="radio" name="q59_traveler259" value="Diver"><span class="choice-title" data-i18n="quote.s4.companion.diver.yes">Diver</span></label>
-                    <label class="choice"><input type="radio" name="q59_traveler259" value="Non-Diver (no diving package)"><span class="choice-title" data-i18n="quote.s4.companion.diver.no">Non-diver</span></label>
+                    <label class="choice"><input type="radio" name="traveler2_diver" value="Diver"><span class="choice-title" data-i18n="quote.s4.companion.diver.yes">Diver</span></label>
+                    <label class="choice"><input type="radio" name="traveler2_diver" value="Non-Diver (no diving package)"><span class="choice-title" data-i18n="quote.s4.companion.diver.no">Non-diver</span></label>
                   </div>
                 </div>
                 <div class="form-group">
                   <label data-i18n="quote.s2.passport.label">Passport issuing country</label>
-                  <select name="q60_allTravelers60" data-fill="passport" data-required></select>
+                  <select name="traveler2_passport_country" data-fill="passport" data-required></select>
                 </div>
               </fieldset>
 
@@ -406,7 +406,7 @@
                 <div class="form-group">
                   <label data-i18n="quote.s2.name.label">Full name (as on passport)</label>
                   <div class="field-grid-3">
-                    <select name="q61_traveler3[prefix]" aria-label="Prefix">
+                    <select name="traveler3_name[prefix]" aria-label="Prefix">
                       <option value="" data-i18n="quote.s2.name.title">Title</option>
                       <option value="Mr.">Mr.</option>
                       <option value="Mrs.">Mrs.</option>
@@ -414,29 +414,29 @@
                       <option value="Mx.">Mx.</option>
                       <option value="Dr.">Dr.</option>
                     </select>
-                    <input type="text" name="q61_traveler3[first]" placeholder="First name" data-i18n-placeholder="quote.s2.name.first" data-required>
-                    <input type="text" name="q61_traveler3[last]" placeholder="Last name" data-i18n-placeholder="quote.s2.name.last" data-required>
+                    <input type="text" name="traveler3_name[first]" placeholder="First name" data-i18n-placeholder="quote.s2.name.first" data-required>
+                    <input type="text" name="traveler3_name[last]" placeholder="Last name" data-i18n-placeholder="quote.s2.name.last" data-required>
                   </div>
-                  <input type="hidden" name="q61_traveler3[middle]" value="">
+                  <input type="hidden" name="traveler3_name[middle]" value="">
                 </div>
                 <div class="form-group">
                   <label data-i18n="quote.s2.dob.label">Date of birth</label>
                   <div class="date-trio" data-date-required="dob3">
-                    <select name="q62_traveler362[month]" data-fill="month" aria-label="Month"></select>
-                    <select name="q62_traveler362[day]" data-fill="day" aria-label="Day"></select>
-                    <select name="q62_traveler362[year]" data-fill="dob-year" aria-label="Year"></select>
+                    <select name="traveler3_birthdate[month]" data-fill="month" aria-label="Month"></select>
+                    <select name="traveler3_birthdate[day]" data-fill="day" aria-label="Day"></select>
+                    <select name="traveler3_birthdate[year]" data-fill="dob-year" aria-label="Year"></select>
                   </div>
                 </div>
-                <div class="form-group" data-radio-required="q63_traveler363">
+                <div class="form-group" data-radio-required="traveler3_diver">
                   <label data-i18n="quote.s4.companion.diver.label">Are they a diver?</label>
                   <div class="choice-grid cols-2">
-                    <label class="choice"><input type="radio" name="q63_traveler363" value="Diver"><span class="choice-title" data-i18n="quote.s4.companion.diver.yes">Diver</span></label>
-                    <label class="choice"><input type="radio" name="q63_traveler363" value="Non-Diver (no diving package)"><span class="choice-title" data-i18n="quote.s4.companion.diver.no">Non-diver</span></label>
+                    <label class="choice"><input type="radio" name="traveler3_diver" value="Diver"><span class="choice-title" data-i18n="quote.s4.companion.diver.yes">Diver</span></label>
+                    <label class="choice"><input type="radio" name="traveler3_diver" value="Non-Diver (no diving package)"><span class="choice-title" data-i18n="quote.s4.companion.diver.no">Non-diver</span></label>
                   </div>
                 </div>
                 <div class="form-group">
                   <label data-i18n="quote.s2.passport.label">Passport issuing country</label>
-                  <select name="q64_allTravelers64" data-fill="passport" data-required></select>
+                  <select name="traveler3_passport_country" data-fill="passport" data-required></select>
                 </div>
               </fieldset>
 
@@ -446,7 +446,7 @@
                 <div class="form-group">
                   <label data-i18n="quote.s2.name.label">Full name (as on passport)</label>
                   <div class="field-grid-3">
-                    <select name="q52_traveler4[prefix]" aria-label="Prefix">
+                    <select name="traveler4_name[prefix]" aria-label="Prefix">
                       <option value="" data-i18n="quote.s2.name.title">Title</option>
                       <option value="Mr.">Mr.</option>
                       <option value="Mrs.">Mrs.</option>
@@ -454,29 +454,29 @@
                       <option value="Mx.">Mx.</option>
                       <option value="Dr.">Dr.</option>
                     </select>
-                    <input type="text" name="q52_traveler4[first]" placeholder="First name" data-i18n-placeholder="quote.s2.name.first" data-required>
-                    <input type="text" name="q52_traveler4[last]" placeholder="Last name" data-i18n-placeholder="quote.s2.name.last" data-required>
+                    <input type="text" name="traveler4_name[first]" placeholder="First name" data-i18n-placeholder="quote.s2.name.first" data-required>
+                    <input type="text" name="traveler4_name[last]" placeholder="Last name" data-i18n-placeholder="quote.s2.name.last" data-required>
                   </div>
-                  <input type="hidden" name="q52_traveler4[middle]" value="">
+                  <input type="hidden" name="traveler4_name[middle]" value="">
                 </div>
                 <div class="form-group">
                   <label data-i18n="quote.s2.dob.label">Date of birth</label>
                   <div class="date-trio" data-date-required="dob4">
-                    <select name="q53_traveler453[month]" data-fill="month" aria-label="Month"></select>
-                    <select name="q53_traveler453[day]" data-fill="day" aria-label="Day"></select>
-                    <select name="q53_traveler453[year]" data-fill="dob-year" aria-label="Year"></select>
+                    <select name="traveler4_birthdate[month]" data-fill="month" aria-label="Month"></select>
+                    <select name="traveler4_birthdate[day]" data-fill="day" aria-label="Day"></select>
+                    <select name="traveler4_birthdate[year]" data-fill="dob-year" aria-label="Year"></select>
                   </div>
                 </div>
-                <div class="form-group" data-radio-required="q54_traveler454">
+                <div class="form-group" data-radio-required="traveler4_diver">
                   <label data-i18n="quote.s4.companion.diver.label">Are they a diver?</label>
                   <div class="choice-grid cols-2">
-                    <label class="choice"><input type="radio" name="q54_traveler454" value="Diver"><span class="choice-title" data-i18n="quote.s4.companion.diver.yes">Diver</span></label>
-                    <label class="choice"><input type="radio" name="q54_traveler454" value="Non-Diver (no diving package)"><span class="choice-title" data-i18n="quote.s4.companion.diver.no">Non-diver</span></label>
+                    <label class="choice"><input type="radio" name="traveler4_diver" value="Diver"><span class="choice-title" data-i18n="quote.s4.companion.diver.yes">Diver</span></label>
+                    <label class="choice"><input type="radio" name="traveler4_diver" value="Non-Diver (no diving package)"><span class="choice-title" data-i18n="quote.s4.companion.diver.no">Non-diver</span></label>
                   </div>
                 </div>
                 <div class="form-group">
                   <label data-i18n="quote.s2.passport.label">Passport issuing country</label>
-                  <select name="q55_allTravelers" data-fill="passport" data-required></select>
+                  <select name="traveler4_passport_country" data-fill="passport" data-required></select>
                 </div>
               </fieldset>
 
@@ -664,7 +664,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=20260614a" defer></script>
+  <script src="js/main.min.js?v=20260614b" defer></script>
 
   <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
   <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>

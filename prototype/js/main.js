@@ -674,7 +674,7 @@ document.addEventListener('DOMContentLoaded', () => {
       counter.querySelector('.tc-value').textContent = travelerCount;
       counter.querySelector('.tc-minus').disabled = travelerCount <= 1;
       counter.querySelector('.tc-plus').disabled = travelerCount >= 4;
-      const tcInput = stepForm.querySelector('input[name="qcl_travelers"]');
+      const tcInput = stepForm.querySelector('input[name="travelers_count"]');
       if (tcInput) tcInput.value = travelerCount;
       // Show/hide companion blocks
       stepForm.querySelectorAll('.companion-block').forEach(b => {
@@ -823,7 +823,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const t = key => (window.SC_I18N && window.SC_I18N.get(key)) || key;
       const fd = new FormData(stepForm);
       const get = name => fd.get(name) || '';
-      const depRaw = stepForm.querySelector('input[name="q80_typeA80"]:checked')?.value || '';
+      const depRaw = stepForm.querySelector('input[name="departure_city"]:checked')?.value || '';
       const depMap = {
         'Departing Toronto on': t('quote.s5.review.depmap.toronto'),
         'Departing Montreal on': t('quote.s5.review.depmap.montreal'),
@@ -831,16 +831,16 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       const empty = t('quote.s5.review.empty');
       const tbd = t('quote.s5.review.tbd');
-      const destination = stepForm.querySelector('input[name="qcl_destination"]:checked')?.value || tbd;
+      const destination = stepForm.querySelector('input[name="destination"]:checked')?.value || tbd;
       const departure = depMap[depRaw] || depRaw || tbd;
-      const trYr = get('q82_myTrip[year]'), trMo = get('q82_myTrip[month]'), trDy = get('q82_myTrip[day]');
+      const trYr = get('trip_start_date[year]'), trMo = get('trip_start_date[month]'), trDy = get('trip_start_date[day]');
       const tripDate = (trYr && trMo && trDy) ? `${trYr}-${trMo}-${trDy}` : empty;
-      const length = stepForm.querySelector('input[name="q81_typeA81"]:checked')?.value || empty;
-      const name = `${get('q8_primaryTraveler8[prefix]') || ''} ${get('q8_primaryTraveler8[first]') || ''} ${get('q8_primaryTraveler8[last]') || ''}`.trim() || empty;
-      const email = get('q38_email38') || empty;
-      const phone = `${get('q12_phoneNumber12[area]') || ''} ${get('q12_phoneNumber12[phone]') || ''}`.trim() || empty;
-      const isDiver = stepForm.querySelector('input[name="q45_areYou"]:checked')?.value || empty;
-      const insurance = stepForm.querySelector('input[name="q50_travelInsurance"]:checked')?.value || empty;
+      const length = stepForm.querySelector('input[name="trip_length"]:checked')?.value || empty;
+      const name = `${get('traveler1_name[prefix]') || ''} ${get('traveler1_name[first]') || ''} ${get('traveler1_name[last]') || ''}`.trim() || empty;
+      const email = get('email') || empty;
+      const phone = `${get('phone[area]') || ''} ${get('phone[phone]') || ''}`.trim() || empty;
+      const isDiver = stepForm.querySelector('input[name="traveler1_diver"]:checked')?.value || empty;
+      const insurance = stepForm.querySelector('input[name="travel_insurance"]:checked')?.value || empty;
       target.innerHTML = `
         <dl>
           <dt>${t('quote.s5.review.destination')}</dt><dd>${esc(destination)}</dd>
@@ -865,8 +865,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Prepend the destination choice as a HIGHLY visible banner at the top of
       // the special-requests textarea — that field is the most prominent free-text
       // section in the email Norbert receives, so the destination can't be missed.
-      const destInput = stepForm.querySelector('input[name="qcl_destination"]:checked');
-      const notes = stepForm.querySelector('textarea[name="q73_doYou"]');
+      const destInput = stepForm.querySelector('input[name="destination"]:checked');
+      const notes = stepForm.querySelector('textarea[name="special_requests"]');
       let originalNotes = null;
       if (destInput && notes) {
         originalNotes = notes.value;
@@ -885,7 +885,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (destInput) {
         const synthetic = document.createElement('input');
         synthetic.type = 'hidden';
-        synthetic.name = 'q85_howDid[]';
+        synthetic.name = 'how_heard[]';
         synthetic.value = `[Destination requested: ${destInput.value}]`;
         stepForm.appendChild(synthetic);
       }
@@ -948,13 +948,13 @@ document.addEventListener('DOMContentLoaded', () => {
               if (!state.fields[el.name]) state.fields[el.name] = [];
               state.fields[el.name].push(el.value);
             }
-          } else if (el.type !== 'hidden' || el.name === 'qcl_travelers') {
+          } else if (el.type !== 'hidden' || el.name === 'travelers_count') {
             state.fields[el.name] = el.value;
           }
         });
         // Also persist the destination radio (used to prefix the notes)
-        const dest = stepForm.querySelector('input[name="qcl_destination"]:checked');
-        if (dest) state.fields['qcl_destination'] = [dest.value];
+        const dest = stepForm.querySelector('input[name="destination"]:checked');
+        if (dest) state.fields['destination'] = [dest.value];
         const tos = stepForm.querySelector('#tos');
         if (tos) state.fields['__tos'] = tos.checked;
         localStorage.setItem(SAVE_KEY, JSON.stringify(state));
@@ -1266,7 +1266,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ---- Quote form: phone auto-format (Canadian/US +1 NPA-NXX-XXXX) ----
-  const phoneInput = document.querySelector('input[name="q12_phoneNumber12[phone]"]');
+  const phoneInput = document.querySelector('input[name="phone[phone]"]');
   if (phoneInput) {
     phoneInput.addEventListener('input', e => {
       let v = e.target.value.replace(/\D/g, '').slice(0, 7);
@@ -1275,7 +1275,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.target.value = v;
     });
   }
-  const phoneArea = document.querySelector('input[name="q12_phoneNumber12[area]"]');
+  const phoneArea = document.querySelector('input[name="phone[area]"]');
   if (phoneArea) {
     phoneArea.addEventListener('input', e => {
       e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
