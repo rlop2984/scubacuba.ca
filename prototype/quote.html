@@ -57,8 +57,8 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="css/styles.min.css?v=20260601a">
-  <script src="js/i18n.min.js?v=20260601a" defer></script>
+  <link rel="stylesheet" href="css/styles.min.css?v=20260614a">
+  <script src="js/i18n.min.js?v=20260614a" defer></script>
 </head>
 <body>
 
@@ -150,13 +150,11 @@
             </div>
           </div>
 
-          <form id="quote-step-form" action="https://submit.jotform.com/submit/90435283438258" method="POST" enctype="multipart/form-data" novalidate>
+          <form id="quote-step-form" name="quote" method="POST" data-netlify="true" netlify-honeypot="website" novalidate>
 
-            <!-- Hidden Jotform required fields -->
-            <input type="hidden" name="formID" value="90435283438258">
-            <input type="hidden" name="simple_spc" value="90435283438258">
+            <!-- Netlify Forms: identifies this submission in the Netlify dashboard -->
+            <input type="hidden" name="form-name" value="quote">
             <input type="hidden" name="submitSource" value="scubacuba.ca">
-            <input type="hidden" name="eventObserver" value="1">
             <!-- Honeypot: must stay empty -->
             <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
               <label>Should be empty: <input type="text" name="website" tabindex="-1" autocomplete="off" value=""></label>
@@ -666,7 +664,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=20260601a" defer></script>
+  <script src="js/main.min.js?v=20260614a" defer></script>
 
   <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
   <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>

@@ -908,10 +908,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const formData = new FormData(stepForm);
-      fetch(stepForm.action, {
+      fetch('/', {
         method: 'POST',
-        mode: 'no-cors',
-        body: formData
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
       }).then(() => {
         // Restore names (not strictly needed since we show success card, but tidy)
         stashed.forEach(([input, name]) => input.setAttribute('name', name));
