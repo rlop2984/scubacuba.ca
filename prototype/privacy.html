@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"></noscript>
-  <link rel="stylesheet" href="css/styles.min.css?v=20260614b">
+  <link rel="stylesheet" href="css/styles.min.css?v=20260725a">
 </head>
 <body>
 
@@ -46,8 +46,8 @@
   <!-- Header -->
   <header class="header">
     <div class="header-inner">
-      <a href="index.html" class="header-logo"><picture><source srcset="images/logo-icon.webp" type="image/webp"><img src="images/logo-icon.png" width="512" height="512" alt="ScubaCuba.ca logo" class="logo-icon"></picture><span class="logo-wordmark">ScubaCuba<span>.ca</span></span></a>
-      <nav class="nav-desktop">
+      <a href="index.html" class="header-logo"><picture><source srcset="images/logo-icon-96.webp" type="image/webp"><img src="images/logo-icon-96.png" width="96" height="96" alt="" class="logo-icon"></picture><span class="logo-wordmark">ScubaCuba<span>.ca</span></span></a>
+      <nav class="nav-desktop" aria-label="Main">
         <a href="index.html">Home</a>
         <a href="diving-centers.html">Destinations</a>
         <a href="upcoming-trips.html">Trips</a>
@@ -55,11 +55,11 @@
         <a href="about.html">About</a>
       </nav>
       <a href="quote.html" class="btn btn-primary btn-sm header-cta">Get a Quote</a>
-      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button class="hamburger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </header>
   <div class="menu-overlay"></div>
-  <nav class="mobile-menu">
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" inert>
     <a href="index.html">Home</a>
     <a href="diving-centers.html">Destinations</a>
     <a href="upcoming-trips.html">Upcoming Trips</a>
@@ -118,7 +118,8 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=20260614b"></script>
+  <script src="js/i18n.min.js?v=20260725a" defer></script>
+  <script src="js/main.min.js?v=20260725a" defer></script>
 
   <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
   <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>

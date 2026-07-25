@@ -60,8 +60,8 @@
       'meta.home.title': 'Cuba Scuba Diving Trips · PADI · All-Inclusive | ScubaCuba.ca',
       'meta.home.desc': "All-inclusive scuba diving vacations in Cuba — Faro Luna coral walls & Guajimico eco-paradise. PADI 5★ instructors, pristine reefs, divers welcome worldwide.",
       'home.hero.badge': '4.9/5 from 51+ reviews',
-      'home.hero.title': 'Dive the <span>Real Cuba</span>',
-      'home.hero.subtitle': "All-inclusive scuba diving vacations to Cuba's pristine reefs. Expert PADI instructors, dramatic walls and an eco-paradise — divers welcome from anywhere in the world.",
+      'home.hero.title': 'Step Off the Resort. Dive the <span>Real Cuba</span>.',
+      'home.hero.subtitle': "No fenced-in beach, no bracelet-and-buffet diving. All-inclusive 7-night packages with wall dives off Faro Luna, wild reefs at Guajimico, and a country most tourists never see.",
       'home.hero.cta1': 'Get Your Free Quote',
       'home.hero.cta2': 'Explore Dive Sites',
       'home.trust.years': 'Years Experience',
@@ -201,7 +201,7 @@
       'footer.agency.oakville.title': 'Trevello Ontario Incorporated',
 
       // ---- Trips page ----
-      'meta.trips.title': 'Upcoming Trips — ScubaCuba.ca',
+      'meta.trips.title': 'Upcoming Cuba Dive Trips & Group Departures | ScubaCuba.ca',
       'meta.trips.desc': 'Join our next dive trip to Cuba — all-inclusive 7-night packages with flexible dates, daily flights and 10 boat dives included. Divers welcome from around the world.',
       'trips.hero.title': 'Join us in Cuba',
       'trips.hero.subtitle': "The diver's vacation paradise — flexible dates, daily flights, all-inclusive packages",
@@ -293,7 +293,7 @@
       'trips.cta.or.wa': 'WhatsApp',
 
       // ---- Quote page ----
-      'meta.quote.title': 'Get a Free Quote — ScubaCuba.ca',
+      'meta.quote.title': 'Get a Free Cuba Dive Trip Quote in 24 Hours | ScubaCuba.ca',
       'meta.quote.desc': "Request a personalized scuba diving vacation quote for Cuba. Tell us about your trip and we'll respond within 24 hours.",
       'quote.hero.title': 'Get Your Free Quote',
       'quote.hero.subtitle': "Tell us about your trip — we'll respond within 24 hours, no commitment",
@@ -457,7 +457,7 @@
       'quote.side.book.desc': 'All trips are booked through <strong>AquaSub Travel</strong>, an independent owner affiliated with TPI, Trevello Travel Group Inc. Registered with <abbr title="Travel Industry Council of Ontario — Canadian consumer-protection regulator that financially insures bookings made through registered agencies">TICO #5003057</abbr>. International clients get the same payment protection as Canadian residents — the Ontario compensation fund covers all clients regardless of nationality.',
 
       // ---- Destinations page ----
-      'meta.dest.title': 'Our Destinations — ScubaCuba.ca',
+      'meta.dest.title': 'Cuba Dive Destinations: Faro Luna & Guajimico | ScubaCuba.ca',
       'meta.dest.desc': 'Two world-class Cuba dive destinations: Faro Luna in Cienfuegos with 30+ dive sites, and Guajimico, a secluded eco-retreat for nature-first divers.',
       'dest.hero.title': 'Our Destinations',
       'dest.hero.subtitle': 'Two ways to dive the south coast of Cuba — choose comfort or commune with nature',
@@ -489,7 +489,7 @@
       'dest.cta.subtitle': "Tell us a little about your style of travel and we'll recommend the right destination for you",
 
       // ---- About page ----
-      'meta.about.title': 'About Us — ScubaCuba.ca',
+      'meta.about.title': 'About Us — Cuba Dive Trips with AquaSub Travel | ScubaCuba.ca',
       'meta.about.desc': 'The team behind ScubaCuba.ca: a Canadian-licensed dive travel agency, PADI 5★ IDC instructors, 35+ years diving Cuba. Divers welcome worldwide.',
       'about.hero.title': 'About Us',
       'about.hero.subtitle': 'The team that makes your Cuban diving dreams come true',
@@ -514,7 +514,7 @@
       'about.family.cta': 'Join Our Next Trip',
 
       // ---- Gallery page ----
-      'meta.gallery.title': 'Gallery — ScubaCuba.ca',
+      'meta.gallery.title': 'Cuba Underwater Photo & Video Gallery | ScubaCuba.ca',
       'meta.gallery.desc': 'Photos and videos from our scuba diving trips in Cuba. Underwater photography, dive sites, and group experiences.',
       'gallery.hero.title': 'Gallery',
       'gallery.hero.subtitle': 'Cuba above and below the water',
@@ -590,8 +590,8 @@
       'meta.home.title': 'Viajes de Buceo en Cuba · PADI · Todo Incluido | ScubaCuba.ca',
       'meta.home.desc': 'Viajes de buceo todo incluido en Cuba — paredes de coral de Faro Luna y eco-paraíso de Guajimico. Instructores PADI 5★, arrecifes vírgenes, buzos bienvenidos de todo el mundo.',
       'home.hero.badge': '4.9/5 con más de 51 reseñas',
-      'home.hero.title': 'Bucea la <span>Cuba real</span>',
-      'home.hero.subtitle': 'Viajes de buceo todo incluido a los arrecifes vírgenes de Cuba. Instructores PADI expertos, paredes espectaculares y un eco-paraíso — buzos bienvenidos desde cualquier parte del mundo.',
+      'home.hero.title': 'Sal del resort. Bucea la <span>Cuba real</span>.',
+      'home.hero.subtitle': 'Sin playa cercada, sin buceo de pulsera y bufé. Paquetes todo incluido de 7 noches con paredes en Faro Luna, arrecifes vírgenes en Guajimico y un país que la mayoría de los turistas nunca ve.',
       'home.hero.cta1': 'Pedir cotización gratis',
       'home.hero.cta2': 'Ver puntos de buceo',
       'home.trust.years': 'Años de experiencia',
@@ -731,7 +731,7 @@
       'footer.copyright': '© 2026 ScubaCuba.ca. Todos los derechos reservados.',
 
       // ---- Trips page ----
-      'meta.trips.title': 'Próximos viajes — ScubaCuba.ca',
+      'meta.trips.title': 'Próximos viajes de buceo a Cuba · Salidas en grupo | ScubaCuba.ca',
       'meta.trips.desc': 'Únete a nuestro próximo viaje de buceo a Cuba — paquetes todo incluido de 7 noches con fechas flexibles, vuelos diarios y 10 inmersiones desde bote. Buzos bienvenidos desde cualquier parte del mundo.',
       'trips.hero.title': 'Únete en Cuba',
       'trips.hero.subtitle': 'El paraíso de los buzos — fechas flexibles, vuelos diarios, paquetes todo incluido',
@@ -823,7 +823,7 @@
       'trips.cta.or.wa': 'WhatsApp',
 
       // ---- Quote page ----
-      'meta.quote.title': 'Cotización gratis — ScubaCuba.ca',
+      'meta.quote.title': 'Cotización gratis de viaje de buceo a Cuba en 24 h | ScubaCuba.ca',
       'meta.quote.desc': 'Pide una cotización personalizada para tus vacaciones de buceo en Cuba. Cuéntanos sobre tu viaje y te respondemos en 24 horas.',
       'quote.hero.title': 'Pide tu cotización gratis',
       'quote.hero.subtitle': 'Cuéntanos sobre tu viaje — respondemos en 24 horas, sin compromiso',
@@ -987,7 +987,7 @@
       'quote.side.book.desc': 'Todos los viajes se reservan a través de <strong>AquaSub Travel</strong>, propietario independiente afiliado a TPI, Trevello Travel Group Inc. Registrado con <abbr title="Travel Industry Council of Ontario — regulador canadiense de protección al consumidor que asegura financieramente las reservas hechas con agencias registradas">TICO #5003057</abbr>. Los clientes internacionales reciben la misma protección de pago que los residentes canadienses — el fondo de compensación de Ontario cubre a todos los clientes sin importar su nacionalidad.',
 
       // ---- Destinations page ----
-      'meta.dest.title': 'Nuestros destinos — ScubaCuba.ca',
+      'meta.dest.title': 'Destinos de buceo en Cuba: Faro Luna y Guajimico | ScubaCuba.ca',
       'meta.dest.desc': 'Dos destinos de buceo de clase mundial en Cuba: Faro Luna en Cienfuegos con 30+ puntos, y Guajimico, un eco-retiro para buzos naturalistas.',
       'dest.hero.title': 'Nuestros destinos',
       'dest.hero.subtitle': 'Dos formas de bucear la costa sur de Cuba — elige comodidad o conexión con la naturaleza',
@@ -1019,7 +1019,7 @@
       'dest.cta.subtitle': 'Cuéntanos un poco sobre tu estilo de viaje y te recomendamos el destino ideal',
 
       // ---- About page ----
-      'meta.about.title': 'Nosotros — ScubaCuba.ca',
+      'meta.about.title': 'Nosotros — Viajes de buceo a Cuba con AquaSub Travel | ScubaCuba.ca',
       'meta.about.desc': 'El equipo detrás de ScubaCuba.ca: agencia de buceo con licencia canadiense, instructores PADI 5★ y 35+ años buceando Cuba. Buzos bienvenidos.',
       'about.hero.title': 'Nosotros',
       'about.hero.subtitle': 'El equipo que hace realidad tus sueños de buceo en Cuba',
@@ -1044,7 +1044,7 @@
       'about.family.cta': 'Únete a nuestro próximo viaje',
 
       // ---- Gallery page ----
-      'meta.gallery.title': 'Galería — ScubaCuba.ca',
+      'meta.gallery.title': 'Galería de fotos y videos de buceo en Cuba | ScubaCuba.ca',
       'meta.gallery.desc': 'Fotos y videos de nuestros viajes de buceo en Cuba. Fotografía submarina, puntos de buceo y experiencias grupales.',
       'gallery.hero.title': 'Galería',
       'gallery.hero.subtitle': 'Cuba sobre y bajo el agua',

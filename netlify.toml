@@ -12,6 +12,7 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-1jAmyYXcRq6zFldLe/GCgIDJBiOONdXjTLgEFMDnDSM='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://i.ytimg.com; frame-src https://www.youtube-nocookie.com https://www.youtube.com; form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'"
 
 # Long cache for static assets (CSS/JS/images) — cache-busted via ?v=
 [[headers]]
@@ -109,80 +110,80 @@
 # WordPress core/admin paths
 [[redirects]]
   from = "/wp-admin/*"
-  to = "/"
+  to = "/404.html"
   status = 410
   force = true
 
 [[redirects]]
   from = "/wp-content/*"
-  to = "/"
+  to = "/404.html"
   status = 410
   force = true
 
 [[redirects]]
   from = "/wp-includes/*"
-  to = "/"
+  to = "/404.html"
   status = 410
   force = true
 
 [[redirects]]
   from = "/wp-json/*"
-  to = "/"
+  to = "/404.html"
   status = 410
   force = true
 
 [[redirects]]
   from = "/xmlrpc.php"
-  to = "/"
+  to = "/404.html"
   status = 410
   force = true
 
 [[redirects]]
   from = "/wp-login.php"
-  to = "/"
+  to = "/404.html"
   status = 410
   force = true
 
 [[redirects]]
   from = "/wp-signup.php"
-  to = "/"
+  to = "/404.html"
   status = 410
   force = true
 
 # WordPress feeds, comments, trackbacks
 [[redirects]]
   from = "/feed"
-  to = "/"
+  to = "/404.html"
   status = 410
   force = true
 
 [[redirects]]
   from = "/feed/"
-  to = "/"
+  to = "/404.html"
   status = 410
   force = true
 
 [[redirects]]
-  from = "/*/feed/"
-  to = "/"
+  from = "/:slug/feed/"
+  to = "/404.html"
   status = 410
   force = true
 
 [[redirects]]
   from = "/comments/feed/"
-  to = "/"
+  to = "/404.html"
   status = 410
   force = true
 
 [[redirects]]
   from = "/trackback/"
-  to = "/"
+  to = "/404.html"
   status = 410
   force = true
 
 [[redirects]]
-  from = "/*/trackback/"
-  to = "/"
+  from = "/:slug/trackback/"
+  to = "/404.html"
   status = 410
   force = true
 
@@ -213,7 +214,7 @@
 
 # WordPress date-based archives (e.g. /2024/05/12/)
 [[redirects]]
-  from = "/20*"
+  from = "/20*/*"
   to = "/"
   status = 301
   force = true

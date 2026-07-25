@@ -30,7 +30,6 @@
   <meta property="og:locale:alternate" content="es_MX">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@AquaSub">
   <meta name="twitter:title" content="Cuba Scuba Diving Trips · PADI · All-Inclusive | ScubaCuba.ca">
   <meta name="twitter:description" content="All-inclusive scuba diving vacations in Cuba. Coral walls, shipwrecks and untouched reefs — divers welcome from anywhere in the world.">
   <meta name="twitter:image" content="https://scubacuba.ca/images/hero-blue-wall.jpg">
@@ -47,8 +46,8 @@
     <link rel="prefetch" href="quote.html" as="document">
   <link rel="preload" as="image" href="images/hero-blue-wall.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
   <link rel="preload" as="image" href="images/hero-blue-wall-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
-  <link rel="stylesheet" href="css/styles.min.css?v=20260614b">
-  <script src="js/i18n.min.js?v=20260614b" defer></script>
+  <link rel="stylesheet" href="css/styles.min.css?v=20260725a">
+  <script src="js/i18n.min.js?v=20260725a" defer></script>
 
   <!-- Structured data: TravelAgency -->
   <script type="application/ld+json">
@@ -83,17 +82,10 @@
       { "@type": "Place", "name": "Worldwide" }
     ],
     "knowsLanguage": ["en", "es"],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "51",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
     "sameAs": [
-      "https://www.facebook.com/AquaSubScuba",
-      "https://www.youtube.com/@scubacubaca8447",
-      "https://twitter.com/AquaSub"
+      "https://www.facebook.com/ScubaCuba.ca",
+      "https://www.instagram.com/scubacuba.ca",
+      "https://www.youtube.com/@scubacubaca8447"
     ],
     "makesOffer": {
       "@type": "Offer",
@@ -141,7 +133,7 @@
       "postalCode": "L4S 0B5",
       "addressCountry": "CA"
     },
-    "geo": { "@type": "GeoCoordinates", "latitude": "43.4816", "longitude": "-79.7064" },
+    "geo": { "@type": "GeoCoordinates", "latitude": "43.8964", "longitude": "-79.4039" },
     "areaServed": [
       { "@type": "Place", "name": "Worldwide" },
       { "@type": "Country", "name": "Canada" },
@@ -165,17 +157,10 @@
       "Shipwreck Diving"
     ],
     "sameAs": [
-      "https://www.facebook.com/AquaSubScuba",
-      "https://www.youtube.com/@scubacubaca8447",
-      "https://twitter.com/AquaSub"
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "51",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
+      "https://www.facebook.com/ScubaCuba.ca",
+      "https://www.instagram.com/scubacuba.ca",
+      "https://www.youtube.com/@scubacubaca8447"
+    ]
   }
   </script>
 
@@ -266,10 +251,10 @@
   <header class="header">
     <div class="header-inner">
       <a href="index.html" class="header-logo">
-        <picture><source srcset="images/logo-icon.webp" type="image/webp"><img src="images/logo-icon.png" width="512" height="512" alt="ScubaCuba.ca logo" class="logo-icon"></picture><span class="logo-wordmark">ScubaCuba<span>.ca</span></span>
+        <picture><source srcset="images/logo-icon-96.webp" type="image/webp"><img src="images/logo-icon-96.png" width="96" height="96" alt="" class="logo-icon"></picture><span class="logo-wordmark">ScubaCuba<span>.ca</span></span>
       </a>
-      <nav class="nav-desktop">
-        <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+      <nav class="nav-desktop" aria-label="Main">
+        <a href="index.html" class="active" aria-current="page" data-i18n="nav.home">Home</a>
         <a href="diving-centers.html" data-i18n="nav.destinations">Destinations</a>
         <a href="upcoming-trips.html" data-i18n="nav.trips">Trips</a>
         <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
@@ -280,7 +265,7 @@
         <button type="button" data-lang-btn="es">ES</button>
       </div>
       <a href="quote.html" class="btn btn-primary btn-sm header-cta" data-i18n="nav.quote">Get a Quote</a>
-      <button class="hamburger" data-i18n-aria-label="nav.menu.aria" aria-label="Menu">
+      <button class="hamburger" type="button" aria-expanded="false" aria-controls="mobile-menu" data-i18n-aria-label="nav.menu.aria" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -288,7 +273,7 @@
 
   <!-- Mobile Menu -->
   <div class="menu-overlay"></div>
-  <nav class="mobile-menu">
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" inert>
     <a href="index.html" data-i18n="nav.home">Home</a>
     <a href="diving-centers.html" data-i18n="nav.destinations">Destinations</a>
     <a href="upcoming-trips.html" data-i18n="nav.trips">Upcoming Trips</a>
@@ -325,8 +310,8 @@
         <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         <span data-i18n="home.hero.badge">4.9/5 from 51+ reviews</span>
       </div>
-      <h1 data-i18n="home.hero.title">Dive the <span>Real Cuba</span></h1>
-      <p data-i18n="home.hero.subtitle">All-inclusive scuba diving vacations to Cuba's pristine reefs. Expert PADI instructors, dramatic walls and an eco-paradise — divers welcome from anywhere in the world.</p>
+      <h1 data-i18n="home.hero.title">Step Off the Resort. Dive the <span>Real Cuba</span>.</h1>
+      <p data-i18n="home.hero.subtitle">No fenced-in beach, no bracelet-and-buffet diving. All-inclusive 7-night packages with wall dives off Faro Luna, wild reefs at Guajimico, and a country most tourists never see.</p>
       <div class="hero-buttons">
         <a href="quote.html" class="btn btn-primary btn-lg" data-i18n="home.hero.cta1">Get Your Free Quote</a>
         <a href="diving-centers.html" class="btn btn-outline btn-lg" data-i18n="home.hero.cta2">Explore Dive Sites</a>
@@ -733,19 +718,19 @@
         <li><span aria-hidden="true">&#10003;</span> <span data-i18n="home.newsletter.perk2">Early access to group trips (often the cheapest)</span></li>
         <li><span aria-hidden="true">&#10003;</span> <span data-i18n="home.newsletter.perk3">No spam — 1 email a month, unsubscribe in one click</span></li>
       </ul>
-      <!-- Newsletter — wired to MailerLite. The form posts via fetch(no-cors)
-           so the user stays on the page. Replace data-ml-action with the URL
-           MailerLite gives you when you create a Custom HTML form. -->
+      <!-- Newsletter — Netlify Forms. Submissions land in the Netlify panel
+           (Forms > "newsletter"); posts via fetch so the user stays on the page. -->
       <form class="newsletter-form" id="newsletter-form"
-            data-ml-action="REPLACE_ME_WITH_MAILERLITE_FORM_ACTION_URL">
+            name="newsletter" method="POST" data-netlify="true" netlify-honeypot="b_hp">
+        <input type="hidden" name="form-name" value="newsletter">
         <div class="form-row">
           <label class="sr-only" for="nl-name" data-i18n="home.newsletter.name">Your name</label>
-          <input id="nl-name" type="text" name="fields[name]" placeholder="Your name" data-i18n-placeholder="home.newsletter.name" autocomplete="name" required>
+          <input id="nl-name" type="text" name="full_name" placeholder="Your name" data-i18n-placeholder="home.newsletter.name" autocomplete="name" required>
           <label class="sr-only" for="nl-email" data-i18n="home.newsletter.email">Your email</label>
-          <input id="nl-email" type="email" name="fields[email]" placeholder="Your email" data-i18n-placeholder="home.newsletter.email" autocomplete="email" required>
+          <input id="nl-email" type="email" name="email" placeholder="Your email" data-i18n-placeholder="home.newsletter.email" autocomplete="email" required>
         </div>
         <label class="sr-only" for="nl-level" data-i18n="home.newsletter.level">Your diving level</label>
-        <select id="nl-level" name="fields[dive_level]" aria-label="Your diving level" data-i18n-aria-label="home.newsletter.level">
+        <select id="nl-level" name="dive_level" aria-label="Your diving level" data-i18n-aria-label="home.newsletter.level">
           <option value="" disabled selected data-i18n="home.newsletter.level">Your diving level</option>
           <option value="non-diver" data-i18n="home.newsletter.level.nondiver">Non-diver (interested in learning)</option>
           <option value="open-water" data-i18n="home.newsletter.level.ow">Open Water Diver</option>
@@ -754,7 +739,7 @@
           <option value="divemaster" data-i18n="home.newsletter.level.dm">Divemaster / Professional</option>
         </select>
         <div class="consent">
-          <input type="checkbox" id="consent" required>
+          <input type="checkbox" id="consent" name="consent" value="agreed" required>
           <label for="consent" data-i18n="home.newsletter.consent">I agree to receive promotional emails from ScubaCuba.ca. You can unsubscribe at any time. We respect your privacy.</label>
         </div>
         <!-- Honeypot: bots fill this; real users won't. Server discards if set. -->
@@ -817,7 +802,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <picture><source srcset="images/logo-icon.webp" type="image/webp"><img src="images/logo-icon.png" width="512" height="512" alt="ScubaCuba.ca logo" class="logo-icon"></picture><span class="logo-wordmark">ScubaCuba<span>.ca</span></span>
+          <picture><source srcset="images/logo-icon-96.webp" type="image/webp"><img src="images/logo-icon-96.png" width="96" height="96" alt="" class="logo-icon"></picture><span class="logo-wordmark">ScubaCuba<span>.ca</span></span>
           <p data-i18n="footer.brand.desc">All-inclusive scuba diving vacation packages in Cuba. A partnership between MARLIN, Aquasub Scuba Diving Centre, and Hola Sun Holidays.</p>
           <div class="footer-social">
             <a href="https://www.facebook.com/ScubaCuba.ca" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
@@ -826,7 +811,7 @@
           </div>
         </div>
         <div>
-          <h3 data-i18n="footer.quicklinks">Quick Links</h4>
+          <h3 data-i18n="footer.quicklinks">Quick Links</h3>
           <ul class="footer-links">
             <li><a href="diving-centers.html" data-i18n="nav.destinations">Destinations</a></li>
             <li><a href="upcoming-trips.html" data-i18n="nav.trips">Upcoming Trips</a></li>
@@ -836,7 +821,7 @@
           </ul>
         </div>
         <div>
-          <h3 data-i18n="footer.destinations">Destinations</h4>
+          <h3 data-i18n="footer.destinations">Destinations</h3>
           <ul class="footer-links">
             <li><a href="diving-centers.html">Faro Luna, Cienfuegos</a></li>
             <li><a href="diving-centers.html">Guajimico Eco-Retreat</a></li>
@@ -845,7 +830,7 @@
           </ul>
         </div>
         <div class="footer-contact">
-          <h3 data-i18n="footer.contact">Contact Us</h4>
+          <h3 data-i18n="footer.contact">Contact Us</h3>
           <p>&#128222; <a href="tel:+16472217282">+1 (647) 221-7282</a></p>
           <p>&#9993; <a href="mailto:info@scubacuba.ca">info@scubacuba.ca</a></p>
           <p>&#128205; <span data-i18n="footer.location">Richmond Hill, Ontario, Canada</span></p>
@@ -882,7 +867,7 @@
     </div>
   </footer>
 
-  <script src="js/main.min.js?v=20260614b" defer></script>
+  <script src="js/main.min.js?v=20260725a" defer></script>
 
   <!-- Cookie consent (PIPEDA-compliant, dismissable) -->
   <div class="cookie-consent" id="cookie-consent" role="dialog" aria-labelledby="cc-title" aria-describedby="cc-desc" hidden>

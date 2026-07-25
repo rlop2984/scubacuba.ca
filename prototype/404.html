@@ -31,8 +31,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"></noscript>
-  <link rel="stylesheet" href="css/styles.min.css?v=20260614b">
-  <script src="js/i18n.min.js?v=20260614b"></script>
+  <link rel="stylesheet" href="/css/styles.min.css?v=20260725a">
+  <script src="/js/i18n.min.js?v=20260725a" defer></script>
   <style>
     .err-page {
       min-height: 100vh;
@@ -116,7 +116,7 @@
 </head>
 <body>
 
-  <div class="err-page">
+  <main id="main" class="err-page" tabindex="-1">
     <div class="err-bubble" aria-hidden="true">
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="12" cy="12" r="9"/>
@@ -150,7 +150,7 @@
     <div class="cookie-consent-actions">
       <button type="button" class="btn btn-primary btn-sm" id="cc-accept" data-i18n="cookie.accept">OK, got it</button>
     </div>
-  </div>
+  </main>
 
   <!-- Back-to-top -->
   <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">

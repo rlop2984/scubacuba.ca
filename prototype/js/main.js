@@ -11,13 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuOverlay = document.querySelector('.menu-overlay');
 
   function toggleMenu() {
-    hamburger.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    menuOverlay.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    const open = !mobileMenu.classList.contains('active');
+    hamburger.classList.toggle('active', open);
+    mobileMenu.classList.toggle('active', open);
+    menuOverlay.classList.toggle('active', open);
+    // Keep the off-screen drawer out of the tab order when it's closed.
+    mobileMenu.inert = !open;
+    hamburger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) mobileMenu.querySelector('a')?.focus();
+    else hamburger.focus();
   }
 
   if (hamburger) {
+    mobileMenu.inert = true;
+    hamburger.setAttribute('aria-expanded', 'false');
     hamburger.addEventListener('click', toggleMenu);
     menuOverlay.addEventListener('click', toggleMenu);
     // Close menu on link click
@@ -25,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         if (mobileMenu.classList.contains('active')) toggleMenu();
       });
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) toggleMenu();
     });
   }
 
@@ -481,9 +492,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const newsletterForm = document.getElementById('newsletter-form');
 
   if (newsletterForm) {
-    const mlAction = newsletterForm.getAttribute('data-ml-action') || '';
-    const wired = mlAction && !mlAction.includes('REPLACE_ME');
-
     function showThanks() {
       const title   = (window.SC_I18N && window.SC_I18N.get('home.newsletter.thanks.title')) || "You're in!";
       const message = (window.SC_I18N && window.SC_I18N.get('home.newsletter.thanks.body')) || "Welcome to the ScubaCuba.ca dive community. Check your inbox for a confirmation email.";
@@ -520,18 +528,17 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.innerHTML = `<span class="btn-spinner" aria-hidden="true"></span>${label}`;
       }
 
-      if (!wired) {
-        // Dev / preview mode: simulate
-        setTimeout(showThanks, 600);
-        return;
-      }
-
       try {
+        // Netlify Forms: POST url-encoded to the site root, stay on the page.
         const fd = new FormData(newsletterForm);
-        await fetch(mlAction, { method: 'POST', mode: 'no-cors', body: fd });
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(fd).toString()
+        });
         showThanks();
       } catch (err) {
-        // Network error — fall back to opening MailerLite's hosted form
+        // Network error (or local preview, where there's no Netlify backend)
         showThanks();
       }
     });
@@ -587,6 +594,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let ok = true;
       let firstBad = null;
       step.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
+      step.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
 
       // Required inputs: skip if inside a hidden companion block
       step.querySelectorAll('[data-required]').forEach(input => {
@@ -596,10 +604,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const v = (input.type === 'checkbox') ? input.checked : (input.value || '').trim();
         if (!v) {
           grp.classList.add('has-error');
+          input.setAttribute('aria-invalid', 'true');
           ok = false;
           if (!firstBad) firstBad = grp;
         } else if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
           grp.classList.add('has-error');
+          input.setAttribute('aria-invalid', 'true');
           ok = false;
           if (!firstBad) firstBad = grp;
         }
@@ -662,10 +672,12 @@ document.addEventListener('DOMContentLoaded', () => {
     stepForm.addEventListener('input', e => {
       const grp = e.target.closest('.has-error');
       if (grp) grp.classList.remove('has-error');
+      e.target.removeAttribute('aria-invalid');
     });
     stepForm.addEventListener('change', e => {
       const grp = e.target.closest('.has-error');
       if (grp) grp.classList.remove('has-error');
+      e.target.removeAttribute('aria-invalid');
     });
 
     // ---- Traveler counter ----
@@ -793,6 +805,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         trio.classList.add('has-native-date');
+        // The trio is hidden with the sr-only clip pattern, which keeps elements
+        // focusable — pull them out of the tab order so keyboard users don't hit
+        // three invisible comboboxes after the native picker.
+        [monthSel, daySel, yearSel].forEach(sel => {
+          sel.setAttribute('tabindex', '-1');
+          sel.setAttribute('aria-hidden', 'true');
+        });
         trio.insertBefore(native, trio.firstChild);
 
         const syncSelectsFromNative = () => {
@@ -1044,11 +1063,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Smooth scroll for anchor links ----
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      const hash = anchor.getAttribute('href');
+      if (hash === '#') return;
+      const target = document.querySelector(hash);
+      if (!target) return;
+      e.preventDefault();
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      // preventDefault() also cancels the browser's native focus move, so the
+      // skip link would scroll without ever moving focus. Do it by hand.
+      if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+      history.replaceState(null, '', hash);
     });
   });
 

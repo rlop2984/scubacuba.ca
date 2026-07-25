@@ -461,8 +461,13 @@ a:hover { color: var(--ocean-deep); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-bg { animation: none; transform: scale(1.02); }
+  /* `animation: none` alone left the SVG displacement filter running — it is a
+     per-frame per-pixel effect over the full viewport, so it must go too. */
+  .hero-bg { animation: none; transform: scale(1.02); filter: none; will-change: auto; }
   .hero-bg::before { animation: none; }
+  .hero-scroll { animation: none; }
+  .testimonial-track { transition: none; }
+  html { scroll-behavior: auto; }
 }
 
 .hero-bg::after {
@@ -2180,6 +2185,9 @@ a:hover { color: var(--ocean-deep); }
   .section { padding: 96px 0; }
 
   .hamburger { display: none; }
+  /* The drawer is only ever a mobile affordance — keep it out of the
+     desktop tab order entirely, not just parked off-screen. */
+  .mobile-menu, .menu-overlay { display: none; }
   .nav-desktop { display: flex; align-items: center; gap: 4px; }
   .header-cta { display: inline-flex; }
   .header-inner { padding: 12px 40px; }
