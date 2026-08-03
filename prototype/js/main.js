@@ -1163,7 +1163,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // ---- Resort photo slider (Faro Luna / Guajimico) ----
+  // ---- Photo slider (casas particulares) ----
   // Each wrapper gets a live counter ("3 / 14") + edge-fade classes
   // (has-prev / has-next) so users always know there's more to see.
   //
