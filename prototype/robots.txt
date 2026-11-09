@@ -2,14 +2,14 @@ User-agent: *
 Allow: /
 
 # IMPORTANT: we DELIBERATELY don't Disallow legacy WordPress paths here.
-# Those paths return 410 Gone (via netlify.toml redirects), but Google can
-# only see the 410 if it's allowed to crawl them. Disallowing them in
+# Those paths return 404 (Cloudflare Pages; it can't send 410), but Google can
+# only see the 404 if it's allowed to crawl them. Disallowing them in
 # robots.txt would keep already-indexed URLs in the index forever (GSC
 # reports them as "Indexed though blocked by robots.txt"). Letting Googlebot
 # crawl them once is the fastest path to dropping them from the index.
 
 # Only block the in-app 404 page (it has its own noindex meta but belt-and-suspenders)
-Disallow: /404.html
+Disallow: /404
 
 # Block obvious draft/preview leak vectors
 Disallow: /?preview=

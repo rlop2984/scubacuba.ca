@@ -1,0 +1,108 @@
+# Clean URLs: Cloudflare Pages already serves /about for about.html and
+# 308-redirects /about.html -> /about on its own. NEVER add rules here that
+# send /about -> /about.html: that creates an infinite redirect loop
+# (Search Console "Redirect error", Nov 2026).
+/trips              /upcoming-trips          301
+
+# Legacy WordPress core/admin paths, feeds and trackbacks: no rules needed.
+# Cloudflare Pages does not support status 410 in _redirects; these paths
+# simply return 404 (404.html), which Google treats the same way.
+
+# WordPress archive pages
+/author/norbert/*  /about    301
+/author/*          /about    301
+/category/*        /gallery  301
+/tag/*             /gallery  301
+
+# WordPress date-based archives
+/205-days-in-cuba/  /about  301
+/20*  /  301
+
+# Legacy blog post slugs
+/find-out-the-advantages-that-offers-you-to-stay-at-faro-luna-hotel/  /diving-centers  301
+/find-out-the-advantages-                                              /diving-centers  301
+/find-out-the-advantages*                                              /diving-centers  301
+/from-the-shore-to-the-depth/                                          /gallery         301
+/sinking-of-the-ocean-defender/                                        /diving-centers  301
+
+# Faro Luna summer dive camps (specific before splat)
+/faro-luna-summer-dive-camp-*  /upcoming-trips  301
+/faro-luna-sumner-dive-camp-*  /upcoming-trips  301
+
+# Grouped legacy splats
+/faro-luna-*               /diving-centers  301
+/tha-faro-luna*            /diving-centers  301
+/diving-centers/*          /diving-centers  301
+/get-a-quote-on-your-next* /quote           301
+/scuba-diving-courses*     /upcoming-trips  301
+/discovery-of-the-underwater-treasure*  /gallery         301
+/week-of-*                 /diving-centers  301
+
+# Old date-based archive URLs (no /20YY/ prefix)
+/february-*  /  301
+/march-*     /  301
+/january-*   /  301
+
+# About-style pages
+/about-us/                               /about  301
+/about-diving/                           /about  301
+/scubacuba/                              /about  301
+/why-there-are-two-different-dive-flags/ /about  301
+/home/                                   /            301
+/poll/                                   /            301
+/merry-christmas/                        /            301
+
+# Trip / course / travel info pages
+/experiences/                                                             /upcoming-trips  301
+/usa-travelers/                                                           /upcoming-trips  301
+/advanced-open-water-diver/                                               /upcoming-trips  301
+/its-time-canadians-will-be-able-to-travel-without-restrictions/          /upcoming-trips  301
+/travel-to-cuba-updates-for-canadians/                                    /upcoming-trips  301
+/updates-for-canadians-traveling-to-cuba-starting-january-2022/           /upcoming-trips  301
+/the-latest-updates-from-minister-of-tourism-on-cuban-tv-september-9-21/  /upcoming-trips  301
+/outdoor-adventure-show-toronto-2022/                                     /upcoming-trips  301
+/5-reasons-why-you-should-be-packing-your-dive-gear-for-the-trip-to-cuba-rig*  /upcoming-trips  301
+
+# Photo / gallery posts
+/macro-creatures/                     /gallery  301
+/encounter-with-bizarre-batfish/      /gallery  301
+/balloonfish-the-protector/           /gallery  301
+/fotosub-2021/                        /gallery  301
+/farosub-underwater-photography-contest/  /gallery  301
+/welcome-to-divers-bar/               /gallery  301
+
+# Dive center / dive site posts
+/eagle-ray/                            /diving-centers  301
+/albacora/                             /diving-centers  301
+/casilda/                              /diving-centers  301
+/sharks-friends/                       /diving-centers  301
+/blue-diving/                          /diving-centers  301
+/colony/                               /diving-centers  301
+/banco-de-jagua/                       /diving-centers  301
+/sidemount-diving-in-faro-luna/        /diving-centers  301
+/shipwrecks-of-faro-luna/              /diving-centers  301
+/night-dive-at-faro-luna/              /diving-centers  301
+/free-diving-with-azul-profundo/       /diving-centers  301
+/diving-cienfuegos-the-pearl-of-the-south/        /diving-centers  301
+/5-facts-you-might-not-know-about-cienfuegos/     /diving-centers  301
+/the-english-cable/                    /diving-centers  301
+/final-resting-place/                  /diving-centers  301
+/hemingwuay/                           /diving-centers  301
+/the-deco-stop-in-the-hotel-rancho-luna/  /diving-centers  301
+/diving-bar-in-hotel-rancho-luna/      /diving-centers  301
+
+# Quote / form pages
+/form-group/  /quote  301
+
+# More legacy dive-center & destination slugs
+/barracuda/                /diving-centers  301
+/bucanero/                 /diving-centers  301
+/tarara/                   /diving-centers  301
+/cayo-largo-del-sur/       /diving-centers  301
+/cuba-dive-destination*    /diving-centers  301
+/cuba-a-divers-paradise/   /diving-centers  301
+/cuba-is-a-scuba-divers-paradise/  /diving-centers  301
+/cuba-is-*                 /diving-centers  301
+/home/*                    /                     301
+/labirynt-the-sidemount-training-paradise/  /diving-centers  301
+/labirynt*                 /diving-centers  301
