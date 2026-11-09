@@ -1,0 +1,10 @@
+# Cloudflare Pages config for scubacuba.ca (deploy from this folder: `npx wrangler pages deploy`).
+# Static site lives in prototype/; functions/ holds /api/form, which forwards
+# to the scubacuba-forms Worker (workers/forms/) that sends the email.
+name = "scubacuba"
+pages_build_output_dir = "prototype"
+compatibility_date = "2026-10-01"
+
+[[services]]
+binding = "FORMS"
+service = "scubacuba-forms"

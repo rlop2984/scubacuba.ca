@@ -1,0 +1,14 @@
+# Email sender for the scubacuba.ca forms. Deploy: cd workers/forms && npx wrangler deploy
+# Reached only through the Pages service binding FORMS (see /wrangler.toml).
+name = "scubacuba-forms"
+main = "index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+preview_urls = false
+
+# Cloudflare Email Sending — forms.scubacuba.ca is onboarded for sending
+# (records live only under that subdomain; apex MX/SPF stay on Google Workspace).
+send_email = [{ name = "EMAIL" }]
+
+[observability]
+enabled = true

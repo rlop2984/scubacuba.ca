@@ -182,6 +182,7 @@
       'home.newsletter.submit': 'Subscribe',
       'home.newsletter.sending': 'Subscribing…',
       'home.newsletter.required': 'Please enter your email and agree to receive communications.',
+      'form.error': 'Sorry, we couldn\'t send your message. Please try again, or email us at info@scubacuba.ca.',
       'home.newsletter.thanks.title': "You're in!",
       'home.newsletter.thanks.body': "Welcome to the ScubaCuba.ca dive community. Check your inbox for a confirmation email.",
 
@@ -741,6 +742,7 @@
       'home.newsletter.submit': 'Suscribirme',
       'home.newsletter.sending': 'Suscribiendo…',
       'home.newsletter.required': 'Por favor ingresa tu correo y acepta recibir comunicaciones.',
+      'form.error': 'Lo sentimos, no pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos a info@scubacuba.ca.',
       'home.newsletter.thanks.title': '¡Listo!',
       'home.newsletter.thanks.body': 'Bienvenido a la comunidad ScubaCuba.ca. Revisa tu correo para confirmar la suscripción.',
 

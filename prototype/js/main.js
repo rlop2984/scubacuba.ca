@@ -489,6 +489,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // The form has a data-ml-action attribute pointing to the MailerLite
   // "Custom HTML form" action URL. If the URL is the placeholder, fall back
   // to the simulated thank-you so dev/preview still works.
+  function formErrorMsg() {
+    return (window.SC_I18N && window.SC_I18N.get('form.error'))
+      || "Sorry, we couldn't send your message. Please try again, or email us at info@scubacuba.ca.";
+  }
+
   const newsletterForm = document.getElementById('newsletter-form');
 
   if (newsletterForm) {
@@ -521,6 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (honeypot && honeypot.value) return showThanks();
 
       // Disable submit + show spinner
+      const submitLabel = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.setAttribute('aria-busy', 'true');
@@ -529,17 +535,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       try {
-        // Netlify Forms: POST url-encoded to the site root, stay on the page.
+        // Cloudflare Pages Function (functions/api/form.js) emails it to info@.
         const fd = new FormData(newsletterForm);
-        await fetch('/', {
+        const res = await fetch('/api/form', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams(fd).toString()
         });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
         showThanks();
       } catch (err) {
-        // Network error (or local preview, where there's no Netlify backend)
-        showThanks();
+        // Never fake success: tell the visitor and give them the email fallback.
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute('aria-busy');
+          submitBtn.innerHTML = submitLabel;
+        }
+        alert(formErrorMsg());
       }
     });
   }
@@ -901,8 +913,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Also append destination to the "How did you hear about us" checkbox group
       // as a synthetic value, so it appears in another email field too — belt &
       // suspenders. Jotform accepts unexpected values in checkbox arrays.
+      let synthetic = null;
       if (destInput) {
-        const synthetic = document.createElement('input');
+        synthetic = document.createElement('input');
         synthetic.type = 'hidden';
         synthetic.name = 'how_heard[]';
         synthetic.value = `[Destination requested: ${destInput.value}]`;
@@ -919,6 +932,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       const submitBtn = stepForm.querySelector('[data-final-submit]');
+      const submitLabel = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.setAttribute('aria-busy', 'true');
@@ -927,18 +941,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const formData = new FormData(stepForm);
-      fetch('/', {
+      const restore = () => {
+        stashed.forEach(([input, name]) => input.setAttribute('name', name));
+        if (notes && originalNotes !== null) notes.value = originalNotes;
+        if (synthetic) synthetic.remove();
+      };
+      // Cloudflare Pages Function (functions/api/form.js) emails it to info@.
+      fetch('/api/form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString()
-      }).then(() => {
-        // Restore names (not strictly needed since we show success card, but tidy)
-        stashed.forEach(([input, name]) => input.setAttribute('name', name));
+      }).then(res => {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        restore();
         showSuccess();
       }).catch(() => {
-        stashed.forEach(([input, name]) => input.setAttribute('name', name));
-        // Fall back to native submit
-        stepForm.submit();
+        // Never fake success: keep their answers, re-enable the button, explain.
+        restore();
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute('aria-busy');
+          submitBtn.innerHTML = submitLabel;
+        }
+        alert(formErrorMsg());
       });
     });
 
